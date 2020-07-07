@@ -1,0 +1,318 @@
+========\n
+OBJECTS\n
+========\n
+\n
+Background \n
+Black\n
+\n
+Wall \n
+grey darkgray\n
+01110\n
+10001\n
+10001\n
+10001\n
+01110\n
+\n
+PlayerNormal\n
+Black Orange White Blue\n
+.000.\n
+.111.\n
+22222\n
+.333.\n
+.3.3.\n
+\n
+PlayerKey\n
+Black Orange White Blue Red\n
+.000.\n
+.111.\n
+22224\n
+.333.\n
+.3.3.\n
+\n
+PlayerStick\n
+Black Orange White Blue brown\n
+.000.\n
+.1114\n
+22224\n
+.333.\n
+.3.3.\n
+\n
+PlayerTorch\n
+Black Orange White Blue brown yellow\n
+.000.\n
+.1115\n
+22224\n
+.333.\n
+.3.3.\n
+\n
+PlayerWater\n
+Black Orange White Blue lightblue\n
+.000.\n
+.111.\n
+22224\n
+.333.\n
+.3.3.\n
+\n
+CrateNormal \n
+Orange brown\n
+01110\n
+10001\n
+10001\n
+10001\n
+01110\n
+\n
+CrateKey\n
+Orange brown red\n
+01110\n
+10001\n
+10201\n
+10001\n
+01110\n
+\n
+CrateFloat\n
+Orange brown red\n
+01110\n
+10001\n
+10001\n
+10001\n
+01110\n
+\n
+CrateFloatKey\n
+Orange brown red\n
+01110\n
+10001\n
+10201\n
+10001\n
+01110\n
+\n
+\n
+DoorClosed\n
+black lightgray green\n
+1....\n
+1....\n
+1....\n
+1....\n
+1....\n
+\n
+Target\n
+black green\n
+00000\n
+00111\n
+00101\n
+00111\n
+00000\n
+\n
+Key\n
+black red\n
+..1..\n
+.11..\n
+..1..\n
+.11..\n
+.11..\n
+\n
+Gate\n
+black lightred\n
+..1..\n
+..1..\n
+..1..\n
+..1..\n
+..1..\n
+\n
+Button\n
+black yellow\n
+00100\n
+00100\n
+11111\n
+00100\n
+00100\n
+\n
+Pit\n
+black gray\n
+00000\n
+01010\n
+00100\n
+01010\n
+00000\n
+\n
+PitCrateNormal\n
+black orange brown\n
+00000\n
+01210\n
+02120\n
+01210\n
+00000\n
+\n
+PitCrateKey\n
+black orange brown red\n
+00000\n
+01210\n
+02320\n
+01210\n
+00000\n
+\n
+PitKey\n
+black gray red\n
+00000\n
+01010\n
+00200\n
+01010\n
+00000\n
+\n
+PitWater\n
+black blue lightblue\n
+00000\n
+01210\n
+01120\n
+01110\n
+00000\n
+\n
+PitWaterKey\n
+black blue lightblue red\n
+00000\n
+01210\n
+01320\n
+01110\n
+00000\n
+\n
+\n
+Stick\n
+black brown lightbrown\n
+00100\n
+00210\n
+00100\n
+02200\n
+01000\n
+\n
+Fire\n
+black red orange yellow\n
+00000\n
+00100\n
+01210\n
+01321\n
+12321\n
+\n
+Water\n
+black blue lightblue\n
+00100\n
+00100\n
+01110\n
+11121\n
+01110\n
+\n
+\n
+=======\n
+LEGEND\n
+=======\n
+\n
+Player = PlayerNormal or PlayerKey or PlayerWater or PlayerTorch or PlayerStick\n
+Crate = CrateNormal or CrateKey or CrateFloat\n
+\n
+. = Background\n
+# = Wall\n
+P = PlayerNormal\n
+C = CrateNormal\n
+R = CrateKey\n
+@ = DoorClosed and Target\n
+T = Target\n
+K = Key\n
+D = DoorClosed\n 
+G = Gate\n
+B = Button\n
+I = Pit\n
+F = Fire\n
+W = Water\n
+S = Stick\n
+\n
+$ = PitKey\n
+! = Fire and Key\n
+\n
+\n
+=======\n
+SOUNDS\n
+=======\n
+\n
+================\n
+COLLISIONLAYERS\n
+================\n
+\n
+Background\n
+Target, Key, Button, PitCrateNormal, PitCrateKey, Water, Stick\n
+PlayerNormal, PlayerKey, PlayerWater, PlayerTorch, PlayerStick, Fire, Wall, Crate, CrateKey, DoorClosed, Gate, Pit, CrateFloat, CrateFloatKey, PitWater, PitWaterKey, PitKey\n
+\n
+======\n
+RULES\n
+======\n
+\n
+\n
+[> PlayerNormal | Water] -> [PlayerWater |]\n
+[> PlayerNormal | CrateFloat] -> [PlayerWater | PitCrateNormal]\n
+[> PlayerNormal | CrateFloatKey] -> [PlayerWater | PitCrateKey]\n
+[> PlayerNormal | PitWaterKey] -> [PlayerWater  | PitKey]\n
+\n
+\n
+[> PlayerWater | Fire ] -> [ PlayerNormal | ]\n
+[> PlayerWater | Pit] -> [PlayerNormal | PitWater]\n
+[> PlayerWater | PitKey] -> [PlayerNormal | PitWaterKey]\n
+[> PlayerWater | PitCrateNormal No CrateNormal No CrateKey] -> [PlayerNormal | CrateFloat]\n
+[> PlayerWater | PitCrateKey No CrateNormal No CrateKey] -> [PlayerNormal | CrateFloatKey]\n
+[> PlayerWater | CrateFloat] -> [PlayerWater | CrateFloat]\n
+[> PlayerWater | CrateFloatKey] -> [PlayerWater | CrateFloatKey]\n
+[> PlayerWater | CrateNormal] -> [> PlayerWater | > CrateNormal]\n
+[> PlayerWater | CrateKey] -> [> PlayerWater | > CrateKey]\n
+\n
+[> PlayerStick | Pit] -> [PlayerNormal | Pit]\n
+[> PlayerStick | PitWater] -> [PlayerNormal | PitWater]\n
+[> PlayerStick | PitKey] -> [PlayerKey | Pit]\n
+[> PlayerStick | PitWaterKey] -> [PlayerKey | PitWater]\n
+[> PlayerStick | Key] -> [PlayerKey |]\n
+[> PlayerStick | Fire] -> [PlayerTorch | Fire]\n
+[> PlayerStick | CrateFloat] -> [PlayerStick | CrateFloat]\n
+[> PlayerStick | CrateFloatKey] -> [PlayerStick | CrateFloatKey]\n
+\n
+[> PlayerTorch | Water] -> [PlayerStick | Water]\n
+[> PlayerTorch | CrateNormal] -> [PlayerNormal | ]\n
+[> PlayerTorch | CrateKey ] -> [PlayerNormal | Key]\n
+[> PlayerTorch | CrateFloat] -> [PlayerNormal | PitWater]\n
+[> PlayerTorch | CrateFloatKey] -> [PlayerNormal | PitWaterKey]\n
+[> PlayerTorch | Pit] -> [PlayerNormal | Pit]\n
+[> PlayerTorch | PitKey] -> [PlayerNormal | PitKey]\n
+\n
+[> PlayerKey | DoorClosed] -> [> PlayerNormal | ]\n
+[> PlayerKey | Pit] -> [PlayerNormal | PitKey]\n
+[> PlayerKey | PitWater] -> [PlayerNormal | PitWaterKey]\n
+\n
+[> Player | Crate] -> [> Player | > Crate ]\n
+[> Crate | Crate] -> [> Crate | > Crate]\n
+\n
+[> CrateKey | CrateFloat] -> [> CrateFloatKey | > CrateNormal]\n
+[> CrateKey | CrateFloatKey] -> [> CrateFloatKey | > CrateKey]\n
+[> CrateNormal | CrateFloat] -> [> CrateFloat | > CrateNormal]\n
+[> CrateNormal | CrateFloatKey] -> [> CrateFloat | > CrateKey]\n
+\n
+[> CrateNormal | Pit] -> [ | PitCrateNormal]\n
+[> CrateKey | Pit] -> [ | PitCrateKey]\n
+[> CrateNormal | PitKey] -> [| PitCrateKey]\n
+\n
+[> CrateNormal | PitWater] -> [|CrateFloat]\n
+[> CrateKey | PitWater] -> [|CrateFloatKey]\n
+[> CrateNormal | PitWaterKey] -> [|CrateFloatKey]\n
+\n
+[> CrateKey | Fire ] -> [ | Fire Key]\n
+[> CrateNormal | Fire] -> [ | Fire Stick]\n
+[> CrateFloat | Fire] -> [ | Fire]\n
+[> CrateFloatKey | Fire] -> [ | Fire Key]\n
+\n
+late [Crate Button][Gate] -> [Crate Button][]\n
+late [PlayerNormal Key] -> [PlayerKey]\n
+late [PlayerNormal Stick] -> [PlayerStick]\n
+\n
+==============\n
+WINCONDITIONS\n
+==============\n
+\n
+All Target on Player\n
+\n
+=======\n
+LEVELS\n
+=======\n
+\n

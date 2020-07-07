@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!-- 
+  The consent.html displays the text of your IRB-approved
+  consent form.  Even if you are not required to provide
+  a consent form, it is helpful to use this form to 
+  describe what people can do if an error comes up, etc...
+
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Psychology Experiment - Informed Consent Form</title>
+        <link rel="stylesheet" href="/static/css/bootstrap.min.css" type="text/css" />
+        <link rel="stylesheet" href="/static/css/style.css" type="text/css" />
+        <script type="text/javascript">
+            function onexit() {
+              self.close(); // no harm, no foul here
+            }
+        </script>
+    </head>
+    <body>
+        <div id="container-consent">
+            <div id="consent">
+                <h1>We need your consent to proceed</h1>
+                <hr />
+                <div class="legal well">
+                    <p style="color:red; font-weight:bold">
+                    Please consider this information carefully before deciding whether to participate in this research.
+                    </p>
+                    <p>
+                    <u>Porpoise of research:</u> We are from the Human Robotics Lab at Tufts University and we are researching perception and behavior during task-performance and problem-solving.
+                    </p>
+                    <p>
+                    <u>What you will do in this study:</u> This study will focus primarily on your perceptions and behaviors during problem-solving. If you decide to participate, you will be asked to perform a series of tasks in an interactive simulation. We are interested in how you go about performing the task so we will track your screen activity (e.g. clicks) and the time it took you to complete each task. You will also be asked questions about your perceptions and reactions to the tasks you have just performed. After that you will be asked some questions about your thoughts that you engage in in daily life as well as a brief demographic questionnaire. To test your attention you will be asked a few check questions throughout the study. <b>Please note that your compensation is depended on you successfully answering these questions. You need to reach the end of the study to receive your compensation.</b>
+                    </p>
+                    <p>
+                    <u>Time required:</u> The study will take approximately 15 minutes.
+                    </p>
+                    <p>
+                    <u>Risks and discomfort:</u> There are no forseeable risks with this study.
+                    </p>
+                    <p>
+                    <u>Compensation:</u> You will receive $1.00 for completion of this study.
+                    </p>
+                    <p>
+                    <u>Confidentiality:</u> Your responses will be recorded but will not be linked to either personally identifiable or worker information. The information will be kept strictly confidential and used only for research purposes. The documentation will be identifiable by a randomly assigned ID number. De-identified data may be shared for future use in research.  
+                    </p>
+                    <p>
+                    <u>Participation and Withdrawal:</u> Your participation in this research is completely voluntary.  Should you decide at any time you no longer wish to participate you may discontinue your participation without penalty. There is also no penalty for not starting the study (by not accepting the HIT).
+                    </p>
+                    <p>
+                    <u>To contact the researcher:</u> If you have questions or concerns about this research please contact the principal investigator: Matthias Scheutz, Human-Robot Interaction Laboratory; 161 College Avenue, Medford, MA, 02155; email: mscheutz@tufts.edu.
+                    </p>
+                    <p>
+                    <u>Whom to contact about your rights in this research:</u> For questions, concerns, suggestions, or complaints that are not being addressed by the researcher, or research-related harm: Lara Sloboda at the Office of Institutional Review Board by email at lara.sloboda@tufts.edu or by phone at (617) 627-3417
+                    </p>
+                    <p>
+                    By accepting this HIT, you confirm that you understand the above material, that you are willing to participate in this experiment, and that you allow us to use your data for scientific purposes, and may be published or otherwise shared with other researchers. No identifying information will <b>ever</b> be shared. 
+                    </p>
+                    <button type="button" class="btn btn-default btn-sm" onClick="window.print();">
+                    <span class="glyphicon glyphicon-print"></span> Print a copy of this
+                    </button>
+                </div>
+
+                <hr />
+                <h4>Do you understand and consent to these terms?</h4>
+                <br />
+
+                <center>
+                    <button type="button" class="btn btn-primary btn-lg" onClick="window.location='/exp?hitId={{ hitid }}&assignmentId={{ assignmentid }}&workerId={{ workerid }}'">
+                    <span class="glyphicon glyphicon-ok"></span> I agree 
+                    </button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="button" class="btn btn-danger btn-lg" onClick="onexit()">
+                    <span class="glyphicon glyphicon-ban-circle"></span> No thanks, I do not want to do this HIT
+                    </button>
+                </center>
+
+            </div>
+        </div>
+    </body>
+</html>
+
