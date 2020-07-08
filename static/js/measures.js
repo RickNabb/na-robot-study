@@ -22,10 +22,11 @@ const likertUniform = (min, max, minLabel, midLabel, maxLabel, items) => ({
   items
 });
 
-const likertVariable = (min, max, items) => ({
+const likertVariable = (min, max, question, items) => ({
   type: MEASURE_TYPES.LIKERT_VARIABLE,
   min,
   max,
+  question,
   items
 });
 
@@ -123,7 +124,7 @@ const MEASURES = {
       `What % of the time will this robot perform exactly as instructed?`,
       `What % of the time will this robot follow directions?`,
     ]),
-  ghazali: likertVariable(1, 7, [
+  ghazali: likertVariable(1, 7, 'The robot is', [
     { minLabel: 'Untrustworthy', maxLabel: "Trustworthy"},
     { minLabel: 'Unreliable', maxLabel: "Reliable"},
     { minLabel: 'Insincere', maxLabel: "Sincere"},

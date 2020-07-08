@@ -16,14 +16,14 @@
 }
 
 /* UNIFORM LIKERT SCALES */
-div.likertUniform > div.container {
+div.likert > div.container {
   margin-top: 64px;
 }
 
-div.likertUniform >* div.choices >* input {
+div.likert >* div.choices >* input {
   margin-right: 8px;
 }
-div.likertUniform >* div.labels {
+div.likert >* div.labels {
   font-size: 0.8em;
   font-weight: normal;
 }

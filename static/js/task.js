@@ -55,6 +55,7 @@ const TEXTBOX_CLASSNAME = ".textboxArea";
 const TEXTINSERT_CLASSNAME = ".textinsertArea";
 const CHECKBOX_CLASSNAME = ".checkboxArea";
 const LIKERT_UNIFORM_CLASSNAME = ".likertUniform";
+const LIKERT_VARIABLE_CLASSNAME = ".likertVariable";
 
 
 /********************
@@ -102,6 +103,7 @@ var Experiment = function() {
 		// Create preliminary elements on the page - these MUST GO IN
 		// FRONT OF THE PRIMITIVE QUESTION ELEMENT CREATION
 		createLikertUniformAreas();
+		createLikertVariableAreas();
 
 		// Create primitive question elements on page
 		createRadioAreas();
@@ -136,7 +138,7 @@ var Experiment = function() {
 			const likertChoices = i => {
 				let accum = '';
 				for (let j = data.min; j <= data.max; j++) {
-					accum = accum.concat(`<div class="col-xs-1"><input type='radio' name='Q${i}' value='${j}' /><span>${j}</span></div>`);
+					accum = accum.concat(`<div class="col-xs-1"><input type='radio' name='${measure}_Q${i}' value='${j}' /><span>${j}</span></div>`);
 				}
 				return accum;
 			};
@@ -156,6 +158,39 @@ var Experiment = function() {
 			radioAreas.map(area => $(el).append(area));
 		});
 	}
+
+	const createLikertVariableAreas = () => {
+		$(LIKERT_VARIABLE_CLASSNAME).each((i, el) => {
+			const measure = el.getAttribute('measure');
+			if (!measure) {
+				return;
+			}
+
+			const data = MEASURES[measure];
+			const likertChoices = i => {
+				let accum = '';
+				for (let j = data.min; j <= data.max; j++) {
+					accum = accum.concat(`<div class="col-xs-1"><input type='radio' name='${measure}_Q${i}' value='${j}' /><span>${j}</span></div>`);
+				}
+				return accum;
+			};
+			const radioAreas = shuffle(data.items).map((item, j) => (
+					`<div class="container" id="${i}_${j}">
+						<div class="row">
+							<p class="question">${data.question}</p>
+						</div>
+						<div class="row">
+						 <div class="choices">${likertChoices(j+1)}</div>
+						</div>
+         		<div class="row labels">
+           		<label class="col-xs-1">${item.minLabel}</label>
+           		<label class="col-xs-1 col-xs-offset-5">${item.maxLabel}</label>
+         		</div>
+					</div>`));
+			radioAreas.map(area => $(el).append(area));
+		});
+	}
+
 
 	// Puts radio buttons as table elements onto html page
 	// REQUIRES IN HTML: <div class="radioArea" data-value="[NUM]">

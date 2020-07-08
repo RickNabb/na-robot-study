@@ -10723,3 +10723,138 @@ Traceback (most recent call last):
   File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 543, in do_rollback
     dbapi_connection.rollback()
 OperationalError: cannot rollback - no transaction is active
+2020-07-08 11:00:13,307 Exception on /sync/debug1xakv:debugrRulL [PUT]
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 2317, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1840, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1743, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1838, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1824, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/psiturk/experiment.py", line 594, in update
+    db_session.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+    self.transaction.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 508, in commit
+    t[1].commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1765, in commit
+    self._do_commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1796, in _do_commit
+    self.connection._commit_impl()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 776, in _commit_impl
+    self._handle_dbapi_exception(e, None, None, None, None)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1512, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 774, in _commit_impl
+    self.engine.dialect.do_commit(self.connection)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 546, in do_commit
+    dbapi_connection.commit()
+OperationalError: (sqlite3.OperationalError) disk I/O error
+(Background on this error at: http://sqlalche.me/e/13/e3q8)
+2020-07-08 11:00:13,315 Exception during reset or similar
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 697, in _finalize_fairy
+    fairy._reset(pool)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 893, in _reset
+    pool._dialect.do_rollback(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+OperationalError: cannot rollback - no transaction is active
+2020-07-08 11:00:13,323 DB error: Unique user not found.
+2020-07-08 11:00:13,324 Exception during reset or similar
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 697, in _finalize_fairy
+    fairy._reset(pool)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 893, in _reset
+    pool._dialect.do_rollback(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+OperationalError: cannot rollback - no transaction is active
+2020-07-08 11:00:13,332 Exception on /sync/debug1xakv:debugrRulL [PUT]
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 2317, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1840, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1743, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1838, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1824, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/psiturk/experiment.py", line 597, in update
+    data = json.loads(user.datastring)
+  File "/usr/lib/python2.7/json/__init__.py", line 339, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python2.7/json/decoder.py", line 364, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+TypeError: expected string or buffer
+2020-07-08 11:02:10,102 DB error: Unique user not found.
+2020-07-08 11:02:10,103 Exception during reset or similar
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 697, in _finalize_fairy
+    fairy._reset(pool)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 893, in _reset
+    pool._dialect.do_rollback(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+OperationalError: cannot rollback - no transaction is active
+2020-07-08 11:02:10,105 DB error: Unique user not found.
+2020-07-08 11:02:10,107 Exception during reset or similar
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 697, in _finalize_fairy
+    fairy._reset(pool)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 893, in _reset
+    pool._dialect.do_rollback(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+OperationalError: cannot rollback - no transaction is active
+2020-07-08 11:02:10,122 Exception on /sync/debug1xakv:debugrRulL [PUT]
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 2317, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1840, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1743, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1838, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1824, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/psiturk/experiment.py", line 594, in update
+    db_session.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+    self.transaction.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 508, in commit
+    t[1].commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1765, in commit
+    self._do_commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1796, in _do_commit
+    self.connection._commit_impl()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 776, in _commit_impl
+    self._handle_dbapi_exception(e, None, None, None, None)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1512, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 774, in _commit_impl
+    self.engine.dialect.do_commit(self.connection)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 546, in do_commit
+    dbapi_connection.commit()
+OperationalError: (sqlite3.OperationalError) disk I/O error
+(Background on this error at: http://sqlalche.me/e/13/e3q8)
+2020-07-08 11:02:10,134 Exception during reset or similar
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 697, in _finalize_fairy
+    fairy._reset(pool)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 893, in _reset
+    pool._dialect.do_rollback(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+OperationalError: cannot rollback - no transaction is active
