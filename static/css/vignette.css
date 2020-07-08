@@ -17,7 +17,8 @@
 
 /* UNIFORM LIKERT SCALES */
 div.likert > div.container {
-  margin-top: 64px;
+  margin-top: 32px;
+  margin-bottom: 32px;
 }
 
 div.likert >* div.choices >* input {
@@ -26,4 +27,12 @@ div.likert >* div.choices >* input {
 div.likert >* div.labels {
   font-size: 0.8em;
   font-weight: normal;
+}
+
+/* PERCENT SCALE */
+div.percent >* .percentChoice {
+  width: 16px;
+  display: inline-block;
+  margin-right: 48px;
+  text-align: center;;
 }

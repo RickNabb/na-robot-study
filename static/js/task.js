@@ -56,6 +56,7 @@ const TEXTINSERT_CLASSNAME = ".textinsertArea";
 const CHECKBOX_CLASSNAME = ".checkboxArea";
 const LIKERT_UNIFORM_CLASSNAME = ".likertUniform";
 const LIKERT_VARIABLE_CLASSNAME = ".likertVariable";
+const PERCENT_CLASSNAME = ".percent";
 
 
 /********************
@@ -104,6 +105,7 @@ var Experiment = function() {
 		// FRONT OF THE PRIMITIVE QUESTION ELEMENT CREATION
 		createLikertUniformAreas();
 		createLikertVariableAreas();
+		createPercentAreas();
 
 		// Create primitive question elements on page
 		createRadioAreas();
@@ -143,7 +145,7 @@ var Experiment = function() {
 				return accum;
 			};
 			const radioAreas = shuffle(data.items).map((item, j) => (
-					`<div class="container" id="${i}_${j}">
+					`<div class="container">
 						<div class="row">
 							<p class="question">${item}</p>
 						</div>
@@ -155,7 +157,10 @@ var Experiment = function() {
            		<label class="col-xs-1 col-xs-offset-5">${data.maxLabel}</label>
          		</div>
 					</div>`));
-			radioAreas.map(area => $(el).append(area));
+			radioAreas.map(area => {
+				$(el).append(area)
+				$(el).append('<hr/>');
+			});
 		});
 	}
 
@@ -165,7 +170,6 @@ var Experiment = function() {
 			if (!measure) {
 				return;
 			}
-
 			const data = MEASURES[measure];
 			const likertChoices = i => {
 				let accum = '';
@@ -175,7 +179,7 @@ var Experiment = function() {
 				return accum;
 			};
 			const radioAreas = shuffle(data.items).map((item, j) => (
-					`<div class="container" id="${i}_${j}">
+					`<div class="container">
 						<div class="row">
 							<p class="question">${data.question}</p>
 						</div>
@@ -187,10 +191,42 @@ var Experiment = function() {
            		<label class="col-xs-1 col-xs-offset-5">${item.maxLabel}</label>
          		</div>
 					</div>`));
-			radioAreas.map(area => $(el).append(area));
+			radioAreas.map(area => {
+				$(el).append(area)
+				$(el).append('<hr/>');
+			});
 		});
 	}
 
+	const createPercentAreas = () => {
+		$(PERCENT_CLASSNAME).each((i, el) => {
+			const measure = el.getAttribute('measure');
+			if (!measure) {
+				return;
+			}
+			const data = MEASURES[measure];
+			const percentChoices = i => {
+				let accum = '';
+				for (let j = data.min; j <= data.max; j+=data.delta) {
+					accum = accum.concat(`<div class="percentChoice"><input type='radio' name='${measure}_Q${i}' value='${j}' /><span>${j}%</span></div>`);
+				}
+				return accum;
+			};
+			const radioAreas = shuffle(data.items).map((item, j) => (
+					`<div class="container">
+						<div class="row">
+							<p class="question">${item}</p>
+						</div>
+						<div class="row">
+						 <div class="choices">${percentChoices(j+1)}</div>
+						</div>
+					</div>`));
+			radioAreas.map(area => {
+				$(el).append(area)
+				$(el).append('<hr/>');
+			});
+		});
+	}
 
 	// Puts radio buttons as table elements onto html page
 	// REQUIRES IN HTML: <div class="radioArea" data-value="[NUM]">
