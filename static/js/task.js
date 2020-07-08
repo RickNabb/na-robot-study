@@ -25,16 +25,15 @@ var surveyConditionName = surveyConditionNames[myCondition % surveyConditionName
 
 // All possible pages to be preloaded
 var instructionPages = [
-	"instructions/instruct-1.html",
-	"instructions/instruct-2.html"
+	"instructions/procedure1.html",
+	"instructions/procedure2.html",
 ];
 
 // The actual order of stages
-var stages = [
-	"text-example.html",
-	"gif-example.html",
-	"demographics.html",
-	"postquestionnaire.html",
+var experimentPages = [
+	'vignette1.html',
+	'demographics.html',
+	'postquestionnaire.html'
 ];
 
 
@@ -43,7 +42,7 @@ var stages = [
  * ------------------------------------------- */
 
 
-var pages = instructionPages.concat(stages);
+var pages = instructionPages.concat(experimentPages);
 psiTurk.preloadPages(pages);
 
 
@@ -55,6 +54,7 @@ const VIDEO_CLASSNAME = ".videoArea";
 const TEXTBOX_CLASSNAME = ".textboxArea";
 const TEXTINSERT_CLASSNAME = ".textinsertArea";
 const CHECKBOX_CLASSNAME = ".checkboxArea";
+const LIKERT_UNIFORM_CLASSNAME = ".likertUniform";
 
 
 /********************
@@ -77,8 +77,6 @@ var Experiment = function() {
 		"condition": surveyConditionName
 	});
 	var timeStart = performance.now();
-	var puzzle;
-	var vargame1Won = null;
 	var currentPage = null;
 
 	console.log("SurveyConditionName: " + surveyConditionName);
@@ -92,17 +90,20 @@ var Experiment = function() {
 		}
 
 		// Done with HIT
-		if (stages.length == 1) {
+		if (experimentPages.length == 1) {
 			finish();
 			return;
 		}
 
 		// Display next page
-		currentPage = stages.shift();
+		currentPage = experimentPages.shift();
 		psiTurk.showPage(currentPage);
 
+		// Create preliminary elements on the page - these MUST GO IN
+		// FRONT OF THE PRIMITIVE QUESTION ELEMENT CREATION
+		createLikertUniformAreas();
 
-		// Create elements on page
+		// Create primitive question elements on page
 		createRadioAreas();
 		createVideos();
 		createTextInsertAreas();
@@ -123,6 +124,39 @@ var Experiment = function() {
 /**************************
  *      CREATE AREAS      *
  **************************/
+
+	const createLikertUniformAreas = () => {
+		$(LIKERT_UNIFORM_CLASSNAME).each((i, el) => {
+			const measure = el.getAttribute('measure');
+			if (!measure) {
+				return;
+			}
+
+			const data = MEASURES[measure];
+			const likertChoices = i => {
+				let accum = '';
+				for (let j = data.min; j <= data.max; j++) {
+					accum = accum.concat(`<div class="col-xs-1"><input type='radio' name='Q${i}' value='${j}' /><span>${j}</span></div>`);
+				}
+				return accum;
+			};
+			const radioAreas = shuffle(data.items).map((item, j) => (
+					`<div class="container" id="${i}_${j}">
+						<div class="row">
+							<p class="question">${item}</p>
+						</div>
+						<div class="row">
+						 <div class="choices">${likertChoices(j+1)}</div>
+						</div>
+         		<div class="row labels">
+           		<label class="col-xs-1">${data.minLabel}</label>
+           		<label class="col-xs-1 col-xs-offset-5">${data.maxLabel}</label>
+         		</div>
+					</div>`));
+			radioAreas.map(area => $(el).append(area));
+		});
+	}
+
 	// Puts radio buttons as table elements onto html page
 	// REQUIRES IN HTML: <div class="radioArea" data-value="[NUM]">
 	var createRadioAreas = function() {
@@ -351,7 +385,7 @@ var Experiment = function() {
 				return $(this).data("skipnext") == true;
 			});
 			if (radios != undefined && radios.length > 0) {
-				stages.shift();
+				experimentPages.shift();
 			}
 
 
