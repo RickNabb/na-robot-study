@@ -144,7 +144,7 @@ var Experiment = function() {
 				}
 				return accum;
 			};
-			const radioAreas = shuffle(data.items).map((item, j) => (
+			const radioAreas = data.items.map((item, j) => (
 					`<div class="container">
 						<div class="row">
 							<p class="question">${item}</p>
@@ -178,7 +178,7 @@ var Experiment = function() {
 				}
 				return accum;
 			};
-			const radioAreas = shuffle(data.items).map((item, j) => (
+			const radioAreas = data.items.map((item, j) => (
 					`<div class="container">
 						<div class="row">
 							<p class="question">${data.question}</p>
@@ -212,7 +212,7 @@ var Experiment = function() {
 				}
 				return accum;
 			};
-			const radioAreas = shuffle(data.items).map((item, j) => (
+			const radioAreas = data.items.map((item, j) => (
 					`<div class="container">
 						<div class="row">
 							<p class="question">${item}</p>
