@@ -7,8 +7,14 @@
   width: 100%;
   z-index: 10;
 }
-#story-header #recap {
-  /* font-size: 13px; */
+#story-header.contracted > p:last-of-type {
+  display: none;
+}
+#story-header.expanded > p:last-of-type {
+  display: block;
+}
+#story-header > button {
+  float: right;
 }
 #header-space {
   height: 300px;

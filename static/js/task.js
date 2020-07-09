@@ -43,6 +43,22 @@ var experimentPages = [
 	'postquestionnaire.html'
 ];
 
+const toggleHeader = () => {
+	const header = $('#story-header');
+	const toggle = $('#header-toggle');
+
+	if (header.hasClass('expanded')) {
+		header.removeClass('expanded');
+		header.addClass('contracted');
+		toggle.removeClass('glyphicon-chevron-up');
+		toggle.addClass('glyphicon-chevron-down');
+	} else if (header.hasClass('contracted')) {
+		header.removeClass('contracted');
+		header.addClass('expanded');
+		toggle.removeClass('glyphicon-chevron-down');
+		toggle.addClass('glyphicon-chevron-up');
+	}
+}
 
 /* ------------------------------------------- *
  * ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ *
@@ -132,6 +148,9 @@ var Experiment = function() {
 		});
 	}
 
+/**
+ * N/A Study Specific Functions
+ */
 const naConditionModifications = () => {
 	Object.keys(MEASURES).map(measure => {
 		MEASURES[measure].items.map((item, i) => {
