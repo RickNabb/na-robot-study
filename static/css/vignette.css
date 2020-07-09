@@ -8,10 +8,10 @@
   z-index: 10;
 }
 #story-header #recap {
-  font-size: 13px;
+  /* font-size: 13px; */
 }
 #header-space {
-  height: 200px;
+  height: 300px;
   display: block;
 }
 

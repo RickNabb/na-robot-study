@@ -11446,3 +11446,1844 @@ Traceback (most recent call last):
   File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 543, in do_rollback
     dbapi_connection.rollback()
 OperationalError: cannot rollback - no transaction is active
+2020-07-08 17:08:35,959 DB error: Unique user not found.
+2020-07-08 17:08:35,962 Exception during reset or similar
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 697, in _finalize_fairy
+    fairy._reset(pool)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 893, in _reset
+    pool._dialect.do_rollback(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+OperationalError: cannot rollback - no transaction is active
+2020-07-08 17:08:36,018 DB error: Unique user not found.
+2020-07-08 17:08:36,021 Exception during reset or similar
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 697, in _finalize_fairy
+    fairy._reset(pool)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 893, in _reset
+    pool._dialect.do_rollback(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+OperationalError: cannot rollback - no transaction is active
+[2020-07-08 21:21:32 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3424)
+[2020-07-08 21:21:32 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3425)
+[2020-07-08 21:21:32 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3426)
+[2020-07-08 21:21:32 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3427)
+[2020-07-08 21:21:32 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3428)
+[2020-07-08 21:21:32 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3429)
+[2020-07-08 21:21:32 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3430)
+[2020-07-08 21:21:32 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3422)
+[2020-07-08 21:21:32 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3423)
+[2020-07-08 22:32:52 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3440)
+[2020-07-08 22:32:52 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3441)
+[2020-07-08 22:32:52 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3442)
+[2020-07-08 22:33:08 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3443)
+[2020-07-08 22:33:09 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3444)
+[2020-07-08 22:33:14 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3445)
+[2020-07-08 22:33:19 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3446)
+[2020-07-08 22:33:23 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3447)
+[2020-07-08 22:33:23 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3448)
+[2020-07-08 22:33:52 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3449)
+[2020-07-08 22:33:52 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3450)
+[2020-07-08 22:33:52 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3451)
+[2020-07-08 22:33:52 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3452)
+[2020-07-08 22:33:52 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3453)
+[2020-07-08 22:33:52 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3454)
+[2020-07-08 22:33:52 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3455)
+[2020-07-08 22:34:18 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3456)
+[2020-07-08 22:34:18 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3457)
+[2020-07-08 22:34:22 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3458)
+[2020-07-08 22:34:22 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3459)
+[2020-07-08 22:34:22 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3460)
+[2020-07-08 22:34:27 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3461)
+[2020-07-08 22:34:32 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3462)
+[2020-07-08 22:34:37 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3463)
+[2020-07-08 22:34:43 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3464)
+[2020-07-08 22:34:51 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3465)
+[2020-07-08 22:34:52 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3466)
+[2020-07-08 22:35:22 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3467)
+[2020-07-08 22:35:22 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3468)
+[2020-07-08 22:35:22 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3469)
+[2020-07-08 22:35:22 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3470)
+[2020-07-08 22:35:22 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3471)
+[2020-07-08 22:35:22 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3472)
+[2020-07-08 22:35:22 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3473)
+[2020-07-08 22:35:22 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3474)
+[2020-07-08 23:00:40 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3475)
+[2020-07-08 23:00:40 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3476)
+[2020-07-08 23:00:40 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3477)
+[2020-07-08 23:00:40 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3478)
+[2020-07-08 23:00:40 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3479)
+[2020-07-08 23:00:40 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3480)
+[2020-07-08 23:00:40 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3481)
+[2020-07-08 23:01:10 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3482)
+[2020-07-08 23:01:10 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3483)
+[2020-07-08 23:01:11 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3488)
+[2020-07-08 23:01:11 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3489)
+[2020-07-08 23:01:11 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3484)
+[2020-07-08 23:01:11 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3485)
+[2020-07-08 23:01:11 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3486)
+[2020-07-08 23:01:11 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3487)
+[2020-07-08 23:01:16 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3490)
+[2020-07-08 23:01:52 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3491)
+[2020-07-08 23:01:52 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3492)
+[2020-07-08 23:01:52 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3493)
+[2020-07-08 23:01:52 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3494)
+[2020-07-08 23:01:52 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3495)
+[2020-07-08 23:01:52 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3496)
+[2020-07-08 23:01:52 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3497)
+[2020-07-08 23:01:52 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3498)
+[2020-07-08 23:01:53 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3499)
+[2020-07-08 23:02:22 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3500)
+[2020-07-08 23:02:22 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3501)
+[2020-07-08 23:02:22 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3502)
+[2020-07-08 23:02:22 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3503)
+[2020-07-08 23:02:23 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3504)
+[2020-07-08 23:02:23 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3505)
+[2020-07-08 23:02:52 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3506)
+[2020-07-08 23:02:52 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3507)
+[2020-07-08 23:02:52 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3508)
+[2020-07-08 23:02:52 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3509)
+[2020-07-08 23:02:53 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3510)
+[2020-07-08 23:02:53 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3511)
+[2020-07-08 23:02:53 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3512)
+[2020-07-08 23:02:59 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3513)
+[2020-07-08 23:03:04 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3514)
+[2020-07-08 23:03:22 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3515)
+[2020-07-08 23:03:22 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3516)
+[2020-07-08 23:03:22 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3517)
+[2020-07-08 23:03:23 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3518)
+[2020-07-08 23:03:23 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3519)
+[2020-07-08 23:03:52 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3520)
+[2020-07-08 23:03:52 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3521)
+[2020-07-08 23:03:52 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3522)
+[2020-07-08 23:03:52 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3523)
+[2020-07-08 23:03:53 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3524)
+[2020-07-08 23:03:53 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3525)
+[2020-07-08 23:28:42 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3526)
+[2020-07-08 23:28:42 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3527)
+[2020-07-08 23:28:42 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3528)
+[2020-07-08 23:28:42 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3529)
+[2020-07-08 23:28:42 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3530)
+[2020-07-08 23:28:42 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3531)
+[2020-07-08 23:28:42 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3532)
+[2020-07-08 23:28:42 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3533)
+[2020-07-08 23:56:44 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3534)
+[2020-07-09 00:25:05 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3536)
+[2020-07-09 00:25:05 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3535)
+[2020-07-09 00:25:16 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3537)
+[2020-07-09 00:25:21 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3538)
+[2020-07-09 00:25:27 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3539)
+[2020-07-09 00:25:30 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3540)
+[2020-07-09 00:25:30 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3541)
+[2020-07-09 00:25:30 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3542)
+[2020-07-09 00:25:35 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3543)
+[2020-07-09 00:25:59 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3544)
+[2020-07-09 00:25:59 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3545)
+[2020-07-09 00:25:59 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3546)
+[2020-07-09 00:25:59 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3547)
+[2020-07-09 00:26:00 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3548)
+[2020-07-09 00:26:29 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3549)
+[2020-07-09 00:26:29 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3550)
+[2020-07-09 00:26:29 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3551)
+[2020-07-09 00:26:29 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3552)
+[2020-07-09 00:26:31 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3553)
+[2020-07-09 00:26:36 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3554)
+[2020-07-09 00:26:41 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3555)
+[2020-07-09 00:26:46 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3556)
+[2020-07-09 00:26:59 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3557)
+[2020-07-09 00:26:59 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3558)
+[2020-07-09 00:27:00 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3559)
+[2020-07-09 00:27:00 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3560)
+[2020-07-09 00:27:00 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3561)
+[2020-07-09 00:27:29 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3562)
+[2020-07-09 00:27:29 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3563)
+[2020-07-09 00:27:30 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3564)
+[2020-07-09 00:27:30 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3565)
+[2020-07-09 00:27:30 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3566)
+[2020-07-09 00:27:30 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3567)
+[2020-07-09 00:27:30 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3568)
+[2020-07-09 00:27:30 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3569)
+[2020-07-09 00:27:59 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3570)
+[2020-07-09 00:27:59 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3571)
+[2020-07-09 00:28:01 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3572)
+[2020-07-09 00:28:01 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3573)
+[2020-07-09 00:28:01 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3574)
+[2020-07-09 00:28:01 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3575)
+[2020-07-09 00:28:01 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3576)
+[2020-07-09 00:28:29 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3577)
+[2020-07-09 00:28:30 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3578)
+[2020-07-09 00:28:30 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3579)
+[2020-07-09 00:28:30 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3580)
+[2020-07-09 00:29:00 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3581)
+[2020-07-09 00:29:00 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3582)
+[2020-07-09 00:29:00 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3584)
+[2020-07-09 00:29:00 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3583)
+[2020-07-09 00:29:00 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3585)
+[2020-07-09 00:29:00 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3586)
+[2020-07-09 01:11:35 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3587)
+[2020-07-09 01:11:35 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3588)
+[2020-07-09 01:11:35 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3589)
+[2020-07-09 01:11:35 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3590)
+[2020-07-09 01:11:35 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3591)
+[2020-07-09 01:11:35 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3592)
+[2020-07-09 01:11:35 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3593)
+[2020-07-09 01:11:35 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3594)
+[2020-07-09 01:11:35 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3595)
+[2020-07-09 01:12:06 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3596)
+[2020-07-09 01:12:07 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3597)
+[2020-07-09 01:12:08 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3598)
+[2020-07-09 01:12:08 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3599)
+[2020-07-09 01:12:09 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3600)
+[2020-07-09 01:12:09 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3601)
+[2020-07-09 01:12:09 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3602)
+[2020-07-09 01:12:09 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3603)
+[2020-07-09 01:12:10 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3604)
+[2020-07-09 09:12:34 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3605)
+[2020-07-09 09:12:36 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3606)
+[2020-07-09 09:12:36 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3607)
+[2020-07-09 09:12:36 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3608)
+[2020-07-09 09:12:36 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3609)
+[2020-07-09 09:12:36 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3610)
+[2020-07-09 09:12:36 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3611)
+[2020-07-09 09:12:36 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3612)
+[2020-07-09 09:12:36 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3613)
+[2020-07-09 09:13:10 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3614)
+[2020-07-09 09:13:10 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3615)
+[2020-07-09 09:13:10 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3616)
+[2020-07-09 09:13:10 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3617)
+[2020-07-09 09:13:10 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3618)
+[2020-07-09 09:13:11 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3619)
+[2020-07-09 09:13:11 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3620)
+[2020-07-09 09:13:11 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3621)
+[2020-07-09 09:13:11 +0000] [3418] [CRITICAL] WORKER TIMEOUT (pid:3622)
+2020-07-09 09:50:03,692 Exception on /sync/debug1xakv:debugrRulL [PUT]
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 2317, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1840, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1743, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1838, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1824, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/psiturk/experiment.py", line 594, in update
+    db_session.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+    self.transaction.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 508, in commit
+    t[1].commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1765, in commit
+    self._do_commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1796, in _do_commit
+    self.connection._commit_impl()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 776, in _commit_impl
+    self._handle_dbapi_exception(e, None, None, None, None)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1512, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 774, in _commit_impl
+    self.engine.dialect.do_commit(self.connection)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 546, in do_commit
+    dbapi_connection.commit()
+OperationalError: (sqlite3.OperationalError) disk I/O error
+(Background on this error at: http://sqlalche.me/e/13/e3q8)
+2020-07-09 09:50:03,704 Exception during reset or similar
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 697, in _finalize_fairy
+    fairy._reset(pool)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 893, in _reset
+    pool._dialect.do_rollback(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+OperationalError: cannot rollback - no transaction is active
+2020-07-09 09:50:53,850 DB error: Unique user not found.
+2020-07-09 09:50:53,848 Exception on /sync/debug1xakv:debugrRulL [PUT]
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 2317, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1840, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1743, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1838, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1824, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/psiturk/experiment.py", line 594, in update
+    db_session.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+    self.transaction.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 504, in commit
+    self._prepare_impl()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 483, in _prepare_impl
+    self.session.flush()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2523, in flush
+    self._flush(objects)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2664, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 69, in __exit__
+    exc_value, with_traceback=exc_tb,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2624, in _flush
+    flush_context.execute()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 236, in save_obj
+    update,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 995, in _emit_update_statements
+    statement, multiparams
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1014, in execute
+    return meth(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1133, in _execute_clauseelement
+    distilled_params,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1318, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1512, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1278, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+DatabaseError: (sqlite3.DatabaseError) database disk image is malformed
+[SQL: UPDATE turkdemo SET datastring=? WHERE turkdemo.uniqueid = ?]
+[parameters: ('{"assignmentId": "debugrRulL", "workerId": "debug1xakv", "questiondata": {}, "bonus": 0, "hitId": "debugmtfoq", "counterbalance": 0, "useragent": "Mo ... (9424 characters truncated) ... nstructions/procedure2.html"}, "uniqueid": "debug1xakv:debugrRulL", "dateTime": 1594302653789}], "currenttrial": 36, "condition": 1, "mode": "debug"}', u'debug1xakv:debugrRulL')]
+(Background on this error at: http://sqlalche.me/e/13/4xp6)
+2020-07-09 09:50:53,856 Exception on /sync/debug1xakv:debugrRulL [PUT]
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 2317, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1840, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1743, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1838, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1824, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/psiturk/experiment.py", line 594, in update
+    db_session.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+    self.transaction.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 504, in commit
+    self._prepare_impl()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 483, in _prepare_impl
+    self.session.flush()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2523, in flush
+    self._flush(objects)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2664, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 69, in __exit__
+    exc_value, with_traceback=exc_tb,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2624, in _flush
+    flush_context.execute()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 236, in save_obj
+    update,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 995, in _emit_update_statements
+    statement, multiparams
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1014, in execute
+    return meth(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1133, in _execute_clauseelement
+    distilled_params,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1318, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1512, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1278, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+DatabaseError: (sqlite3.DatabaseError) database disk image is malformed
+[SQL: UPDATE turkdemo SET datastring=? WHERE turkdemo.uniqueid = ?]
+[parameters: ('{"assignmentId": "debugrRulL", "workerId": "debug1xakv", "questiondata": {}, "bonus": 0, "hitId": "debugmtfoq", "counterbalance": 0, "useragent": "Mo ... (9424 characters truncated) ... nstructions/procedure2.html"}, "uniqueid": "debug1xakv:debugrRulL", "dateTime": 1594302653789}], "currenttrial": 36, "condition": 1, "mode": "debug"}', u'debug1xakv:debugrRulL')]
+(Background on this error at: http://sqlalche.me/e/13/4xp6)
+2020-07-09 09:51:24,130 DB error: Unique user not found.
+2020-07-09 09:51:24,158 DB error: Unique user not found.
+2020-07-09 09:51:24,159 Exception during reset or similar
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 697, in _finalize_fairy
+    fairy._reset(pool)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 893, in _reset
+    pool._dialect.do_rollback(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+OperationalError: cannot rollback - no transaction is active
+2020-07-09 09:51:24,169 Exception on /sync/debug1xakv:debugrRulL [PUT]
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 2317, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1840, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1743, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1838, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1824, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/psiturk/experiment.py", line 597, in update
+    data = json.loads(user.datastring)
+  File "/usr/lib/python2.7/json/__init__.py", line 339, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python2.7/json/decoder.py", line 364, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python2.7/json/decoder.py", line 380, in raw_decode
+    obj, end = self.scan_once(s, idx)
+ValueError: Expecting ',' delimiter: line 1 column 769 (char 768)
+2020-07-09 09:51:31,350 Exception on /sync/debug1xakv:debugrRulL [PUT]
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 2317, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1840, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1743, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1838, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1824, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/psiturk/experiment.py", line 594, in update
+    db_session.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+    self.transaction.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 504, in commit
+    self._prepare_impl()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 483, in _prepare_impl
+    self.session.flush()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2523, in flush
+    self._flush(objects)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2664, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 69, in __exit__
+    exc_value, with_traceback=exc_tb,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2624, in _flush
+    flush_context.execute()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 236, in save_obj
+    update,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 995, in _emit_update_statements
+    statement, multiparams
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1014, in execute
+    return meth(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1133, in _execute_clauseelement
+    distilled_params,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1318, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1512, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1278, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+DatabaseError: (sqlite3.DatabaseError) database disk image is malformed
+[SQL: UPDATE turkdemo SET datastring=? WHERE turkdemo.uniqueid = ?]
+[parameters: ('{"assignmentId": "debugrRulL", "workerId": "debug1xakv", "questiondata": {}, "bonus": 0, "hitId": "debugmtfoq", "counterbalance": 0, "useragent": "Mo ... (955 characters truncated) ... instructions/procedure2.html"}, "uniqueid": "debug1xakv:debugrRulL", "dateTime": 1594302691310}], "currenttrial": 3, "condition": 1, "mode": "debug"}', u'debug1xakv:debugrRulL')]
+(Background on this error at: http://sqlalche.me/e/13/4xp6)
+2020-07-09 09:58:56,545 DB error: Unique user not found.
+2020-07-09 09:58:56,546 Exception during reset or similar
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 697, in _finalize_fairy
+    fairy._reset(pool)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 893, in _reset
+    pool._dialect.do_rollback(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+OperationalError: cannot rollback - no transaction is active
+2020-07-09 09:58:56,550 Exception on /sync/debugNgaAN:debugGLyeu [PUT]
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 2317, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1840, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1743, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1838, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1824, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/psiturk/experiment.py", line 594, in update
+    db_session.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+    self.transaction.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 508, in commit
+    t[1].commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1765, in commit
+    self._do_commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1796, in _do_commit
+    self.connection._commit_impl()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 776, in _commit_impl
+    self._handle_dbapi_exception(e, None, None, None, None)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1512, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 774, in _commit_impl
+    self.engine.dialect.do_commit(self.connection)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 546, in do_commit
+    dbapi_connection.commit()
+OperationalError: (sqlite3.OperationalError) disk I/O error
+(Background on this error at: http://sqlalche.me/e/13/e3q8)
+2020-07-09 09:58:56,559 Exception during reset or similar
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 697, in _finalize_fairy
+    fairy._reset(pool)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 893, in _reset
+    pool._dialect.do_rollback(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+OperationalError: cannot rollback - no transaction is active
+2020-07-09 09:58:56,561 DB error: Unique user not found.
+2020-07-09 09:58:56,562 Exception during reset or similar
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 697, in _finalize_fairy
+    fairy._reset(pool)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 893, in _reset
+    pool._dialect.do_rollback(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+OperationalError: cannot rollback - no transaction is active
+2020-07-09 10:00:01,569 DB error: Unique user not found.
+2020-07-09 10:00:01,571 Exception during reset or similar
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 697, in _finalize_fairy
+    fairy._reset(pool)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 893, in _reset
+    pool._dialect.do_rollback(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+OperationalError: cannot rollback - no transaction is active
+2020-07-09 10:00:19,442 DB error: Unique user not found.
+2020-07-09 10:00:19,444 Exception during reset or similar
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 697, in _finalize_fairy
+    fairy._reset(pool)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 893, in _reset
+    pool._dialect.do_rollback(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+OperationalError: cannot rollback - no transaction is active
+2020-07-09 10:00:44,484 Exception on /sync/debugAdotF:debuguKh2t [PUT]
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 2317, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1840, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1743, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1838, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1824, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/psiturk/experiment.py", line 594, in update
+    db_session.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+    self.transaction.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 504, in commit
+    self._prepare_impl()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 483, in _prepare_impl
+    self.session.flush()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2523, in flush
+    self._flush(objects)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2664, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 69, in __exit__
+    exc_value, with_traceback=exc_tb,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2624, in _flush
+    flush_context.execute()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 236, in save_obj
+    update,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 995, in _emit_update_statements
+    statement, multiparams
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1014, in execute
+    return meth(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1133, in _execute_clauseelement
+    distilled_params,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1318, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1512, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1278, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+DatabaseError: (sqlite3.DatabaseError) database disk image is malformed
+[SQL: UPDATE turkdemo SET datastring=? WHERE turkdemo.uniqueid = ?]
+[parameters: ('{"assignmentId": "debuguKh2t", "workerId": "debugAdotF", "questiondata": {}, "bonus": 0, "hitId": "debugTtBj7", "counterbalance": 0, "useragent": "Mo ... (1721 characters truncated) ... instructions/procedure2.html"}, "uniqueid": "debugAdotF:debuguKh2t", "dateTime": 1594303244463}], "currenttrial": 6, "condition": 1, "mode": "debug"}', u'debugAdotF:debuguKh2t')]
+(Background on this error at: http://sqlalche.me/e/13/4xp6)
+2020-07-09 10:00:44,513 Exception on /sync/debugAdotF:debuguKh2t [PUT]
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 2317, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1840, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1743, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1838, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1824, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/psiturk/experiment.py", line 594, in update
+    db_session.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+    self.transaction.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 504, in commit
+    self._prepare_impl()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 483, in _prepare_impl
+    self.session.flush()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2523, in flush
+    self._flush(objects)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2664, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 69, in __exit__
+    exc_value, with_traceback=exc_tb,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2624, in _flush
+    flush_context.execute()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 236, in save_obj
+    update,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 995, in _emit_update_statements
+    statement, multiparams
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1014, in execute
+    return meth(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1133, in _execute_clauseelement
+    distilled_params,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1318, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1512, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1278, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+DatabaseError: (sqlite3.DatabaseError) database disk image is malformed
+[SQL: UPDATE turkdemo SET datastring=? WHERE turkdemo.uniqueid = ?]
+[parameters: ('{"assignmentId": "debuguKh2t", "workerId": "debugAdotF", "questiondata": {}, "bonus": 0, "hitId": "debugTtBj7", "counterbalance": 0, "useragent": "Mo ... (1721 characters truncated) ... instructions/procedure2.html"}, "uniqueid": "debugAdotF:debuguKh2t", "dateTime": 1594303244463}], "currenttrial": 6, "condition": 1, "mode": "debug"}', u'debugAdotF:debuguKh2t')]
+(Background on this error at: http://sqlalche.me/e/13/4xp6)
+2020-07-09 10:00:57,994 Exception on /sync/debugAdotF:debuguKh2t [PUT]
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 2317, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1840, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1743, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1838, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1824, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/psiturk/experiment.py", line 594, in update
+    db_session.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+    self.transaction.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 504, in commit
+    self._prepare_impl()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 483, in _prepare_impl
+    self.session.flush()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2523, in flush
+    self._flush(objects)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2664, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 69, in __exit__
+    exc_value, with_traceback=exc_tb,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2624, in _flush
+    flush_context.execute()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 236, in save_obj
+    update,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 995, in _emit_update_statements
+    statement, multiparams
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1014, in execute
+    return meth(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1133, in _execute_clauseelement
+    distilled_params,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1318, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1512, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1278, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+DatabaseError: (sqlite3.DatabaseError) database disk image is malformed
+[SQL: UPDATE turkdemo SET datastring=? WHERE turkdemo.uniqueid = ?]
+[parameters: ('{"assignmentId": "debuguKh2t", "workerId": "debugAdotF", "questiondata": {}, "bonus": 0, "hitId": "debugTtBj7", "counterbalance": 0, "useragent": "Mo ... (1991 characters truncated) ... instructions/procedure2.html"}, "uniqueid": "debugAdotF:debuguKh2t", "dateTime": 1594303257952}], "currenttrial": 6, "condition": 1, "mode": "debug"}', u'debugAdotF:debuguKh2t')]
+(Background on this error at: http://sqlalche.me/e/13/4xp6)
+2020-07-09 10:00:58,023 Exception on /sync/debugAdotF:debuguKh2t [PUT]
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 2317, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1840, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1743, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1838, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1824, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/psiturk/experiment.py", line 594, in update
+    db_session.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+    self.transaction.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 504, in commit
+    self._prepare_impl()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 483, in _prepare_impl
+    self.session.flush()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2523, in flush
+    self._flush(objects)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2664, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 69, in __exit__
+    exc_value, with_traceback=exc_tb,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2624, in _flush
+    flush_context.execute()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 236, in save_obj
+    update,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 995, in _emit_update_statements
+    statement, multiparams
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1014, in execute
+    return meth(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1133, in _execute_clauseelement
+    distilled_params,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1318, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1512, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1278, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+DatabaseError: (sqlite3.DatabaseError) database disk image is malformed
+[SQL: UPDATE turkdemo SET datastring=? WHERE turkdemo.uniqueid = ?]
+[parameters: ('{"assignmentId": "debuguKh2t", "workerId": "debugAdotF", "questiondata": {}, "bonus": 0, "hitId": "debugTtBj7", "counterbalance": 0, "useragent": "Mo ... (1991 characters truncated) ... instructions/procedure2.html"}, "uniqueid": "debugAdotF:debuguKh2t", "dateTime": 1594303257952}], "currenttrial": 6, "condition": 1, "mode": "debug"}', u'debugAdotF:debuguKh2t')]
+(Background on this error at: http://sqlalche.me/e/13/4xp6)
+2020-07-09 10:00:58,046 DB error: Unique user not found.
+2020-07-09 10:00:58,047 Exception during reset or similar
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 697, in _finalize_fairy
+    fairy._reset(pool)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 893, in _reset
+    pool._dialect.do_rollback(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+OperationalError: cannot rollback - no transaction is active
+2020-07-09 10:01:27,065 DB error: Unique user not found.
+2020-07-09 10:01:27,068 Exception during reset or similar
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 697, in _finalize_fairy
+    fairy._reset(pool)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 893, in _reset
+    pool._dialect.do_rollback(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+OperationalError: cannot rollback - no transaction is active
+2020-07-09 10:01:27,068 Exception on /sync/debugAdotF:debuguKh2t [PUT]
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 2317, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1840, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1743, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1838, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1824, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/psiturk/experiment.py", line 594, in update
+    db_session.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+    self.transaction.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 504, in commit
+    self._prepare_impl()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 483, in _prepare_impl
+    self.session.flush()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2523, in flush
+    self._flush(objects)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2664, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 69, in __exit__
+    exc_value, with_traceback=exc_tb,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2624, in _flush
+    flush_context.execute()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 236, in save_obj
+    update,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 995, in _emit_update_statements
+    statement, multiparams
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1014, in execute
+    return meth(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1133, in _execute_clauseelement
+    distilled_params,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1318, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1512, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1278, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+DatabaseError: (sqlite3.DatabaseError) database disk image is malformed
+[SQL: UPDATE turkdemo SET datastring=? WHERE turkdemo.uniqueid = ?]
+[parameters: ('{"assignmentId": "debuguKh2t", "workerId": "debugAdotF", "questiondata": {}, "bonus": 0, "hitId": "debugTtBj7", "counterbalance": 0, "useragent": "Mo ... (1722 characters truncated) ... instructions/procedure2.html"}, "uniqueid": "debugAdotF:debuguKh2t", "dateTime": 1594303286973}], "currenttrial": 6, "condition": 1, "mode": "debug"}', u'debugAdotF:debuguKh2t')]
+(Background on this error at: http://sqlalche.me/e/13/4xp6)
+2020-07-09 10:01:27,079 Exception on /sync/debugAdotF:debuguKh2t [PUT]
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 2317, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1840, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1743, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1838, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1824, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/psiturk/experiment.py", line 594, in update
+    db_session.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+    self.transaction.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 504, in commit
+    self._prepare_impl()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 483, in _prepare_impl
+    self.session.flush()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2523, in flush
+    self._flush(objects)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2664, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 69, in __exit__
+    exc_value, with_traceback=exc_tb,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2624, in _flush
+    flush_context.execute()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 236, in save_obj
+    update,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 995, in _emit_update_statements
+    statement, multiparams
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1014, in execute
+    return meth(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1133, in _execute_clauseelement
+    distilled_params,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1318, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1512, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1278, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+DatabaseError: (sqlite3.DatabaseError) database disk image is malformed
+[SQL: UPDATE turkdemo SET datastring=? WHERE turkdemo.uniqueid = ?]
+[parameters: ('{"assignmentId": "debuguKh2t", "workerId": "debugAdotF", "questiondata": {}, "bonus": 0, "hitId": "debugTtBj7", "counterbalance": 0, "useragent": "Mo ... (1722 characters truncated) ... instructions/procedure2.html"}, "uniqueid": "debugAdotF:debuguKh2t", "dateTime": 1594303286973}], "currenttrial": 6, "condition": 1, "mode": "debug"}', u'debugAdotF:debuguKh2t')]
+(Background on this error at: http://sqlalche.me/e/13/4xp6)
+2020-07-09 10:21:39,498 Exception on /sync/debugAdotF:debuguKh2t [PUT]
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 2317, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1840, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1743, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1838, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1824, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/psiturk/experiment.py", line 594, in update
+    db_session.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+    self.transaction.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 504, in commit
+    self._prepare_impl()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 483, in _prepare_impl
+    self.session.flush()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2523, in flush
+    self._flush(objects)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2664, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 69, in __exit__
+    exc_value, with_traceback=exc_tb,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2624, in _flush
+    flush_context.execute()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 236, in save_obj
+    update,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 995, in _emit_update_statements
+    statement, multiparams
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1014, in execute
+    return meth(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1133, in _execute_clauseelement
+    distilled_params,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1318, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1512, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1278, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+DatabaseError: (sqlite3.DatabaseError) database disk image is malformed
+[SQL: UPDATE turkdemo SET datastring=? WHERE turkdemo.uniqueid = ?]
+[parameters: ('{"assignmentId": "debuguKh2t", "workerId": "debugAdotF", "questiondata": {}, "bonus": 0, "hitId": "debugTtBj7", "counterbalance": 0, "useragent": "Mo ... (1724 characters truncated) ... instructions/procedure2.html"}, "uniqueid": "debugAdotF:debuguKh2t", "dateTime": 1594304499444}], "currenttrial": 6, "condition": 1, "mode": "debug"}', u'debugAdotF:debuguKh2t')]
+(Background on this error at: http://sqlalche.me/e/13/4xp6)
+2020-07-09 10:21:39,493 Exception on /sync/debugAdotF:debuguKh2t [PUT]
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 2317, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1840, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1743, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1838, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1824, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/psiturk/experiment.py", line 594, in update
+    db_session.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+    self.transaction.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 504, in commit
+    self._prepare_impl()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 483, in _prepare_impl
+    self.session.flush()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2523, in flush
+    self._flush(objects)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2664, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 69, in __exit__
+    exc_value, with_traceback=exc_tb,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2624, in _flush
+    flush_context.execute()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 236, in save_obj
+    update,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 995, in _emit_update_statements
+    statement, multiparams
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1014, in execute
+    return meth(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1133, in _execute_clauseelement
+    distilled_params,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1318, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1512, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1278, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+DatabaseError: (sqlite3.DatabaseError) database disk image is malformed
+[SQL: UPDATE turkdemo SET datastring=? WHERE turkdemo.uniqueid = ?]
+[parameters: ('{"assignmentId": "debuguKh2t", "workerId": "debugAdotF", "questiondata": {}, "bonus": 0, "hitId": "debugTtBj7", "counterbalance": 0, "useragent": "Mo ... (1724 characters truncated) ... instructions/procedure2.html"}, "uniqueid": "debugAdotF:debuguKh2t", "dateTime": 1594304499444}], "currenttrial": 6, "condition": 1, "mode": "debug"}', u'debugAdotF:debuguKh2t')]
+(Background on this error at: http://sqlalche.me/e/13/4xp6)
+2020-07-09 10:41:13,523 DB error: Unique user not found.
+2020-07-09 10:41:13,523 Exception on /sync/debugAdotF:debuguKh2t [PUT]
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 2317, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1840, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1743, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1838, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1824, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/psiturk/experiment.py", line 594, in update
+    db_session.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+    self.transaction.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 504, in commit
+    self._prepare_impl()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 483, in _prepare_impl
+    self.session.flush()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2523, in flush
+    self._flush(objects)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2664, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 69, in __exit__
+    exc_value, with_traceback=exc_tb,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2624, in _flush
+    flush_context.execute()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 236, in save_obj
+    update,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 995, in _emit_update_statements
+    statement, multiparams
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1014, in execute
+    return meth(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1133, in _execute_clauseelement
+    distilled_params,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1318, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1512, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1278, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+DatabaseError: (sqlite3.DatabaseError) database disk image is malformed
+[SQL: UPDATE turkdemo SET datastring=? WHERE turkdemo.uniqueid = ?]
+[parameters: ('{"assignmentId": "debuguKh2t", "workerId": "debugAdotF", "questiondata": {}, "bonus": 0, "hitId": "debugTtBj7", "counterbalance": 0, "useragent": "Mo ... (1724 characters truncated) ... instructions/procedure2.html"}, "uniqueid": "debugAdotF:debuguKh2t", "dateTime": 1594305673456}], "currenttrial": 6, "condition": 1, "mode": "debug"}', u'debugAdotF:debuguKh2t')]
+(Background on this error at: http://sqlalche.me/e/13/4xp6)
+2020-07-09 10:41:13,524 Exception during reset or similar
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 697, in _finalize_fairy
+    fairy._reset(pool)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 893, in _reset
+    pool._dialect.do_rollback(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+OperationalError: cannot rollback - no transaction is active
+2020-07-09 10:41:13,534 Exception on /sync/debugAdotF:debuguKh2t [PUT]
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 2317, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1840, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1743, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1838, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1824, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/psiturk/experiment.py", line 594, in update
+    db_session.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+    self.transaction.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 504, in commit
+    self._prepare_impl()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 483, in _prepare_impl
+    self.session.flush()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2523, in flush
+    self._flush(objects)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2664, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 69, in __exit__
+    exc_value, with_traceback=exc_tb,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2624, in _flush
+    flush_context.execute()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 236, in save_obj
+    update,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 995, in _emit_update_statements
+    statement, multiparams
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1014, in execute
+    return meth(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1133, in _execute_clauseelement
+    distilled_params,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1318, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1512, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1278, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+DatabaseError: (sqlite3.DatabaseError) database disk image is malformed
+[SQL: UPDATE turkdemo SET datastring=? WHERE turkdemo.uniqueid = ?]
+[parameters: ('{"assignmentId": "debuguKh2t", "workerId": "debugAdotF", "questiondata": {}, "bonus": 0, "hitId": "debugTtBj7", "counterbalance": 0, "useragent": "Mo ... (1724 characters truncated) ... instructions/procedure2.html"}, "uniqueid": "debugAdotF:debuguKh2t", "dateTime": 1594305673456}], "currenttrial": 6, "condition": 1, "mode": "debug"}', u'debugAdotF:debuguKh2t')]
+(Background on this error at: http://sqlalche.me/e/13/4xp6)
+2020-07-09 10:56:39,388 Exception on /sync/debugAdotF:debuguKh2t [PUT]
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 2317, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1840, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1743, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1838, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1824, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/psiturk/experiment.py", line 594, in update
+    db_session.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+    self.transaction.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 504, in commit
+    self._prepare_impl()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 483, in _prepare_impl
+    self.session.flush()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2523, in flush
+    self._flush(objects)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2664, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 69, in __exit__
+    exc_value, with_traceback=exc_tb,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2624, in _flush
+    flush_context.execute()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 236, in save_obj
+    update,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 995, in _emit_update_statements
+    statement, multiparams
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1014, in execute
+    return meth(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1133, in _execute_clauseelement
+    distilled_params,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1318, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1512, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1278, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+DatabaseError: (sqlite3.DatabaseError) database disk image is malformed
+[SQL: UPDATE turkdemo SET datastring=? WHERE turkdemo.uniqueid = ?]
+[parameters: ('{"assignmentId": "debuguKh2t", "workerId": "debugAdotF", "questiondata": {}, "bonus": 0, "hitId": "debugTtBj7", "counterbalance": 0, "useragent": "Mo ... (1724 characters truncated) ... instructions/procedure2.html"}, "uniqueid": "debugAdotF:debuguKh2t", "dateTime": 1594306599367}], "currenttrial": 6, "condition": 1, "mode": "debug"}', u'debugAdotF:debuguKh2t')]
+(Background on this error at: http://sqlalche.me/e/13/4xp6)
+2020-07-09 10:56:39,419 Exception on /sync/debugAdotF:debuguKh2t [PUT]
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 2317, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1840, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1743, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1838, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1824, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/psiturk/experiment.py", line 594, in update
+    db_session.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+    self.transaction.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 504, in commit
+    self._prepare_impl()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 483, in _prepare_impl
+    self.session.flush()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2523, in flush
+    self._flush(objects)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2664, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 69, in __exit__
+    exc_value, with_traceback=exc_tb,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2624, in _flush
+    flush_context.execute()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 236, in save_obj
+    update,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 995, in _emit_update_statements
+    statement, multiparams
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1014, in execute
+    return meth(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1133, in _execute_clauseelement
+    distilled_params,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1318, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1512, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1278, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+DatabaseError: (sqlite3.DatabaseError) database disk image is malformed
+[SQL: UPDATE turkdemo SET datastring=? WHERE turkdemo.uniqueid = ?]
+[parameters: ('{"assignmentId": "debuguKh2t", "workerId": "debugAdotF", "questiondata": {}, "bonus": 0, "hitId": "debugTtBj7", "counterbalance": 0, "useragent": "Mo ... (1724 characters truncated) ... instructions/procedure2.html"}, "uniqueid": "debugAdotF:debuguKh2t", "dateTime": 1594306599367}], "currenttrial": 6, "condition": 1, "mode": "debug"}', u'debugAdotF:debuguKh2t')]
+(Background on this error at: http://sqlalche.me/e/13/4xp6)
+2020-07-09 10:57:35,685 Exception on /sync/debugAdotF:debuguKh2t [PUT]
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 2317, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1840, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1743, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1838, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1824, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/psiturk/experiment.py", line 594, in update
+    db_session.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+    self.transaction.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 504, in commit
+    self._prepare_impl()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 483, in _prepare_impl
+    self.session.flush()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2523, in flush
+    self._flush(objects)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2664, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 69, in __exit__
+    exc_value, with_traceback=exc_tb,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2624, in _flush
+    flush_context.execute()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 236, in save_obj
+    update,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 995, in _emit_update_statements
+    statement, multiparams
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1014, in execute
+    return meth(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1133, in _execute_clauseelement
+    distilled_params,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1318, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1512, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1278, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+DatabaseError: (sqlite3.DatabaseError) database disk image is malformed
+[SQL: UPDATE turkdemo SET datastring=? WHERE turkdemo.uniqueid = ?]
+[parameters: ('{"assignmentId": "debuguKh2t", "workerId": "debugAdotF", "questiondata": {}, "bonus": 0, "hitId": "debugTtBj7", "counterbalance": 0, "useragent": "Mo ... (1723 characters truncated) ... instructions/procedure2.html"}, "uniqueid": "debugAdotF:debuguKh2t", "dateTime": 1594306655667}], "currenttrial": 6, "condition": 1, "mode": "debug"}', u'debugAdotF:debuguKh2t')]
+(Background on this error at: http://sqlalche.me/e/13/4xp6)
+2020-07-09 10:57:35,710 Exception on /sync/debugAdotF:debuguKh2t [PUT]
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 2317, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1840, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1743, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1838, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1824, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/psiturk/experiment.py", line 594, in update
+    db_session.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+    self.transaction.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 504, in commit
+    self._prepare_impl()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 483, in _prepare_impl
+    self.session.flush()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2523, in flush
+    self._flush(objects)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2664, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 69, in __exit__
+    exc_value, with_traceback=exc_tb,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2624, in _flush
+    flush_context.execute()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 236, in save_obj
+    update,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 995, in _emit_update_statements
+    statement, multiparams
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1014, in execute
+    return meth(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1133, in _execute_clauseelement
+    distilled_params,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1318, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1512, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1278, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+DatabaseError: (sqlite3.DatabaseError) database disk image is malformed
+[SQL: UPDATE turkdemo SET datastring=? WHERE turkdemo.uniqueid = ?]
+[parameters: ('{"assignmentId": "debuguKh2t", "workerId": "debugAdotF", "questiondata": {}, "bonus": 0, "hitId": "debugTtBj7", "counterbalance": 0, "useragent": "Mo ... (1723 characters truncated) ... instructions/procedure2.html"}, "uniqueid": "debugAdotF:debuguKh2t", "dateTime": 1594306655667}], "currenttrial": 6, "condition": 1, "mode": "debug"}', u'debugAdotF:debuguKh2t')]
+(Background on this error at: http://sqlalche.me/e/13/4xp6)
+2020-07-09 10:59:57,269 Exception on /sync/debugAdotF:debuguKh2t [PUT]
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 2317, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1840, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1743, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1838, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1824, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/psiturk/experiment.py", line 594, in update
+    db_session.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+    self.transaction.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 504, in commit
+    self._prepare_impl()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 483, in _prepare_impl
+    self.session.flush()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2523, in flush
+    self._flush(objects)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2664, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 69, in __exit__
+    exc_value, with_traceback=exc_tb,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2624, in _flush
+    flush_context.execute()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 236, in save_obj
+    update,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 995, in _emit_update_statements
+    statement, multiparams
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1014, in execute
+    return meth(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1133, in _execute_clauseelement
+    distilled_params,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1318, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1512, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1278, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+DatabaseError: (sqlite3.DatabaseError) database disk image is malformed
+[SQL: UPDATE turkdemo SET datastring=? WHERE turkdemo.uniqueid = ?]
+[parameters: ('{"assignmentId": "debuguKh2t", "workerId": "debugAdotF", "questiondata": {}, "bonus": 0, "hitId": "debugTtBj7", "counterbalance": 0, "useragent": "Mo ... (1723 characters truncated) ... instructions/procedure2.html"}, "uniqueid": "debugAdotF:debuguKh2t", "dateTime": 1594306797242}], "currenttrial": 6, "condition": 1, "mode": "debug"}', u'debugAdotF:debuguKh2t')]
+(Background on this error at: http://sqlalche.me/e/13/4xp6)
+2020-07-09 10:59:57,281 Exception on /sync/debugAdotF:debuguKh2t [PUT]
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 2317, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1840, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1743, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1838, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1824, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/psiturk/experiment.py", line 594, in update
+    db_session.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+    self.transaction.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 504, in commit
+    self._prepare_impl()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 483, in _prepare_impl
+    self.session.flush()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2523, in flush
+    self._flush(objects)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2664, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 69, in __exit__
+    exc_value, with_traceback=exc_tb,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2624, in _flush
+    flush_context.execute()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 236, in save_obj
+    update,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 995, in _emit_update_statements
+    statement, multiparams
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1014, in execute
+    return meth(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1133, in _execute_clauseelement
+    distilled_params,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1318, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1512, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1278, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+DatabaseError: (sqlite3.DatabaseError) database disk image is malformed
+[SQL: UPDATE turkdemo SET datastring=? WHERE turkdemo.uniqueid = ?]
+[parameters: ('{"assignmentId": "debuguKh2t", "workerId": "debugAdotF", "questiondata": {}, "bonus": 0, "hitId": "debugTtBj7", "counterbalance": 0, "useragent": "Mo ... (1723 characters truncated) ... instructions/procedure2.html"}, "uniqueid": "debugAdotF:debuguKh2t", "dateTime": 1594306797242}], "currenttrial": 6, "condition": 1, "mode": "debug"}', u'debugAdotF:debuguKh2t')]
+(Background on this error at: http://sqlalche.me/e/13/4xp6)
+2020-07-09 10:59:57,299 DB error: Unique user not found.
+2020-07-09 10:59:57,301 Exception during reset or similar
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 697, in _finalize_fairy
+    fairy._reset(pool)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 893, in _reset
+    pool._dialect.do_rollback(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+OperationalError: cannot rollback - no transaction is active
+2020-07-09 11:00:24,601 Exception on /sync/debugAdotF:debuguKh2t [PUT]
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 2317, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1840, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1743, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1838, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1824, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/psiturk/experiment.py", line 594, in update
+    db_session.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+    self.transaction.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 504, in commit
+    self._prepare_impl()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 483, in _prepare_impl
+    self.session.flush()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2523, in flush
+    self._flush(objects)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2664, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 69, in __exit__
+    exc_value, with_traceback=exc_tb,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2624, in _flush
+    flush_context.execute()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 236, in save_obj
+    update,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 995, in _emit_update_statements
+    statement, multiparams
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1014, in execute
+    return meth(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1133, in _execute_clauseelement
+    distilled_params,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1318, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1512, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1278, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+DatabaseError: (sqlite3.DatabaseError) database disk image is malformed
+[SQL: UPDATE turkdemo SET datastring=? WHERE turkdemo.uniqueid = ?]
+[parameters: ('{"assignmentId": "debuguKh2t", "workerId": "debugAdotF", "questiondata": {}, "bonus": 0, "hitId": "debugTtBj7", "counterbalance": 0, "useragent": "Mo ... (1723 characters truncated) ... instructions/procedure2.html"}, "uniqueid": "debugAdotF:debuguKh2t", "dateTime": 1594306824553}], "currenttrial": 6, "condition": 1, "mode": "debug"}', u'debugAdotF:debuguKh2t')]
+(Background on this error at: http://sqlalche.me/e/13/4xp6)
+2020-07-09 11:00:24,610 DB error: Unique user not found.
+2020-07-09 11:00:24,611 Exception during reset or similar
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 697, in _finalize_fairy
+    fairy._reset(pool)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 893, in _reset
+    pool._dialect.do_rollback(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+OperationalError: cannot rollback - no transaction is active
+2020-07-09 11:00:24,619 Exception on /sync/debugAdotF:debuguKh2t [PUT]
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 2317, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1840, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1743, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1838, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1824, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/psiturk/experiment.py", line 594, in update
+    db_session.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+    self.transaction.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 504, in commit
+    self._prepare_impl()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 483, in _prepare_impl
+    self.session.flush()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2523, in flush
+    self._flush(objects)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2664, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 69, in __exit__
+    exc_value, with_traceback=exc_tb,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2624, in _flush
+    flush_context.execute()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 236, in save_obj
+    update,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 995, in _emit_update_statements
+    statement, multiparams
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1014, in execute
+    return meth(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1133, in _execute_clauseelement
+    distilled_params,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1318, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1512, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1278, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+DatabaseError: (sqlite3.DatabaseError) database disk image is malformed
+[SQL: UPDATE turkdemo SET datastring=? WHERE turkdemo.uniqueid = ?]
+[parameters: ('{"assignmentId": "debuguKh2t", "workerId": "debugAdotF", "questiondata": {}, "bonus": 0, "hitId": "debugTtBj7", "counterbalance": 0, "useragent": "Mo ... (1723 characters truncated) ... instructions/procedure2.html"}, "uniqueid": "debugAdotF:debuguKh2t", "dateTime": 1594306824553}], "currenttrial": 6, "condition": 1, "mode": "debug"}', u'debugAdotF:debuguKh2t')]
+(Background on this error at: http://sqlalche.me/e/13/4xp6)
+2020-07-09 11:01:58,332 Exception on /sync/debugAdotF:debuguKh2t [PUT]
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 2317, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1840, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1743, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1838, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1824, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/psiturk/experiment.py", line 594, in update
+    db_session.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+    self.transaction.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 504, in commit
+    self._prepare_impl()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 483, in _prepare_impl
+    self.session.flush()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2523, in flush
+    self._flush(objects)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2664, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 69, in __exit__
+    exc_value, with_traceback=exc_tb,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2624, in _flush
+    flush_context.execute()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 236, in save_obj
+    update,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 995, in _emit_update_statements
+    statement, multiparams
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1014, in execute
+    return meth(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1133, in _execute_clauseelement
+    distilled_params,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1318, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1512, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1278, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+DatabaseError: (sqlite3.DatabaseError) database disk image is malformed
+[SQL: UPDATE turkdemo SET datastring=? WHERE turkdemo.uniqueid = ?]
+[parameters: ('{"assignmentId": "debuguKh2t", "workerId": "debugAdotF", "questiondata": {}, "bonus": 0, "hitId": "debugTtBj7", "counterbalance": 0, "useragent": "Mo ... (1724 characters truncated) ... instructions/procedure2.html"}, "uniqueid": "debugAdotF:debuguKh2t", "dateTime": 1594306918291}], "currenttrial": 6, "condition": 1, "mode": "debug"}', u'debugAdotF:debuguKh2t')]
+(Background on this error at: http://sqlalche.me/e/13/4xp6)
+2020-07-09 11:01:58,347 Exception on /sync/debugAdotF:debuguKh2t [PUT]
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 2317, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1840, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1743, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1838, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1824, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/psiturk/experiment.py", line 594, in update
+    db_session.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+    self.transaction.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 504, in commit
+    self._prepare_impl()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 483, in _prepare_impl
+    self.session.flush()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2523, in flush
+    self._flush(objects)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2664, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 69, in __exit__
+    exc_value, with_traceback=exc_tb,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2624, in _flush
+    flush_context.execute()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 236, in save_obj
+    update,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 995, in _emit_update_statements
+    statement, multiparams
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1014, in execute
+    return meth(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1133, in _execute_clauseelement
+    distilled_params,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1318, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1512, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1278, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+DatabaseError: (sqlite3.DatabaseError) database disk image is malformed
+[SQL: UPDATE turkdemo SET datastring=? WHERE turkdemo.uniqueid = ?]
+[parameters: ('{"assignmentId": "debuguKh2t", "workerId": "debugAdotF", "questiondata": {}, "bonus": 0, "hitId": "debugTtBj7", "counterbalance": 0, "useragent": "Mo ... (1724 characters truncated) ... instructions/procedure2.html"}, "uniqueid": "debugAdotF:debuguKh2t", "dateTime": 1594306918291}], "currenttrial": 6, "condition": 1, "mode": "debug"}', u'debugAdotF:debuguKh2t')]
+(Background on this error at: http://sqlalche.me/e/13/4xp6)
+2020-07-09 11:01:58,358 DB error: Unique user not found.
+2020-07-09 11:01:58,360 Exception during reset or similar
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 697, in _finalize_fairy
+    fairy._reset(pool)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 893, in _reset
+    pool._dialect.do_rollback(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+OperationalError: cannot rollback - no transaction is active
+2020-07-09 11:02:31,344 Exception on /sync/debugAdotF:debuguKh2t [PUT]
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 2317, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1840, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1743, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1838, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1824, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/psiturk/experiment.py", line 594, in update
+    db_session.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+    self.transaction.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 504, in commit
+    self._prepare_impl()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 483, in _prepare_impl
+    self.session.flush()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2523, in flush
+    self._flush(objects)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2664, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 69, in __exit__
+    exc_value, with_traceback=exc_tb,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2624, in _flush
+    flush_context.execute()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 236, in save_obj
+    update,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 995, in _emit_update_statements
+    statement, multiparams
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1014, in execute
+    return meth(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1133, in _execute_clauseelement
+    distilled_params,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1318, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1512, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1278, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+DatabaseError: (sqlite3.DatabaseError) database disk image is malformed
+[SQL: UPDATE turkdemo SET datastring=? WHERE turkdemo.uniqueid = ?]
+[parameters: ('{"assignmentId": "debuguKh2t", "workerId": "debugAdotF", "questiondata": {}, "bonus": 0, "hitId": "debugTtBj7", "counterbalance": 0, "useragent": "Mo ... (1723 characters truncated) ... instructions/procedure2.html"}, "uniqueid": "debugAdotF:debuguKh2t", "dateTime": 1594306951310}], "currenttrial": 6, "condition": 1, "mode": "debug"}', u'debugAdotF:debuguKh2t')]
+(Background on this error at: http://sqlalche.me/e/13/4xp6)
+2020-07-09 11:02:31,345 Exception on /sync/debugAdotF:debuguKh2t [PUT]
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 2317, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1840, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1743, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1838, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/flask/app.py", line 1824, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/psiturk/experiment.py", line 594, in update
+    db_session.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+    self.transaction.commit()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 504, in commit
+    self._prepare_impl()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 483, in _prepare_impl
+    self.session.flush()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2523, in flush
+    self._flush(objects)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2664, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 69, in __exit__
+    exc_value, with_traceback=exc_tb,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2624, in _flush
+    flush_context.execute()
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 236, in save_obj
+    update,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 995, in _emit_update_statements
+    statement, multiparams
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1014, in execute
+    return meth(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1133, in _execute_clauseelement
+    distilled_params,
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1318, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1512, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1278, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+DatabaseError: (sqlite3.DatabaseError) database disk image is malformed
+[SQL: UPDATE turkdemo SET datastring=? WHERE turkdemo.uniqueid = ?]
+[parameters: ('{"assignmentId": "debuguKh2t", "workerId": "debugAdotF", "questiondata": {}, "bonus": 0, "hitId": "debugTtBj7", "counterbalance": 0, "useragent": "Mo ... (1723 characters truncated) ... instructions/procedure2.html"}, "uniqueid": "debugAdotF:debuguKh2t", "dateTime": 1594306951310}], "currenttrial": 6, "condition": 1, "mode": "debug"}', u'debugAdotF:debuguKh2t')]
+(Background on this error at: http://sqlalche.me/e/13/4xp6)
+2020-07-09 11:02:31,362 DB error: Unique user not found.
+2020-07-09 11:02:31,363 Exception during reset or similar
+Traceback (most recent call last):
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 697, in _finalize_fairy
+    fairy._reset(pool)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/pool/base.py", line 893, in _reset
+    pool._dialect.do_rollback(self)
+  File "/home/nrabb/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+OperationalError: cannot rollback - no transaction is active

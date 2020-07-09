@@ -20,13 +20,20 @@ var allowUnfilled = false;
 
 // Selecting current user's levels
 var time = 300;
-var surveyConditionNames = ["myConditionA", "myConditionB"];
+var surveyConditionNames = ["control", "na"];
 var surveyConditionName = surveyConditionNames[myCondition % surveyConditionNames.length];
 
 // All possible pages to be preloaded
 var instructionPages = [
 	"instructions/procedure1.html",
 	"instructions/procedure2.html",
+];
+
+const vignettePages = [
+	'vignette1.html',
+	'vignette2.html',
+	'vignette3.html',
+	'vignette4.html',
 ];
 
 // The actual order of stages
@@ -41,10 +48,8 @@ var experimentPages = [
  * ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ *
  * ------------------------------------------- */
 
-
 var pages = instructionPages.concat(experimentPages);
 psiTurk.preloadPages(pages);
-
 
 // Task object to keep track of the current phase
 var currentView;
@@ -112,6 +117,9 @@ var Experiment = function() {
 		createVideos();
 		createTextInsertAreas();
 
+		// N/A study-specific thing
+		naConditionModifications();
+
 		// Count elems initially loaded on this page
 		// So that client doesn't change amount sent to server
 		var radioNum = $(RADIO_CLASSNAME).length;
@@ -124,6 +132,25 @@ var Experiment = function() {
 		});
 	}
 
+const naConditionModifications = () => {
+	Object.keys(MEASURES).map(measure => {
+		MEASURES[measure].items.map((item, i) => {
+			const radioArea = $(`#${measure}_${i+1}`);
+			const choices = radioArea.find('div.choices');
+			if (MEASURES[measure].type === MEASURE_TYPES.PERCENT) {
+				choices.append('<br/><br/>');
+			}
+			choices.append(`<div class="col-xs-1"><input type="radio" name="${measure}_Q${i+1}" value="na" /><span>N/A</span></div>
+			<div class="col-xs-3"><input type="radio" name="${measure}_Q${i+1}" value="na-robot" /><span>N/A for Robots in General</span></div>`);
+		})
+	})
+
+	// Fill in N/A-specific content
+	if (vignettePages.indexOf(currentPage) > -1 && surveyConditionName === 'na') {
+		$('#na_extra_likert').append('If you feel that the statement or descriptor in the question does not apply to the robot in this scenario, or does not apply to robots in general, use the appropriate NA option.')
+		$('#na_extra_percent').append('If you feel that descriptor does not apply to the robot in this scenario, or does not apply to robots in general, use the appropriate NA option.')
+	}
+}
 
 /**************************
  *      CREATE AREAS      *
@@ -145,7 +172,7 @@ var Experiment = function() {
 				return accum;
 			};
 			const radioAreas = data.items.map((item, j) => (
-					`<div class="container">
+					`<div class="container" id='${measure}_${j+1}'>
 						<div class="row">
 							<p class="question">${item}</p>
 						</div>
@@ -179,7 +206,7 @@ var Experiment = function() {
 				return accum;
 			};
 			const radioAreas = data.items.map((item, j) => (
-					`<div class="container">
+					`<div class="container" id='${measure}_${j+1}'>
 						<div class="row">
 							<p class="question">${data.question}</p>
 						</div>
@@ -213,7 +240,7 @@ var Experiment = function() {
 				return accum;
 			};
 			const radioAreas = data.items.map((item, j) => (
-					`<div class="container">
+					`<div class="container" id='${measure}_${j+1}'>
 						<div class="row">
 							<p class="question">${item}</p>
 						</div>
