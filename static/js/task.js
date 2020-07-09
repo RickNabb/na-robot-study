@@ -16,7 +16,7 @@ var myCounterbalance = counterbalance;
  * vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv *
  * ------------------------------------------- */
 
-var allowUnfilled = false;
+var allowUnfilled = true;
 
 // Selecting current user's levels
 var time = 300;
@@ -191,7 +191,7 @@ const naConditionModifications = () => {
 				return accum;
 			};
 			const radioAreas = data.items.map((item, j) => (
-					`<div class="container" id='${measure}_${j+1}'>
+					`<div class="container radioArea" id='${measure}_${j+1}'>
 						<div class="row">
 							<p class="question">${item}</p>
 						</div>
@@ -225,7 +225,7 @@ const naConditionModifications = () => {
 				return accum;
 			};
 			const radioAreas = data.items.map((item, j) => (
-					`<div class="container" id='${measure}_${j+1}'>
+					`<div class="container radioArea" id='${measure}_${j+1}'>
 						<div class="row">
 							<p class="question">${data.question}</p>
 						</div>
@@ -259,7 +259,7 @@ const naConditionModifications = () => {
 				return accum;
 			};
 			const radioAreas = data.items.map((item, j) => (
-					`<div class="container" id='${measure}_${j+1}'>
+					`<div class="container radioArea" id='${measure}_${j+1}'>
 						<div class="row">
 							<p class="question">${item}</p>
 						</div>
@@ -465,6 +465,7 @@ const naConditionModifications = () => {
 			return false;
 		}
 
+		console.log(QuestionsFilled, QuestionsTotal)
 
 		// Missing field(s)
 		if (QuestionsFilled < QuestionsTotal) {
