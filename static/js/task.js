@@ -378,7 +378,7 @@ const naConditionModifications = () => {
 
 			// Creates array of values of checked box(es)
 			var result = checkedboxes.map(function() {
-				return $(this).val();
+				return { id: $(this).attr('name'), val: $(this).val() };
 			}).get();
 
 			return result == null ? "-1" : result;
@@ -401,7 +401,7 @@ const naConditionModifications = () => {
 
 			// Creates array of values of textbox(es)
 			var result = textboxes.map(function() {
-				return $(this).val();
+				return { id: $(this).attr('name'), val: $(this).val() };
 			}).get();
 
 			// Every item must have some result
@@ -423,7 +423,7 @@ const naConditionModifications = () => {
 
 			// Creates array of values of checkbox(es)
 			var result = checkboxes.map(function() {
-				return $(this).val();
+				return { id: $(this).attr('name'), val: $(this).val() };
 			}).get();
 
 
@@ -465,8 +465,6 @@ const naConditionModifications = () => {
 			return false;
 		}
 
-		console.log(QuestionsFilled, QuestionsTotal)
-
 		// Missing field(s)
 		if (QuestionsFilled < QuestionsTotal) {
 
@@ -495,7 +493,6 @@ const naConditionModifications = () => {
 			var r2 = collectTextInputs(textNum);
 			var r3 = collectCheckboxInputs(checkboxNum);
 			var response = r1.concat(r2).concat(r3);
-
 
 			// Skip next page?
 			var radios = $(RADIO_CLASSNAME).find(":checked");
@@ -555,7 +552,7 @@ const naConditionModifications = () => {
 var Questionnaire = function() {
 
 	// Click to resubmit to server
-	prompt_resubmit = function() {
+	prompt_resubmit = function(req, res) {
 		document.body.innerHTML = "<h1>Oops!</h1><p>Something went "
 		+ "wrong submitting your HIT. This might happen if you lose "
 		+ "your internet connection. Press the button to resubmit."
