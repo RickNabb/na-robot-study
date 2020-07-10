@@ -101,6 +101,23 @@ def by_trial(df):
         data_by_trial[uniqueid] = participant_data
     return data_by_trial
 
+def vignette_stages(trial_df):
+    """
+    Return only the stages from a trial that contained a
+    vignette or vignette response.
+
+    :param trial_df: a data frame containing only data from a
+    certain participant's study trials.
+    """
+    return trial_df[~trial_df.stage.isnull() & trial_df.stage.str.contains('vignette')]
+
+def vignette_stages_for_participant(df, participant_num):
+    """
+    Grab only a certain participant's data, and within that,
+    only entries that are vignette stages.
+    """
+    return vignette_stages(trial_for_participant(df, participant_num))
+
 def trial_for_participant(df, participant_num):
     """
     Get the set of trials recorded for the nth participant.
@@ -113,57 +130,12 @@ def trial_for_participant(df, participant_num):
 
     return by_trial(df)[df.uniqueid.unique()[participant_num]]
 
-def puzzle_stages_only(trial_df):
-    """
-    Return only the stages from a trial that contained a puzzle.
-
-    :param trial_df: a data frame containing only data from a
-    certain participant's study trials.
-    """
-    return trial_df[trial_df.stage == 'p02-simple.html']
-
-def puzzle_stages_for_participant(df, participant_num):
-    """
-    Grab only a certain participant's data, and within that,
-    only entries that are puzzle stages.
-    """
-    return puzzle_stages_only(trial_for_participant(df, participant_num))
-
-def add_stage_tsn_events(df):
-    """
-    Add stage transition mock events between each series of
-    event logs for a given stage.
-
-    :param df: This data frame is ideally a frame containing only
-    data for puzzle stages for a given participant. Otherwise,
-    I'm not sure why you're using this function.
-    """
-    for row in df.iterrows():
-        row_data = row[1]['event_log']
-        timestamp = row_data[len(row_data) - 1]['timeStamp'] + 1
-        row_data.append(stage_transition_event(timestamp))
-
-def in_order(df):
-    """
-    Just a quick check to see if the timestamps in an array are
-    in order.
-
-    :param df: Data frame with rows that include timestamped event
-    data.
-    """
-    cur_ts = 0
-    out_of_order = []
-    for row in df.iterrows():
-      row_data = row[1]['event_log']
-      for event in row_data:
-        if event['timeStamp'] <= cur_ts:
-          out_of_order.append(event['timeStamp'])
-        cur_ts = event['timeStamp']
-    print(out_of_order)
-    return len(out_of_order) == 0
+"""
+ DATA WRITING
+"""
 
 def write_event_logs(df, filename, path):
-    write_all_data_rows(df, filename, path, 'event_log', json.dumps)
+    write_all_data_rows(df, filename, path, 'response', json.dumps)
 
 def write_condition(df, filename, path):
     """
@@ -242,9 +214,9 @@ def participant_events_to_json(df, participant_num):
     """
 
     pn = trial_for_participant(df, participant_num)
-    pnp = puzzle_stages_only(pn)
+    vs = vignette_stages(pn)
     part_dir = './event-logs/participant-' + str(participant_num)
-    write_event_logs(pnp, 'all-events.json', part_dir)
+    write_event_logs(vs, 'all-events.json', part_dir)
     write_condition(pn, 'condition.txt', part_dir)
 
 if __name__ == "__main__":
@@ -253,19 +225,18 @@ if __name__ == "__main__":
 else:
     global df, ps4p, pe2j, aste, dbt
     df = read_data_file()
-#    dbt = by_trial(df)
+    dbt = by_trial(df)
 
     print('Read data into var `data_parser.df`; by trial into `data_parser.dbt`')
     """
     USEFUL ALIASES
     """
-#    ps4p = puzzle_stages_for_participant
-#    pe2j = participant_events_to_json
-#    aste = add_stage_tsn_events
+    vs4p = vignette_stages_for_participant
+    pe2j = participant_events_to_json
 
     print('Some useful aliases:\n')
-    print('ps4p - Puzzles Stages for Participant <df - data frame to get data from; par_index - index of the participant to fetch>')
+    print('vs4p - Vignette Stages for Participant <df - data frame to get data from; par_index - index of the participant to fetch>')
     print('pe2j - Participant Events to JSON <df - data frame to get data from; par_index - index of the participant to fetch>')
-    print('aste - Add Stage Transition Events <df - ideally data frame of only puzzle stages>')
+#    print('aste - Add Stage Transition Events <df - ideally data frame of only puzzle stages>')
 
 
