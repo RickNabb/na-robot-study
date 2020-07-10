@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<div id="container-exp">
+	<div id="trial">
+
+    <div id="story-header" class="bg-info container expanded">
+      <h3>Scenario 2/4</h3>
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="25" aria-valemin="0" aria-valuemax="100">
+          25%
+        </div>
+      </div>
+      <p>You have watched a scenario about a robot. To refresh your memory, you can read the story again here...</p>
+
+      <p id="recap"><em>To be filled in</em></p>
+
+      <button class="btn btn-link" onclick="toggleHeader()"><span id="header-toggle" class="glyphicon glyphicon-chevron-up"></span></button>
+    </div>
+
+    <div id="header-space"></div>
+
+    <div class="well">
+      <p>Think about the robot. For each statement or descriptor, choose the number that best describes how much you agree or disagree with each statement. <span id="na_extra_likert"></span> Some items might feel repetitive. Please answer them anyway.</p>
+    </div>
+
+		<div class="likert likertUniform" measure="myerEtAl"></div>
+    <div class="likert likertUniform" measure="jianEtAl"></div>
+    <div class="likert likertUniform" measure="heerinkEtAl"></div>
+    <div class="likert likertUniform" measure="cameron"></div>
+    <div class="likert likertUniform" measure="malle"></div>
+    <div class="likert likertVariable" measure="ghazali"></div>
+
+    <div class="well">
+      <p>Please rate the following items about the robot as if you've just participated in the interaction described.<span id="na_extra_percent"></span></p>
+    </div>
+
+    <div class="likert percent" measure="schaefer1"></div>
+    <div class="likert percent" measure="schaefer2"></div>
+		<br>
+		<br>
+    <button type="button" id="next" value="next" class="btn btn-primary btn-lg continue">Next<span class="glyphicon glyphicon-arrow-right"></span></button>
+	</div>
+</div>

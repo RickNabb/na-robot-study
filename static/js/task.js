@@ -36,6 +36,11 @@ const vignettePages = [
 	'vignette4.html',
 ];
 
+const vignette1Followup = [ 'malle_Q7', 'jianEtAl_Q4', 'heerinkEtAl_Q1', 'jianEtAl_Q12' ];
+const vignette2Followup = [ 'ghazali_Q3', 'malle_Q1', 'schaefer2_Q4', 'schaefer2_Q8' ];
+const vignette3Followup = [ 'malle_Q8', 'schaefer1_Q4', 'malle_Q3', 'cameron_Q2' ];
+const vignette4Followup = [ 'malle_Q10', 'schaefer1_Q2', 'jianEtAl_Q7', 'schaefer2_Q3' ];
+
 /**
  * An object to keep track of specific responses per vignette.
  * Structure: { 'vignette': [responses] }
@@ -45,6 +50,8 @@ const followupResponses = {};
 // The actual order of stages
 var experimentPages = [
 	'vignette1.html',
+	'vignette1-followup.html',
+	'vignette2.html',
 	'demographics.html',
 	'postquestionnaire.html'
 ];
@@ -139,9 +146,48 @@ var Experiment = function() {
 		createVideos();
 		createTextInsertAreas();
 
-		// N/A study-specific thing
+		// N/A study-specific things
+
+		// Add N/A options for the experimental condition
 		if (surveyConditionName === 'na') {
 			naConditionModifications();
+		}
+		// On follow-up pages, remove all unrelevant measures, and fill & disable relevant ones
+		if (currentPage.indexOf('followup') > -1) {
+			const measures = Object.keys(MEASURES);
+			let toKeep;
+			switch (currentPage) {
+				case 'vignette1-followup.html':
+					toKeep = vignette1Followup;
+					break;
+				case 'vignette2-followup.html':
+					toKeep = vignette2Followup;
+					break;
+				case 'vignette3-followup.html':
+					toKeep = vignette3Followup;
+					break;
+				case 'vignette4-followup.html':
+					toKeep = vignette4Followup;
+					break;
+			}
+			measures.map(measure => {
+				MEASURES[measure].items.map((item, i) => {
+					const measureItemName = `${measure}_Q${i+1}`;
+					if (toKeep.indexOf(measureItemName) === -1) {
+						$(`#${measureItemName}`).next().remove();
+						$(`#${measureItemName}`).remove();
+						// TODO:
+						// - Get vignette page name out of current page & get stored answers
+						// - Select stored answers
+						// - Freeze all answers
+						// - Make sure these are NOT submitted
+						// - Create text boxes for long-answer responses
+						//   - Create generic ones per-measure
+						//   - Populate accordingly
+						// - Fix progress indicator
+					}
+				});
+			});
 		}
 
 		// Count elems initially loaded on this page
@@ -184,16 +230,16 @@ var Experiment = function() {
 
 		switch(currentPage) {
 			case 'vignette1.html':
-				ids = [ 'malle_Q7', 'jianEtAl_Q4', 'heerinkEtAl_Q1', 'jianEtAl_Q12' ];
+				ids = vignette1Followup;
 				break;
 			case 'vignette2.html':
-				ids = [ 'ghazali_Q3', 'malle_Q1', 'schaefer2_Q4', 'schaefer2_Q8' ];
+				ids = vignette2Followup;
 				break;
 			case 'vignette3.html':
-				ids = [ 'malle_Q8', 'schaefer1_Q4', 'malle_Q3', 'cameron_Q2' ];
+				ids = vignette3Followup;
 				break;
 			case 'vignette4.html':
-				ids = [ 'malle_Q10', 'schaefer1_Q2', 'jianEtAl_Q7', 'schaefer2_Q3' ];
+				ids = vignette4Followup;
 				break;
 			default:
 		}
@@ -220,7 +266,7 @@ var Experiment = function() {
 				return accum;
 			};
 			const radioAreas = data.items.map((item, j) => (
-					`<div class="container radioArea" id='${measure}_${j+1}'>
+					`<div class="container radioArea" id='${measure}_Q${j+1}'>
 						<div class="row">
 							<p class="question">${item}</p>
 						</div>
@@ -254,7 +300,7 @@ var Experiment = function() {
 				return accum;
 			};
 			const radioAreas = data.items.map((item, j) => (
-					`<div class="container radioArea" id='${measure}_${j+1}'>
+					`<div class="container radioArea" id='${measure}_Q${j+1}'>
 						<div class="row">
 							<p class="question">${data.question}</p>
 						</div>
@@ -288,7 +334,7 @@ var Experiment = function() {
 				return accum;
 			};
 			const radioAreas = data.items.map((item, j) => (
-					`<div class="container radioArea" id='${measure}_${j+1}'>
+					`<div class="container radioArea" id='${measure}_Q${j+1}'>
 						<div class="row">
 							<p class="question">${item}</p>
 						</div>
