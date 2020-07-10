@@ -253,15 +253,15 @@ if __name__ == "__main__":
 else:
     global df, ps4p, pe2j, aste, dbt
     df = read_data_file()
-    dbt = by_trial(df)
+#    dbt = by_trial(df)
 
     print('Read data into var `data_parser.df`; by trial into `data_parser.dbt`')
     """
     USEFUL ALIASES
     """
-    ps4p = puzzle_stages_for_participant
-    pe2j = participant_events_to_json
-    aste = add_stage_tsn_events
+#    ps4p = puzzle_stages_for_participant
+#    pe2j = participant_events_to_json
+#    aste = add_stage_tsn_events
 
     print('Some useful aliases:\n')
     print('ps4p - Puzzles Stages for Participant <df - data frame to get data from; par_index - index of the participant to fetch>')
