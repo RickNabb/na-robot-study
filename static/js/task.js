@@ -36,6 +36,12 @@ const vignettePages = [
 	'vignette4.html',
 ];
 
+/**
+ * An object to keep track of specific responses per vignette.
+ * Structure: { 'vignette': [responses] }
+ */
+const followupResponses = {};
+
 // The actual order of stages
 var experimentPages = [
 	'vignette1.html',
@@ -134,7 +140,9 @@ var Experiment = function() {
 		createTextInsertAreas();
 
 		// N/A study-specific thing
-		naConditionModifications();
+		if (surveyConditionName === 'na') {
+			naConditionModifications();
+		}
 
 		// Count elems initially loaded on this page
 		// So that client doesn't change amount sent to server
@@ -148,28 +156,49 @@ var Experiment = function() {
 		});
 	}
 
-/**
- * N/A Study Specific Functions
- */
-const naConditionModifications = () => {
-	Object.keys(MEASURES).map(measure => {
-		MEASURES[measure].items.map((item, i) => {
-			const radioArea = $(`#${measure}_${i+1}`);
-			const choices = radioArea.find('div.choices');
-			if (MEASURES[measure].type === MEASURE_TYPES.PERCENT) {
-				choices.append('<br/><br/>');
-			}
-			choices.append(`<div class="col-xs-1"><input type="radio" name="${measure}_Q${i+1}" value="na" /><span>N/A</span></div>
-			<div class="col-xs-3"><input type="radio" name="${measure}_Q${i+1}" value="na-robot" /><span>N/A for Robots in General</span></div>`);
+	/**
+ 	* N/A Study Specific Functions
+ 	*/
+	const naConditionModifications = () => {
+		Object.keys(MEASURES).map(measure => {
+			MEASURES[measure].items.map((item, i) => {
+				const radioArea = $(`#${measure}_${i+1}`);
+				const choices = radioArea.find('div.choices');
+				if (MEASURES[measure].type === MEASURE_TYPES.PERCENT) {
+					choices.append('<br/><br/>');
+				}
+				choices.append(`<div class="col-xs-1"><input type="radio" name="${measure}_Q${i+1}" value="na" /><span>N/A</span></div>
+				<div class="col-xs-3"><input type="radio" name="${measure}_Q${i+1}" value="na-robot" /><span>N/A for Robots in General</span></div>`);
+			})
 		})
-	})
 
-	// Fill in N/A-specific content
-	if (vignettePages.indexOf(currentPage) > -1 && surveyConditionName === 'na') {
-		$('#na_extra_likert').append('If you feel that the statement or descriptor in the question does not apply to the robot in this scenario, or does not apply to robots in general, use the appropriate NA option.')
-		$('#na_extra_percent').append('If you feel that descriptor does not apply to the robot in this scenario, or does not apply to robots in general, use the appropriate NA option.')
+		// Fill in N/A-specific content
+		if (vignettePages.indexOf(currentPage) > -1 && surveyConditionName === 'na') {
+			$('#na_extra_likert').append('If you feel that the statement or descriptor in the question does not apply to the robot in this scenario, or does not apply to robots in general, use the appropriate NA option.')
+			$('#na_extra_percent').append('If you feel that descriptor does not apply to the robot in this scenario, or does not apply to robots in general, use the appropriate NA option.')
+		}
 	}
-}
+
+	const storeResponsesLocally = (currentPage, responses) => {
+		let ids;
+
+		switch(currentPage) {
+			case 'vignette1.html':
+				ids = [ 'malle_Q7', 'jianEtAl_Q4', 'heerinkEtAl_Q1', 'jianEtAl_Q12' ];
+				break;
+			case 'vignette2.html':
+				ids = [ 'ghazali_Q3', 'malle_Q1', 'schaefer2_Q4', 'schaefer2_Q8' ];
+				break;
+			case 'vignette3.html':
+				ids = [ 'malle_Q8', 'schaefer1_Q4', 'malle_Q3', 'cameron_Q2' ];
+				break;
+			case 'vignette4.html':
+				ids = [ 'malle_Q10', 'schaefer1_Q2', 'jianEtAl_Q7', 'schaefer2_Q3' ];
+				break;
+			default:
+		}
+		followupResponses[currentPage] = ids.map(id => ({ id, val: responses.find(res => res.id === id ) }));
+	}
 
 /**************************
  *      CREATE AREAS      *
@@ -494,6 +523,11 @@ const naConditionModifications = () => {
 			var r3 = collectCheckboxInputs(checkboxNum);
 			var response = r1.concat(r2).concat(r3);
 
+			// N/A specific code
+			if (vignettePages.indexOf(currentPage) > -1) {
+				storeResponsesLocally(currentPage, r1);
+			}
+
 			// Skip next page?
 			var radios = $(RADIO_CLASSNAME).find(":checked");
 			radios = radios.filter(function() {
@@ -502,16 +536,6 @@ const naConditionModifications = () => {
 			if (radios != undefined && radios.length > 0) {
 				experimentPages.shift();
 			}
-
-
-			// if (response.length > 0) {
-			// 	console.log({
-			// 		"phase": "TEST",
-			// 		"stage": currentPage,
-			// 		"response": response
-			// 	});
-			// }
-
 
 			// If there's something to record, record it
 			if (response.length > 0) {
