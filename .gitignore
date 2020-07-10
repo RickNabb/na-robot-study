@@ -1,4 +1,6 @@
 server.log
-custom.pyc
+*.pyc
 event-logs/
+participants.db
+
 
