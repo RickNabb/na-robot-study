@@ -171,20 +171,35 @@ var Experiment = function() {
 					break;
 			}
 			measures.map(measure => {
+				const responses = followupResponses[currentPage.replace('-followup', '')];
 				MEASURES[measure].items.map((item, i) => {
 					const measureItemName = `${measure}_Q${i+1}`;
+					const measureItem = $(`#${measureItemName}`);
 					if (toKeep.indexOf(measureItemName) === -1) {
-						$(`#${measureItemName}`).next().remove();
-						$(`#${measureItemName}`).remove();
-						// TODO:
-						// - Get vignette page name out of current page & get stored answers
-						// - Select stored answers
-						// - Freeze all answers
-						// - Make sure these are NOT submitted
-						// - Create text boxes for long-answer responses
-						//   - Create generic ones per-measure
-						//   - Populate accordingly
-						// - Fix progress indicator
+						measureItem.next().remove();
+						measureItem.remove();
+					} else {
+						// Wrap it in a well
+						measureItem.wrap(`<div class="well"></div>`);
+
+						// Check off the answer the participant gave and disable the control
+						const val = responses[measureItemName];
+						measureItem.find('.choices').find(`input:radio[value='${val}']`).attr('checked', true);
+						measureItem.find('.choices').find(`input:radio`).attr('disabled', true);
+
+						// Create follow-up questions
+						const data = {
+							min: 1, minLabel: 'Very Unsure',
+							max: 7, maxLabel: 'Very Sure',
+							items: [ 'How sure are you of your answer?' ]
+						};
+						const likert = createLikertUniformRadioArea(data, `${measureItemName}_surety`)[0];
+						measureItem.parent().after(likert);
+
+						measureItem.parent().after(`<div class='textboxArea container'>
+						  <div class="row"><p>How difficult was it to rate this item?</p></div>
+						  <div class="row"><textarea class="col-xs-10" name='${measureItemName}_difficult' /></div>
+						`);
 					}
 				});
 			});
@@ -208,7 +223,7 @@ var Experiment = function() {
 	const naConditionModifications = () => {
 		Object.keys(MEASURES).map(measure => {
 			MEASURES[measure].items.map((item, i) => {
-				const radioArea = $(`#${measure}_${i+1}`);
+				const radioArea = $(`#${measure}_Q${i+1}`);
 				const choices = radioArea.find('div.choices');
 				if (MEASURES[measure].type === MEASURE_TYPES.PERCENT) {
 					choices.append('<br/><br/>');
@@ -246,6 +261,31 @@ var Experiment = function() {
 		followupResponses[currentPage] = ids.map(id => ({ id, val: responses.find(res => res.id === id ) }));
 	}
 
+	// TODO: Maybe change this name...
+	const createLikertUniformRadioArea = (data, idPrefix) => {
+		const likertChoices = i => {
+			let accum = '';
+			for (let j = data.min; j <= data.max; j++) {
+				accum = accum.concat(`<div class="col-xs-1"><input type='radio' name='${idPrefix}_Q${i}' value='${j}' /><span>${j}</span></div>`);
+			}
+			return accum;
+		};
+		const radioAreas = data.items.map((item, j) => (
+				`<div class="container radioArea" id='${idPrefix}_Q${j+1}'>
+					<div class="row">
+						<p class="question">${item}</p>
+					</div>
+					<div class="row">
+					<div class="choices">${likertChoices(j+1)}</div>
+					</div>
+					<div class="row labels">
+						<label class="col-xs-1">${data.minLabel}</label>
+						<label class="col-xs-1 col-xs-offset-5">${data.maxLabel}</label>
+					</div>
+				</div>`));
+		return radioAreas;
+	}
+
 /**************************
  *      CREATE AREAS      *
  **************************/
@@ -258,27 +298,8 @@ var Experiment = function() {
 			}
 
 			const data = MEASURES[measure];
-			const likertChoices = i => {
-				let accum = '';
-				for (let j = data.min; j <= data.max; j++) {
-					accum = accum.concat(`<div class="col-xs-1"><input type='radio' name='${measure}_Q${i}' value='${j}' /><span>${j}</span></div>`);
-				}
-				return accum;
-			};
-			const radioAreas = data.items.map((item, j) => (
-					`<div class="container radioArea" id='${measure}_Q${j+1}'>
-						<div class="row">
-							<p class="question">${item}</p>
-						</div>
-						<div class="row">
-						 <div class="choices">${likertChoices(j+1)}</div>
-						</div>
-         		<div class="row labels">
-           		<label class="col-xs-1">${data.minLabel}</label>
-           		<label class="col-xs-1 col-xs-offset-5">${data.maxLabel}</label>
-         		</div>
-					</div>`));
-			radioAreas.map(area => {
+			const likertAreas = createLikertUniformRadioArea(data, measure);
+			likertAreas.map(area => {
 				$(el).append(area)
 				$(el).append('<hr/>');
 			});
@@ -449,7 +470,7 @@ var Experiment = function() {
 		// Creates array of values from each radio group
 		return radioAreas.map(function() {
 			// Checked box(es) in the radio group
-			var checkedboxes = $(this).find("input:checked");
+			var checkedboxes = $(this).find("input:checked:not([disabled])");
 
 			// Creates array of values of checked box(es)
 			var result = checkedboxes.map(function() {
