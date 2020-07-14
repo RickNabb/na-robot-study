@@ -20,6 +20,10 @@
   height: 300px;
   display: block;
 }
+#header-small-space {
+  height: 150px;
+  display: block;
+}
 
 /* UNIFORM LIKERT SCALES */
 div.likert > div.container {
