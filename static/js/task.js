@@ -29,6 +29,11 @@ var instructionPages = [
 	"instructions/procedure2.html",
 ];
 
+
+///////////////////////////
+// N/A STUDY SPECIFIC STUFF
+///////////////////////////
+
 const vignettePages = [
 	'vignette1.html',
 	'vignette2.html',
@@ -71,6 +76,36 @@ const toggleHeader = () => {
 		toggle.removeClass('glyphicon-chevron-down');
 		toggle.addClass('glyphicon-chevron-up');
 	}
+}
+
+const fillAnswers = () => {
+	console.log('filling answers')
+	$(RADIO_CLASSNAME).each((i, radioArea) => {
+		const type = $(radioArea).parent()[0].className.replace('likert ', '');
+		console.log(type)
+		const naAnswers = [ 'na', 'na-robot' ];
+		const likertAnswers = [ '1', '2', '3', '4', '5', '6', '7' ];
+		const percentAnswers = [ 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 ];
+		let pool = [];
+
+		switch (type) {
+			case 'percent':
+				pool = percentAnswers;
+				break;
+			case 'likertUniform':
+			case 'likertVariable':
+				pool = likertAnswers;
+				break;
+			default:
+		}
+
+		if (surveyConditionName === 'na') {
+			pool = pool.concat(naAnswers);
+		}
+
+		const randAnswer = pool[Math.floor(Math.random() * pool.length)];
+		$(radioArea).find('.choices').find(`input:radio[value='${randAnswer}']`).attr('checked', true);
+	})
 }
 
 /* ------------------------------------------- *
