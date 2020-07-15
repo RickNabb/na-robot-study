@@ -29,7 +29,6 @@ var instructionPages = [
 	"instructions/procedure2.html",
 ];
 
-
 ///////////////////////////
 // N/A STUDY SPECIFIC STUFF
 ///////////////////////////
@@ -57,6 +56,11 @@ var experimentPages = [
 	'vignette1.html',
 	'vignette1-followup.html',
 	'vignette2.html',
+	'vignette2-followup.html',
+	'vignette3.html',
+	'vignette3-followup.html',
+	'vignette4.html',
+	'vignette4-followup.html',
 	'demographics.html',
 	'postquestionnaire.html'
 ];
@@ -79,13 +83,11 @@ const toggleHeader = () => {
 }
 
 const fillAnswers = () => {
-	console.log('filling answers')
+	const naAnswers = [ 'na', 'na-robot' ];
+	const likertAnswers = [ '1', '2', '3', '4', '5', '6', '7' ];
+	const percentAnswers = [ 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 ];
 	$(RADIO_CLASSNAME).each((i, radioArea) => {
 		const type = $(radioArea).parent()[0].className.replace('likert ', '');
-		console.log(type)
-		const naAnswers = [ 'na', 'na-robot' ];
-		const likertAnswers = [ '1', '2', '3', '4', '5', '6', '7' ];
-		const percentAnswers = [ 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 ];
 		let pool = [];
 
 		switch (type) {
@@ -106,6 +108,28 @@ const fillAnswers = () => {
 		const randAnswer = pool[Math.floor(Math.random() * pool.length)];
 		$(radioArea).find('.choices').find(`input:radio[value='${randAnswer}']`).attr('checked', true);
 	})
+}
+
+const fillFollowupAnswers = () => {
+	const likertAnswers = [ '1', '2', '3', '4', '5', '6', '7' ];
+	$(RADIO_CLASSNAME).each((i, radioArea) => {
+		const randAnswer = likertAnswers[Math.floor(Math.random() * likertAnswers.length)];
+		$(radioArea).find('.choices').find(`input:radio[value='${randAnswer}']:not([disabled])`).attr('checked', true);
+	});
+
+	const responseAnswers = [
+		'This was really hard because robots are confusing to me. How could a robot be this way?',
+		`I'm having a hard day today so it was difficult for me to focus`,
+		`Idk - it was just hard`,
+		`It wasn't hard at all - I just felt it come to me`,
+		`Just tryna get through this as quick as possible`,
+		`Did you not know that robots are honorable?`,
+		`I dont want to explain`
+	];
+	$(TEXTBOX_CLASSNAME).each((i, textArea) => {
+		const randAnswer = responseAnswers[Math.floor(Math.random() * responseAnswers.length)];
+		$(textArea).find('textarea').val(randAnswer);
+	});
 }
 
 /* ------------------------------------------- *
