@@ -51,6 +51,9 @@ const vignette4Followup = [ 'malle_Q10', 'schaefer1_Q2', 'jianEtAl_Q7', 'schaefe
  */
 const followupResponses = {};
 
+let naResponses = {};
+const naResponseLength = () => Object.values(naResponses).reduce((len, responses) => len + responses.length, 0);
+
 // The actual order of stages
 var experimentPages = [
 	'vignette1.html',
@@ -61,6 +64,7 @@ var experimentPages = [
 	'vignette3-followup.html',
 	'vignette4.html',
 	'vignette4-followup.html',
+	'na-followup.html',
 	'demographics.html',
 	'postquestionnaire.html'
 ];
@@ -207,12 +211,113 @@ var Experiment = function() {
 
 		// N/A study-specific things
 
+		const removeMeasureItem = measureItemName => {
+			const measureItem = $(`#${measureItemName}`);
+			measureItem.next().remove();
+			measureItem.remove();
+		}
+
+		const deactivateAndSelectMeasureItem = (measureItemName, val) => {
+			const measureItem = $(`#${measureItemName}`);
+			// Wrap it in a well
+			measureItem.addClass(`well`);
+
+			// Check off the answer the participant gave and disable the control
+			measureItem.find('.choices').find(`input:radio[value='${val}']`).attr('checked', true);
+			measureItem.find('.choices').find(`input:radio`).attr('disabled', true);
+		}
+
+		const addFollowupQuestions = measureItemName => {
+			const measureItem = $(`#${measureItemName}`);
+			// Create follow-up questions
+			const data = {
+				min: 1, minLabel: 'Very Unsure',
+				max: 7, maxLabel: 'Very Sure',
+				items: [ 'How sure are you of your answer?' ]
+			};
+			const likert = createLikertUniformRadioArea(data, `${measureItemName}_surety`)[0];
+			measureItem.after(likert);
+
+			// TODO: make this a likert
+			measureItem.after(`<div class='textboxArea container'>
+				<div class="row"><p>How difficult was it to rate this item?</p></div>
+				<div class="row"><textarea class="col-xs-10" name='${measureItemName}_difficult' /></div>
+			`);
+		}
+
+		const addNaFollowupQuestions = (measureItemName, vignette) => {
+			const measureItem = $(`#${measureItemName}`);
+			console.log(naResponses, measureItem, vignette);
+			// Create follow-up questions
+			measureItem.after(`<div class='textboxArea container'>
+				<div class="row"><p>If you chose 'Other,' please explain here:</p></div>
+				<div class="row"><textarea class="col-xs-10" name='${measureItemName}_na_other' /></div>
+			`);
+			measureItem.after(`<div class='radioArea container'>
+				<div class="row"><p>You chose N/A to rate the above item for <bold>${naResponses}. Why?</p></div>
+				<div class="row"><input type="radio" name="${measureItemName}_na" value="not-enough-info" /><span>I don't have enough info about the robot from the scenario.</span></div>
+				<div class="row"><input type="radio" name="${measureItemName}_na" value="capabilities-narrow" /><span>The robot's capabilities are too narrow for this item.</span></div>
+				<div class="row"><input type="radio" name="${measureItemName}_na" value="not-appropriate" /><span>It's not appropriate to apply this human trait or behavior to a robot.</span></div>
+				<div class="row"><input type="radio" name="${measureItemName}_na" value="opposite" /><span>Because the opposite is true about this robot.</span></div>
+				<div class="row"><input type="radio" name="${measureItemName}_na" value="other" /><span>Other (explained below)</span></div>
+			</div>`);
+		}
+
+		const collectNaResponses = () => {
+			let responseQuestions = [];
+			// Ensure we only ask about 5 or fewer responses
+			if (naResponseLength() > 5) {
+				const shorterNaResponses = {};
+				while (responseQuestions.length < 5) {
+					const pages = Object.keys(naResponses);
+					const randPage = pages[Math.floor(Math.random() * pages.length)];
+					const questions = naResponses[randPage];
+					const randQuestion = questions[Math.floor(Math.random() * questions.length)];
+					randQuestion.vignette = randPage;
+					responseQuestions.push(randQuestion);
+
+					// Collect a shorter version of the na responses that preserves
+					// which vignette the answers came from.
+					if (shorterNaResponses[randPage] === undefined) {
+						shorterNaResponses[randPage] = []
+					}
+					shorterNaResponses[randPage].push(randQuestion);
+				}
+				naResponses = shorterNaResponses;
+			} else {
+				responseQuestions = Object.keys(naResponses).reduce((questions, page) => {
+					const res = naResponses[page];
+					res.vignette = page;
+					questions = questions.concat(res);
+					return questions;
+				});
+			}
+			return responseQuestions;
+		}
+
 		// Add N/A options for the experimental condition
 		if (surveyConditionName === 'na') {
 			naConditionModifications();
 		}
+
+		if (currentPage === 'na-followup.html') {
+			const responseQuestions = collectNaResponses();
+			const toKeep = responseQuestions.map(q => q.id);
+			Object.keys(MEASURES).map(measure => {
+				MEASURES[measure].items.map((item, i) => {
+					const measureItemName = `${measure}_Q${i+1}`;
+					if (toKeep.indexOf(measureItemName) > -1) {
+						const val = naResponses
+						deactivateAndSelectMeasureItem(measureItemName, val);
+						addNaFollowupQuestions(measureItemName, responseQuestions.find(q => q.id === measureItemName).vignette);
+					} else {
+						removeMeasureItem(measureItemName);
+					}
+				});
+			});
+		}
 		// On follow-up pages, remove all unrelevant measures, and fill & disable relevant ones
-		if (currentPage.indexOf('followup') > -1) {
+		else if (currentPage.indexOf('followup') > -1) {
 			const measures = Object.keys(MEASURES);
 			let toKeep;
 			switch (currentPage) {
@@ -229,36 +334,21 @@ var Experiment = function() {
 					toKeep = vignette4Followup;
 					break;
 			}
+
+			// TODO:
+			/*
+			* - Make the na-followup page display the vignettes appropriately
+			*/
 			measures.map(measure => {
-				const responses = followupResponses[currentPage.replace('-followup', '')];
 				MEASURES[measure].items.map((item, i) => {
 					const measureItemName = `${measure}_Q${i+1}`;
-					const measureItem = $(`#${measureItemName}`);
-					if (toKeep.indexOf(measureItemName) === -1) {
-						measureItem.next().remove();
-						measureItem.remove();
-					} else {
-						// Wrap it in a well
-						measureItem.addClass(`well`);
-
-						// Check off the answer the participant gave and disable the control
+					if (toKeep.indexOf(measureItemName) > -1) {
+						const responses = followupResponses[currentPage.replace('-followup', '')];
 						const val = responses[measureItemName];
-						measureItem.find('.choices').find(`input:radio[value='${val}']`).attr('checked', true);
-						measureItem.find('.choices').find(`input:radio`).attr('disabled', true);
-
-						// Create follow-up questions
-						const data = {
-							min: 1, minLabel: 'Very Unsure',
-							max: 7, maxLabel: 'Very Sure',
-							items: [ 'How sure are you of your answer?' ]
-						};
-						const likert = createLikertUniformRadioArea(data, `${measureItemName}_surety`)[0];
-						measureItem.after(likert);
-
-						measureItem.after(`<div class='textboxArea container'>
-						  <div class="row"><p>How difficult was it to rate this item?</p></div>
-						  <div class="row"><textarea class="col-xs-10" name='${measureItemName}_difficult' /></div>
-						`);
+						deactivateAndSelectMeasureItem(measureItemName, val);
+						addFollowupQuestions(measureItemName);
+					} else {
+						removeMeasureItem(measureItemName);
 					}
 				});
 			});
@@ -321,6 +411,7 @@ var Experiment = function() {
 			const response = responses.find(res => res.id === id);
 			return !!response ? Object.assign(accum, { [response.id]: response.val }) : accum;
 		}, {});
+		naResponses[currentPage] = responses.filter(res => ['na', 'na-robot'].indexOf(res.val) > -1 );
 	}
 
 	// TODO: Maybe change this name...
@@ -655,6 +746,12 @@ var Experiment = function() {
 			// N/A specific code
 			if (vignettePages.indexOf(currentPage) > -1) {
 				storeResponsesLocally(currentPage, r1);
+			}
+			// Skip the na-followup page if it's the control condition or
+			// if its the N/A condition with no N/A responses
+			else if ((currentPage === 'vignette4-followup.html' && surveyConditionName === 'control')
+				|| naResponseLength() === 0) {
+				experimentPages.shift();
 			}
 
 			// Skip next page?
