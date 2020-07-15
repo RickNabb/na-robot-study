@@ -180,7 +180,7 @@ var Experiment = function() {
 						measureItem.remove();
 					} else {
 						// Wrap it in a well
-						measureItem.wrap(`<div class="well"></div>`);
+						measureItem.addClass(`well`);
 
 						// Check off the answer the participant gave and disable the control
 						const val = responses[measureItemName];
@@ -194,9 +194,9 @@ var Experiment = function() {
 							items: [ 'How sure are you of your answer?' ]
 						};
 						const likert = createLikertUniformRadioArea(data, `${measureItemName}_surety`)[0];
-						measureItem.parent().after(likert);
+						measureItem.after(likert);
 
-						measureItem.parent().after(`<div class='textboxArea container'>
+						measureItem.after(`<div class='textboxArea container'>
 						  <div class="row"><p>How difficult was it to rate this item?</p></div>
 						  <div class="row"><textarea class="col-xs-10" name='${measureItemName}_difficult' /></div>
 						`);
@@ -258,7 +258,10 @@ var Experiment = function() {
 				break;
 			default:
 		}
-		followupResponses[currentPage] = ids.map(id => ({ id, val: responses.find(res => res.id === id ) }));
+		followupResponses[currentPage] = ids.reduce((accum, id) => {
+			const response = responses.find(res => res.id === id);
+			return !!response ? Object.assign(accum, { [response.id]: response.val }) : accum;
+		}, {});
 	}
 
 	// TODO: Maybe change this name...
