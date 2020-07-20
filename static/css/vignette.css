@@ -7,10 +7,16 @@
   width: 100%;
   z-index: 10;
 }
-#story-header.contracted > p:last-of-type {
+#story-header.contracted > p#recap {
   display: none;
 }
-#story-header.expanded > p:last-of-type {
+#story-header.contracted > .tab-content,#story-header.contracted > #vignette-tabs {
+  display: none;
+}
+#story-header.expanded > p#recap {
+  display: block;
+}
+#story-header.expanded > .tab-content,#story-header.expanded > #vignette-tabs {
   display: block;
 }
 #story-header > button {

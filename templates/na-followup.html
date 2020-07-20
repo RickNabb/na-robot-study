@@ -10,7 +10,23 @@
           95%
         </div>
       </div>
-      <p>The following are answers that you've given to the previous set of questions.</p>
+      <p>The following are answers that you've given to the previous set of questions. The scenarios are repeated here for reference.</p>
+
+      <ul id="vignette-tabs" class="nav nav-pills" role="tablist">
+        <li role="presentation" class="active"><a href="#v1" aria-controls="v1" role="tab" data-toggle="pill">Scenario 1</a></li>
+        <li role="presentation"><a href="#v2" aria-controls="v2" role="tab" data-toggle="pill">Scenario 2</a></li>
+        <li role="presentation"><a href="#v3" aria-controls="v3" role="tab" data-toggle="pill">Scenario 3</a></li>
+        <li role="presentation"><a href="#v4" aria-controls="v4" role="tab" data-toggle="pill">Scenario 4</a></li>
+      </ul>
+
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="v1"><p><em>You are in college and you are returning to your dorm. The building has a secure-access door and you need to swipe your card to get in. As you approach the door, you notice this robot (insert picture above vignette) in front of the door. The robot is carrying a package and has the label Robot Grub on it. The robot says to you: “Hello! Would you let me in? I am making a delivery.” You ignore the robot and continue walking towards the door. The robot continues: “Please!”. You stop and make a decision whether to let the robot in or not.</em></p></div>
+        <div role="tabpanel" class="tab-pane" id="v2"><p><em>You are working on a joint task with a robot when you make a big mistake. You are about to meet with your supervisor. The supervisor says: “I was told you overrode the robot’s input and submitted the wrong coordinates to the team. You know that information is critical. I don’t want to hear about this happening again. Next time you better be 100% sure before submitting.” You: Okay. The supervisor leaves the room. You turn to the robot and say: “I messed up. I don’t know what to do.” The robot responds: “We’ve been doing so well until now. This is the first mistake we made. What do you think went wrong? We can try to do things differently next time.” You reply: We were receiving so many requests, but I thought I was handling it. And when I saw our different coordinates, I just panicked and submitted without thinking. The robot says: “Look here, next time you begin to feel overwhelmed, just let me know and I can try to help out. We are great teammates and I know that we’ll impress the supervisor!”</em></p></div>
+        <div role="tabpanel" class="tab-pane" id="v3"><p><em>You are about to play a computer game, The Space Shooting Game, with this robot (picture of Nao). In the game you and the robot compete with one another for points by shooting asteroids. Each player has a spaceship that shoots missiles at randomly appearing asteroids. In addition to shooting, you have two powers in the game: you can use The Asteroid Blaster, which blasts all the asteroids on the screen or the Opponent Immobilizer which is a power that immobilizes your opponent (the robot) and makes their spaceship unable to move for the next 15 seconds. Before you start the game the robot says to you: “I’m really good at this game. I am sure you will be too! I know we both want to do well, so it’s in our best interests to not immobilize each other. I promise I won’t immobilize you. Then you start playing. During the game the robot uses the Opponent Immobilizer. After it does that, the robot says: “I’m so sorry I immobilized you. I pushed the wrong button. It’s my fault. It won’t happen again.</em></p></div>
+        <div role="tabpanel" class="tab-pane" id="v4"><p><em>You are in an office building looking for a meeting room. You ask an assistance robot where you should go, and it guides you down a hall. While navigating to its destination, the robot enters an unrelated room and performs two circles before exiting and providing you guidance to your destination. When you come out of the meeting room, the fire alarm begins to blare and you observe smoke filling the office space in front of you. The robot beckons for you to follow it to safety, and begins to move. However, you see a glowing exit sign pointing in a direction opposite to the robot’s path.</em></p></div>
+      </div>
+
+      <button class="btn btn-link" onclick="toggleHeader()"><span id="header-toggle" class="glyphicon glyphicon-chevron-up"></span></button>
       <button class="pull-left btn btn-success" onclick="fillFollowupAnswers()"><span class="glyphicon glyphicon-flash"></span></button>
     </div>
 

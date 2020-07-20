@@ -348,6 +348,12 @@ var Experiment = function() {
 					addNaFollowupQuestions(vignetteMeasureId, vignette);
 				});
 			});
+
+			// Activate vignette tabs
+			$('#vignette-tabs a').click(function (e) {
+			  e.preventDefault()
+  			$(this).tab('show')
+			})
 		}
 		// On follow-up pages, remove all unrelevant measures, and fill & disable relevant ones
 		else if (currentPage.indexOf('followup') > -1) {
