@@ -30,7 +30,6 @@ const likertVariable = (min, max, question, items) => ({
   items
 });
 
-// TODO: Add attention checks
 const MEASURES = {
   myerEtAl: likertUniform(1, 7, 
     'Strongly Disagree',
@@ -38,6 +37,7 @@ const MEASURES = {
     'Strongly Agree',
     [ 'If I had it my way, I would NOT let the robot have any influence over issues that are important to the task.',
     'I would be comfortable giving the robot complete responsibility for the task.',
+    'I think that on a sunny day the sky is typically blue.',
     'I really wish I had a good way to monitor the decisions of the robot.',
     'I would be comfortable allowing the robot to implement its decisions, even if I could not monitor it.',
   ]),
@@ -54,9 +54,10 @@ const MEASURES = {
     `The robot provides security.`,
     `The robot has integrity.`,
     `The robot is dependable.`,
+    `The robot is a machine.`,
     `The robot is reliable.`,
     `I can trust the robot.`,
-    `I am familiar with the robot.`
+    `I am familiar with the robot.`,
   ]),
   heerinkEtAl: likertUniform(1, 7, 
     'Strongly Disagree',
@@ -74,6 +75,7 @@ const MEASURES = {
     `The robot is rigorous.`,
     `The robot is accurate.`,
     `The robot is meticulous.`,
+    `The robot is wearing a hat.`,
     `The robot is honest`,
     `The robot is principled.`,
     `The robot is reputable.`,
@@ -96,6 +98,7 @@ const MEASURES = {
     'Strongly Agree',
     [ `The robot is competent.`,
     `The robot is deceptive.`,
+    `The robot is microscopic.`,
     `The robot is false`,
     `The robot is honorable.`,
     `The robot is incapable.`,
@@ -131,6 +134,7 @@ const MEASURES = {
     { minLabel: 'Dishonest', maxLabel: "Honest"},
     { minLabel: 'Distrustful', maxLabel: "Trustful"},
     { minLabel: 'Inconsiderate', maxLabel: "Considerate"},
+    { minLabel: 'Opaque', maxLabel: "Transparent"},
     { minLabel: 'Divulging', maxLabel: "Confidential"},
     { minLabel: 'Deceitful', maxLabel: "Not deceitful"},
     { minLabel: 'Disrespectful', maxLabel: "Respectful"},

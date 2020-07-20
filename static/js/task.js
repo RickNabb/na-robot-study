@@ -275,7 +275,6 @@ var Experiment = function() {
 					const randPage = pages[Math.floor(Math.random() * pages.length)];
 					const questions = naResponses[randPage];
 					const randQuestion = questions[Math.floor(Math.random() * questions.length)];
-					// randQuestion.vignette = randPage;
 					responseQuestions.push(randQuestion);
 
 					// Collect a shorter version of the na responses that preserves
