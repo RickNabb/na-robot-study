@@ -115,7 +115,7 @@ const fillAnswers = () => {
 }
 
 const fillFollowupAnswers = () => {
-	const likertAnswers = [ '1', '2', '3', '4', '5', '6', '7' ];
+	const likertAnswers = [ '1', '2', '3', '4', '5' ];
 	$(RADIO_CLASSNAME).each((i, radioArea) => {
 		const randAnswer = likertAnswers[Math.floor(Math.random() * likertAnswers.length)];
 		$(radioArea).find('.choices').find(`input:radio[value='${randAnswer}']:not([disabled])`).attr('checked', true);
@@ -230,31 +230,33 @@ var Experiment = function() {
 		const addFollowupQuestions = measureItemName => {
 			const measureItem = $(`#${measureItemName}`);
 			// Create follow-up questions
-			const data = {
-				min: 1, minLabel: 'Very Unsure',
-				max: 7, maxLabel: 'Very Sure',
+			const suretyData = {
+				min: 1, minLabel: 'Not sure at all',
+				max: 5, maxLabel: 'Very Sure',
 				items: [ 'How sure are you of your answer?' ]
 			};
-			const likert = createLikertUniformRadioArea(data, `${measureItemName}_surety`)[0];
-			measureItem.after(likert);
+			const difficultyData = {
+				min: 1, minLabel: 'Not difficult at all',
+				max: 5, maxLabel: 'Very Difficult',
+				items: [ 'How difficult was it to rate this item?' ]
+			};
+			const suretyLikert = createLikertUniformRadioAreas(suretyData, `${measureItemName}_surety`)[0];
+			measureItem.after(suretyLikert);
 
-			// TODO: make this a likert
-			measureItem.after(`<div class='textboxArea container'>
-				<div class="row"><p>How difficult was it to rate this item?</p></div>
-				<div class="row"><textarea class="col-xs-10" name='${measureItemName}_difficult' /></div>
-			`);
+			const difficultyLikert = createLikertUniformRadioAreas(difficultyData, `${measureItemName}_difficulty`)[0];
+			measureItem.after(difficultyLikert);
 		}
 
 		const addNaFollowupQuestions = (measureItemName, vignette) => {
 			const measureItem = $(`#${measureItemName}`);
-			console.log(naResponses, measureItem, vignette);
+			const formatVignette = v => v.replace('.html', '').replace('vignette', 'Scenario ');
 			// Create follow-up questions
 			measureItem.after(`<div class='textboxArea container'>
 				<div class="row"><p>If you chose 'Other,' please explain here:</p></div>
 				<div class="row"><textarea class="col-xs-10" name='${measureItemName}_na_other' /></div>
 			`);
 			measureItem.after(`<div class='radioArea container'>
-				<div class="row"><p>You chose N/A to rate the above item for <bold>${naResponses}. Why?</p></div>
+				<div class="row"><p>You chose N/A to rate the above item for <strong>${formatVignette(vignette)}</strong>. Why?</p></div>
 				<div class="row"><input type="radio" name="${measureItemName}_na" value="not-enough-info" /><span>I don't have enough info about the robot from the scenario.</span></div>
 				<div class="row"><input type="radio" name="${measureItemName}_na" value="capabilities-narrow" /><span>The robot's capabilities are too narrow for this item.</span></div>
 				<div class="row"><input type="radio" name="${measureItemName}_na" value="not-appropriate" /><span>It's not appropriate to apply this human trait or behavior to a robot.</span></div>
@@ -273,7 +275,7 @@ var Experiment = function() {
 					const randPage = pages[Math.floor(Math.random() * pages.length)];
 					const questions = naResponses[randPage];
 					const randQuestion = questions[Math.floor(Math.random() * questions.length)];
-					randQuestion.vignette = randPage;
+					// randQuestion.vignette = randPage;
 					responseQuestions.push(randQuestion);
 
 					// Collect a shorter version of the na responses that preserves
@@ -301,18 +303,49 @@ var Experiment = function() {
 		}
 
 		if (currentPage === 'na-followup.html') {
-			const responseQuestions = collectNaResponses();
-			const toKeep = responseQuestions.map(q => q.id);
-			Object.keys(MEASURES).map(measure => {
-				MEASURES[measure].items.map((item, i) => {
-					const measureItemName = `${measure}_Q${i+1}`;
-					if (toKeep.indexOf(measureItemName) > -1) {
-						const val = naResponses
-						deactivateAndSelectMeasureItem(measureItemName, val);
-						addNaFollowupQuestions(measureItemName, responseQuestions.find(q => q.id === measureItemName).vignette);
-					} else {
-						removeMeasureItem(measureItemName);
+			collectNaResponses();
+			console.log(naResponses);
+			Object.keys(naResponses).map(vignette => {
+				const measures = naResponses[vignette];
+				const vignetteNum = vignette.replace('.html','').replace('vignette','');
+				measures.map(measureObj => {
+					const measureItemName = measureObj.id;
+					const measure = measureItemName.substring(0, measureItemName.indexOf('_'));
+					const measureIndex = Number(measureItemName.substring(measureItemName.indexOf('Q')+1));
+					const vignetteMeasureId = `v${vignetteNum}_${measure}`;
+
+					const data = JSON.parse(JSON.stringify(MEASURES[measure]));
+					data.item = data.items[measureIndex-1];
+
+					let measureEl;
+					switch (data.type) {
+						case MEASURE_TYPES.LIKERT_UNIFORM:
+							measureEl = createLikertUniformRadioArea(data, vignetteMeasureId, measureIndex);
+							$(`#${vignette.replace('.html','')}`).append('<div class="likert likertUniform"></div>');
+							break;
+						case MEASURE_TYPES.LIKERT_VARIABLE:
+							measureEl = createLikertVariableRadioArea(data, vignetteMeasureId, measureIndex);
+							$(`#${vignette.replace('.html','')}`).append('<div class="likert likertVariable"></div>');
+							break;
+						case MEASURE_TYPES.PERCENT:
+							measureEl = createPercentRadioArea(data, vignetteMeasureId, measureIndex);
+							$(`#${vignette.replace('.html','')}`).append('<div class="likert percent"></div>');
+							break;
+						default:
 					}
+					$(`#${vignette.replace('.html','')}`).children().last().append(measureEl);
+					$(`#${vignette.replace('.html','')}`).children().last().append('<hr />');
+					addNaChoices(`v${vignetteNum}_${measureItemName}`, data.type);
+				});
+			});
+
+			Object.keys(naResponses).map(vignette => {
+				const measures = naResponses[vignette];
+				const vignetteNum = vignette.replace('.html','').replace('vignette','');
+				measures.map(measureObj => {
+					const vignetteMeasureId = `v${vignetteNum}_${measureObj.id}`;
+					deactivateAndSelectMeasureItem(vignetteMeasureId, measureObj.val);
+					addNaFollowupQuestions(vignetteMeasureId, vignette);
 				});
 			});
 		}
@@ -334,11 +367,6 @@ var Experiment = function() {
 					toKeep = vignette4Followup;
 					break;
 			}
-
-			// TODO:
-			/*
-			* - Make the na-followup page display the vignettes appropriately
-			*/
 			measures.map(measure => {
 				MEASURES[measure].items.map((item, i) => {
 					const measureItemName = `${measure}_Q${i+1}`;
@@ -368,17 +396,22 @@ var Experiment = function() {
 
 	/**
  	* N/A Study Specific Functions
- 	*/
+	 */
+
+	const addNaChoices = (questionId, type) => {
+		const radioArea = $(`#${questionId}`);
+		const choices = radioArea.find('div.choices');
+		if (type === MEASURE_TYPES.PERCENT) {
+			choices.append('<br/><br/>');
+		}
+		choices.append(`<div class="col-xs-1"><input type="radio" name="${questionId}" value="na" /><span>N/A</span></div>
+		<div class="col-xs-3"><input type="radio" name="${questionId}" value="na-robot" /><span>N/A for Robots in General</span></div>`);
+	}
+
 	const naConditionModifications = () => {
 		Object.keys(MEASURES).map(measure => {
 			MEASURES[measure].items.map((item, i) => {
-				const radioArea = $(`#${measure}_Q${i+1}`);
-				const choices = radioArea.find('div.choices');
-				if (MEASURES[measure].type === MEASURE_TYPES.PERCENT) {
-					choices.append('<br/><br/>');
-				}
-				choices.append(`<div class="col-xs-1"><input type="radio" name="${measure}_Q${i+1}" value="na" /><span>N/A</span></div>
-				<div class="col-xs-3"><input type="radio" name="${measure}_Q${i+1}" value="na-robot" /><span>N/A for Robots in General</span></div>`);
+				addNaChoices(`${measure}_Q${i+1}`, MEASURES[measure].type);
 			})
 		})
 
@@ -414,15 +447,79 @@ var Experiment = function() {
 		naResponses[currentPage] = responses.filter(res => ['na', 'na-robot'].indexOf(res.val) > -1 );
 	}
 
-	// TODO: Maybe change this name...
-	const createLikertUniformRadioArea = (data, idPrefix) => {
-		const likertChoices = i => {
+	const createLikertChoices = (data, idPrefix) => qNum => {
 			let accum = '';
-			for (let j = data.min; j <= data.max; j++) {
-				accum = accum.concat(`<div class="col-xs-1"><input type='radio' name='${idPrefix}_Q${i}' value='${j}' /><span>${j}</span></div>`);
+			const delta = data.delta || 1;
+			for (let j = data.min; j <= data.max; j += delta) {
+				accum = accum.concat(`<div class="col-xs-1"><input type='radio' name='${idPrefix}_Q${qNum}' value='${j}' /><span>${j}</span></div>`);
 			}
 			return accum;
 		};
+
+
+		/**
+		 * THESE ARE CREATED JUST TO BE ABLE TO SPECIFY THE Q NUMBER
+		 */
+
+	const createLikertUniformRadioArea = (data, idPrefix, qNum) => {
+		const likertChoices = createLikertChoices(data, idPrefix);
+		const radioArea = (
+				`<div class="container radioArea" id='${idPrefix}_Q${qNum}'>
+					<div class="row">
+						<p class="question">${data.item}</p>
+					</div>
+					<div class="row">
+					<div class="choices">${likertChoices(qNum)}</div>
+					</div>
+					<div class="row labels">
+						<label class="col-xs-1">${data.minLabel}</label>
+						<label class="col-xs-1 col-xs-offset-${data.max-2}">${data.maxLabel}</label>
+					</div>
+				</div>`);
+		return radioArea;
+	}
+
+	const createLikertVariableRadioArea = (data, idPrefix, qNum) => {
+		const likertChoices = createLikertChoices(data, idPrefix);
+		const radioArea = (
+				`<div class="container radioArea" id='${idPrefix}_Q${qNum}'>
+					<div class="row">
+						<p class="question">${data.question}</p>
+					</div>
+					<div class="row">
+						<div class="choices">${likertChoices(qNum)}</div>
+					</div>
+					<div class="row labels">
+						<label class="col-xs-1">${data.item.minLabel}</label>
+						<label class="col-xs-1 col-xs-offset-5">${data.item.maxLabel}</label>
+					</div>
+				</div>`);
+		return radioArea;
+	}
+
+	const createPercentRadioArea = (data, idPrefix, qNum) => {
+		const percentChoices = i => {
+			let accum = '';
+			for (let j = data.min; j <= data.max; j+=data.delta) {
+				accum = accum.concat(`<div class="percentChoice"><input type='radio' name='${idPrefix}_Q${i}' value='${j}' /><span>${j}%</span></div>`);
+			}
+			return accum;
+		};
+		const radioArea = (
+				`<div class="container radioArea" id='${idPrefix}_Q${qNum}'>
+					<div class="row">
+						<p class="question">${data.item}</p>
+					</div>
+					<div class="row">
+						<div class="choices">${percentChoices(qNum)}</div>
+					</div>
+				</div>`);
+		return radioArea;
+	}
+
+	// TODO: Maybe change this name...
+	const createLikertUniformRadioAreas = (data, idPrefix) => {
+		const likertChoices = createLikertChoices(data, idPrefix);
 		const radioAreas = data.items.map((item, j) => (
 				`<div class="container radioArea" id='${idPrefix}_Q${j+1}'>
 					<div class="row">
@@ -433,7 +530,45 @@ var Experiment = function() {
 					</div>
 					<div class="row labels">
 						<label class="col-xs-1">${data.minLabel}</label>
-						<label class="col-xs-1 col-xs-offset-5">${data.maxLabel}</label>
+						<label class="col-xs-1 col-xs-offset-${data.max-2}">${data.maxLabel}</label>
+					</div>
+				</div>`));
+		return radioAreas;
+	}
+
+	const createLikertVariableRadioAreas = (data, idPrefix) => {
+		const likertChoices = createLikertChoices(data, idPrefix);
+		const radioAreas = data.items.map((item, j) => (
+				`<div class="container radioArea" id='${idPrefix}_Q${j+1}'>
+					<div class="row">
+						<p class="question">${data.question}</p>
+					</div>
+					<div class="row">
+						<div class="choices">${likertChoices(j+1)}</div>
+					</div>
+					<div class="row labels">
+						<label class="col-xs-1">${item.minLabel}</label>
+						<label class="col-xs-1 col-xs-offset-5">${item.maxLabel}</label>
+					</div>
+				</div>`));
+		return radioAreas;
+	}
+
+	const createPercentRadioAreas = (data, idPrefix) => {
+		const percentChoices = i => {
+			let accum = '';
+			for (let j = data.min; j <= data.max; j+=data.delta) {
+				accum = accum.concat(`<div class="percentChoice"><input type='radio' name='${idPrefix}_Q${i}' value='${j}' /><span>${j}%</span></div>`);
+			}
+			return accum;
+		};
+		const radioAreas = data.items.map((item, j) => (
+				`<div class="container radioArea" id='${idPrefix}_Q${j+1}'>
+					<div class="row">
+						<p class="question">${item}</p>
+					</div>
+					<div class="row">
+						<div class="choices">${percentChoices(j+1)}</div>
 					</div>
 				</div>`));
 		return radioAreas;
@@ -451,7 +586,7 @@ var Experiment = function() {
 			}
 
 			const data = MEASURES[measure];
-			const likertAreas = createLikertUniformRadioArea(data, measure);
+			const likertAreas = createLikertUniformRadioAreas(data, measure);
 			likertAreas.map(area => {
 				$(el).append(area)
 				$(el).append('<hr/>');
@@ -466,27 +601,8 @@ var Experiment = function() {
 				return;
 			}
 			const data = MEASURES[measure];
-			const likertChoices = i => {
-				let accum = '';
-				for (let j = data.min; j <= data.max; j++) {
-					accum = accum.concat(`<div class="col-xs-1"><input type='radio' name='${measure}_Q${i}' value='${j}' /><span>${j}</span></div>`);
-				}
-				return accum;
-			};
-			const radioAreas = data.items.map((item, j) => (
-					`<div class="container radioArea" id='${measure}_Q${j+1}'>
-						<div class="row">
-							<p class="question">${data.question}</p>
-						</div>
-						<div class="row">
-						 <div class="choices">${likertChoices(j+1)}</div>
-						</div>
-         		<div class="row labels">
-           		<label class="col-xs-1">${item.minLabel}</label>
-           		<label class="col-xs-1 col-xs-offset-5">${item.maxLabel}</label>
-         		</div>
-					</div>`));
-			radioAreas.map(area => {
+			const likertAreas = createLikertVariableRadioAreas(data, measure);
+			likertAreas.map(area => {
 				$(el).append(area)
 				$(el).append('<hr/>');
 			});
@@ -500,23 +616,8 @@ var Experiment = function() {
 				return;
 			}
 			const data = MEASURES[measure];
-			const percentChoices = i => {
-				let accum = '';
-				for (let j = data.min; j <= data.max; j+=data.delta) {
-					accum = accum.concat(`<div class="percentChoice"><input type='radio' name='${measure}_Q${i}' value='${j}' /><span>${j}%</span></div>`);
-				}
-				return accum;
-			};
-			const radioAreas = data.items.map((item, j) => (
-					`<div class="container radioArea" id='${measure}_Q${j+1}'>
-						<div class="row">
-							<p class="question">${item}</p>
-						</div>
-						<div class="row">
-						 <div class="choices">${percentChoices(j+1)}</div>
-						</div>
-					</div>`));
-			radioAreas.map(area => {
+			const percentAreas = createPercentRadioAreas(data, measure);
+			percentAreas.map(area => {
 				$(el).append(area)
 				$(el).append('<hr/>');
 			});
@@ -749,8 +850,8 @@ var Experiment = function() {
 			}
 			// Skip the na-followup page if it's the control condition or
 			// if its the N/A condition with no N/A responses
-			else if ((currentPage === 'vignette4-followup.html' && surveyConditionName === 'control')
-				|| naResponseLength() === 0) {
+			else if ((currentPage === 'vignette4-followup.html' && surveyConditionName === 'control') ||
+				(currentPage === 'vignette4-followup.html' && naResponseLength() === 0)) {
 				experimentPages.shift();
 			}
 
