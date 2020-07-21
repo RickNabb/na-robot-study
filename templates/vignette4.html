@@ -10,9 +10,17 @@
           75%
         </div>
       </div>
-      <p>You have watched a scenario about a robot. To refresh your memory, you can read the story again here...</p>
+      <p>You have watched a scenario about a robot. To refresh your memory, you can read the story or view the robot again here...</p>
 
-      <p id="recap"><em>You are in an office building looking for a meeting room. You ask an assistance robot where you should go, and it guides you down a hall. While navigating to its destination, the robot enters an unrelated room and performs two circles before exiting and providing you guidance to your destination. When you come out of the meeting room, the fire alarm begins to blare and you observe smoke filling the office space in front of you. The robot beckons for you to follow it to safety, and begins to move. However, you see a glowing exit sign pointing in a direction opposite to the robot’s path.</em></p> 
+      <ul id="vignette-tabs" class="nav nav-pills" role="tablist">
+        <li role="presentation" class="active"><a href="#scenario" aria-controls="scenario" role="tab" data-toggle="pill">Scenario Text</a></li>
+        <li role="presentation"><a href="#robot" aria-controls="robot" role="tab" data-toggle="pill">Robot Picture</a></li>
+      </ul>
+
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="scenario"><p id="recap"><em>You are in an office building looking for a meeting room. You ask an assistance robot where you should go, and it guides you down a hall. While navigating to its destination, the robot enters an unrelated room and performs two circles before exiting and providing you guidance to your destination. When you come out of the meeting room, the fire alarm begins to blare and you observe smoke filling the office space in front of you. The robot beckons for you to follow it to safety, and begins to move. However, you see a glowing exit sign pointing in a direction opposite to the robot’s path.</em></p></div>
+        <div role="tabpanel" class="tab-pane" id="robot"><img src="static/images/v4-robot.jpg" id="robot-pic"/></div>
+      </div>
 
       <button class="btn btn-link" onclick="toggleHeader()"><span id="header-toggle" class="glyphicon glyphicon-chevron-up"></span></button>
       <button class="pull-left btn btn-success" onclick="fillAnswers()"><span class="glyphicon glyphicon-flash"></span></button>
