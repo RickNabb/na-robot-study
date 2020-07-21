@@ -56,12 +56,16 @@ const naResponseLength = () => Object.values(naResponses).reduce((len, responses
 
 // The actual order of stages
 var experimentPages = [
+	'vignette1-vid.html',
 	'vignette1.html',
 	'vignette1-followup.html',
+	'vignette2-vid.html',
 	'vignette2.html',
 	'vignette2-followup.html',
+	'vignette3-vid.html',
 	'vignette3.html',
 	'vignette3-followup.html',
+	'vignette4-vid.html',
 	'vignette4.html',
 	'vignette4-followup.html',
 	'na-followup.html',
@@ -665,23 +669,20 @@ var Experiment = function() {
 		// Set up each video
 		$(VIDEO_CLASSNAME).each(function() {
 			// Path of video to load
-			var src = "/static/videos/" + eval($(this).attr("id"));
-
+			var src = "/static/videos/" + $(this).attr("id");
 
 			// Give source
 			$(this).append(
 				"<video id='video'>"
 				+ "<source src='" + src + "' type='video/mp4'/>"
 				+ "</video>"
-				+ "<div id='playButton'>"
+				+ "<div id='playButton'><span class='glyphicon glyphicon-play'></span>"
 				+ "</div>"
 			);
-
 
 			// Mouse events
 			var playButton = $(this).find("#playButton");
 			var vid = $(this).find("#video");
-
 
 			// When play button clicked, play video
 			playButton.on("click", function() {

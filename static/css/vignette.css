@@ -22,6 +22,10 @@
 #story-header > button {
   float: right;
 }
+#header-space-sm {
+  height: 150px;
+  display: block;
+}
 #header-space {
   height: 300px;
   display: block;
