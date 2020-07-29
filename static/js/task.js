@@ -287,7 +287,13 @@ var Experiment = function() {
 					const randPage = pages[Math.floor(Math.random() * pages.length)];
 					const questions = naResponses[randPage];
 					const randQuestion = questions[Math.floor(Math.random() * questions.length)];
+
 					responseQuestions.push(randQuestion);
+
+					// We don't want exact duplicates
+					if (shorterNaResponses[randPage] !== undefined && shorterNaResponses[randPage].indexOf(randQuestion) > -1) {
+						continue;
+					}
 
 					// Collect a shorter version of the na responses that preserves
 					// which vignette the answers came from.
