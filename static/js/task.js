@@ -76,15 +76,20 @@ var experimentPages = [
 const toggleHeader = () => {
 	const header = $('#story-header');
 	const toggle = $('#header-toggle');
+	const headerSpace = $('#header-space');
 
 	if (header.hasClass('expanded')) {
 		header.removeClass('expanded');
 		header.addClass('contracted');
+		headerSpace.removeClass('expanded');
+		headerSpace.addClass('contracted');
 		toggle.removeClass('glyphicon-chevron-up');
 		toggle.addClass('glyphicon-chevron-down');
 	} else if (header.hasClass('contracted')) {
 		header.removeClass('contracted');
 		header.addClass('expanded');
+		headerSpace.removeClass('contracted');
+		headerSpace.addClass('expanded');
 		toggle.removeClass('glyphicon-chevron-down');
 		toggle.addClass('glyphicon-chevron-up');
 	}

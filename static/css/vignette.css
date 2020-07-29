@@ -26,12 +26,15 @@
   height: 150px;
   display: block;
 }
-#header-space {
-  height: 300px;
+#header-space,#header-space.expanded {
+  height: 500px;
   display: block;
 }
+#header-space.contracted {
+  height: 200px;
+}
 #header-small-space {
-  height: 150px;
+  height: 250px;
   display: block;
 }
 
