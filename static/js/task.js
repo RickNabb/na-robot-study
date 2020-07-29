@@ -261,7 +261,14 @@ var Experiment = function() {
 
 		const addNaFollowupQuestions = (measureItemName, vignette) => {
 			const measureItem = $(`#${measureItemName}`);
-			const formatVignette = v => v.replace('.html', '').replace('vignette', 'Scenario ');
+			const vignetteVerbose = {
+				'vignette1.html': '(where the robot delivers a package)',
+				'vignette2.html': '(where the robot is your co-worker)',
+				'vignette3.html': '(where you play a computer game with the robot)',
+				'vignette4.html': '(where a robot suggests an evacuation route)',
+				'vignette5.html': '(where the robot upholds a fascist dystopian regime)',
+			}
+			const formatVignette = v => v.replace('.html', '').replace('vignette', 'Scenario ').concat(` ${vignetteVerbose[v]}`);
 			// Create follow-up questions
 			measureItem.after(`<div class='textboxArea container'>
 				<div class="row"><p>If you chose 'Other,' please explain here:</p></div>
