@@ -233,6 +233,9 @@ var Experiment = function() {
 
 		const addFollowupQuestions = measureItemName => {
 			const measureItem = $(`#${measureItemName}`);
+
+			measureItem.before(`<p>On the previous page, you answered the following question:</p>`);
+
 			// Create follow-up questions
 			const suretyData = {
 				min: 1, minLabel: 'Not sure at all',
