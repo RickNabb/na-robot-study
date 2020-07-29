@@ -416,7 +416,7 @@ var Experiment = function() {
 		if (type === MEASURE_TYPES.PERCENT) {
 			choices.append('<br/><br/>');
 		}
-		choices.append(`<div class="col-xs-1"><input type="radio" name="${questionId}" value="na" /><span>N/A</span></div>
+		choices.append(`<div class="col-xs-2"><input type="radio" name="${questionId}" value="na" /><span>N/A for this robot</span></div>
 		<div class="col-xs-3"><input type="radio" name="${questionId}" value="na-robot" /><span>N/A for Robots in General</span></div>`);
 	}
 
