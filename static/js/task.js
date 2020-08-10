@@ -20,8 +20,23 @@ var allowUnfilled = true;
 
 // Selecting current user's levels
 var time = 300;
-var surveyConditionNames = ["control", "na"];
+var surveyConditionNames = [
+	'vignette1',
+	'vignette2',
+	'vignette3',
+	'vignette4',
+	'vignette5',
+	'vignette6',
+	'vignette1_na',
+	'vignette2_na',
+	'vignette3_na',
+	'vignette4_na',
+	'vignette5_na',
+	'vignette6_na',
+];
 var surveyConditionName = surveyConditionNames[myCondition % surveyConditionNames.length];
+const controlCondition = () => surveyConditionName.indexOf('_na') === -1;
+const naCondition = () => surveyConditionName.indexOf('_na') > -1;
 
 // All possible pages to be preloaded
 var instructionPages = [
@@ -33,41 +48,45 @@ var instructionPages = [
 // N/A STUDY SPECIFIC STUFF
 ///////////////////////////
 
-const vignettePages = [
-	'vignette1.html',
-	'vignette2.html',
-	'vignette3.html',
-	'vignette4.html',
-];
+/**
+ * NOTE: Vignette video and image data will be pulled from the static/images and static/videos directories as [vignetteX].jpg and [vignetteX].m4v respectively
+ */
+const vignetteData = {
+	vignette1: {
+		followup: [ 'malle_Q7', 'jianEtAl_Q4', 'heerinkEtAl_Q1', 'jianEtAl_Q12' ],
+		text: 'You are in college and you are returning to your dorm. The building has a secure-access door and you need to swipe your card to get in. As you approach the door, you notice this robot in front of it. The robot is carrying a package and has the label Robot Grub on it. The robot says to you: “Hello! Would you let me in? I am making a delivery.” You ignore the robot and continue walking towards the door. The robot continues: “Please!” You stop and make a decision whether to let the robot in or not.'
+	},
+	vignette2: {
+		followup: [ 'ghazali_Q3', 'malle_Q1', 'schaefer2_Q4', 'schaefer2_Q8' ],
+		text: 'You are working on a joint task with a robot when you make a big mistake. You are about to meet with your supervisor. The supervisor says: “I was told you overrode the robot’s input and submitted the wrong coordinates to the team. You know that information is critical. I don’t want to hear about this happening again. Next time you better be 100% sure before submitting.” You respond: "Okay" then the supervisor leaves the room. You turn to the robot and say: “I messed up. I don’t know what to do.” The robot responds: “We’ve been doing so well until now. This is the first mistake we made. What do you think went wrong? We can try to do things differently next time.” You reply: "We were receiving so many requests, but I thought I was handling it. And when I saw our different coordinates, I just panicked and submitted without thinking." The robot says: “Look here, next time you begin to feel overwhelmed, just let me know and I can try to help out. We are great teammates and I know that we’ll impress the supervisor!”'
+	},
+	vignette3: {
+		followup: [ 'malle_Q8', 'schaefer1_Q4', 'malle_Q3', 'cameron_Q2' ],
+		text: 'You are about to play a computer game, The Space Shooting Game, with this robot. In the game you and the robot compete with one another for points by shooting asteroids. Each player has a spaceship that shoots missiles at randomly appearing asteroids. In addition to shooting, you have two powers in the game: you can use the Asteroid Blaster, which blasts all the asteroids on the screen or the Opponent Immobilizer which is a power that immobilizes your opponent, the robot, and makes their spaceship unable to move for the next 15 seconds. Before you start the game the robot says to you: “I’m really good at this game. I am sure you will be too! I know we both want to do well, so it’s in our best interests to not immobilize each other. I promise I won’t immobilize you." Then you start playing. During the game the robot uses the Opponent Immobilizer on you. After it does that, the robot says: “I’m so sorry I immobilized you. I pushed the wrong button. It’s my fault. It won’t happen again."'
+	},
+	vignette4: {
+		followup: [ 'malle_Q10', 'schaefer1_Q2', 'jianEtAl_Q7', 'schaefer2_Q3' ],
+		text: 'You are in an office building looking for a meeting room. You ask an assistance robot where you should go, and it guides you down a hall. While navigating to the destination, the robot enters an unrelated room and spins around in two circles before exiting and providing you guidance to your destination. When you come out of the meeting room, the fire alarm begins to blare and you observe smoke filling the office space in front of you. The robot beckons for you to follow it to safety and begins to move. However, you see a glowing EXIT sign pointing in the direction opposite to the robot’s path.'
+	}
+}
 
-const vignette1Followup = [ 'malle_Q7', 'jianEtAl_Q4', 'heerinkEtAl_Q1', 'jianEtAl_Q12' ];
-const vignette2Followup = [ 'ghazali_Q3', 'malle_Q1', 'schaefer2_Q4', 'schaefer2_Q8' ];
-const vignette3Followup = [ 'malle_Q8', 'schaefer1_Q4', 'malle_Q3', 'cameron_Q2' ];
-const vignette4Followup = [ 'malle_Q10', 'schaefer1_Q2', 'jianEtAl_Q7', 'schaefer2_Q3' ];
+const vignettePages = Object.keys(vignetteData).map(key => '' + key + '.html');
+
+const curVignette = () => surveyConditionName.replace('_na','');
 
 /**
  * An object to keep track of specific responses per vignette.
  * Structure: { 'vignette': [responses] }
  */
-const followupResponses = {};
+let followupResponses = [];
 
-let naResponses = {};
-const naResponseLength = () => Object.values(naResponses).reduce((len, responses) => len + responses.length, 0);
+let naResponses = [];
 
 // The actual order of stages
 var experimentPages = [
-	'vignette1-vid.html',
-	'vignette1.html',
-	'vignette1-followup.html',
-	'vignette2-vid.html',
-	'vignette2.html',
-	'vignette2-followup.html',
-	'vignette3-vid.html',
-	'vignette3.html',
-	'vignette3-followup.html',
-	'vignette4-vid.html',
-	'vignette4.html',
-	'vignette4-followup.html',
+	'vignette-vid.html',
+	'vignette.html',
+	'vignette-followup.html',
 	'na-followup.html',
 	'demographics.html',
 	'postquestionnaire.html'
@@ -95,6 +114,18 @@ const toggleHeader = () => {
 	}
 }
 
+const createVignetteRefresher = () => {
+	$('#recap > em').append(vignetteData[curVignette()].text);
+	$('#robot').append(`<img src="static/images/${curVignette()}-robot.jpg" id="robot-pic"/>`)
+	$('.progress-bar').attr('aria-valuenow', 25);
+	$('.progress-bar').css('width', '25%');
+	$('.progress-bar').append('25%');
+}
+
+const createVignetteVideo = () => {
+	$('.videoArea').attr('id', `${curVignette()}.m4v`);
+}
+
 const fillAnswers = () => {
 	const naAnswers = [ 'na', 'na-robot' ];
 	const likertAnswers = [ '1', '2', '3', '4', '5', '6', '7' ];
@@ -114,7 +145,7 @@ const fillAnswers = () => {
 			default:
 		}
 
-		if (surveyConditionName === 'na') {
+		if (naCondition()) {
 			pool = pool.concat(naAnswers);
 		}
 
@@ -145,6 +176,87 @@ const fillFollowupAnswers = () => {
 	});
 }
 
+const removeMeasureItem = measureItemName => {
+	const measureItem = $(`#${measureItemName}`);
+	measureItem.next().remove();
+	measureItem.remove();
+}
+
+const deactivateAndSelectMeasureItem = (measureItemName, val) => {
+	const measureItem = $(`#${measureItemName}`);
+	// Wrap it in a well
+	measureItem.addClass(`well`);
+
+	// Check off the answer the participant gave and disable the control
+	measureItem.find('.choices').find(`input:radio[value='${val}']`).attr('checked', true);
+	measureItem.find('.choices').find(`input:radio`).attr('disabled', true);
+}
+
+const addFollowupQuestions = measureItemName => {
+	const measureItem = $(`#${measureItemName}`);
+
+	measureItem.before(`<p>On the previous page, you answered the following question:</p>`);
+
+	// Create follow-up questions
+	const suretyData = {
+		min: 1, minLabel: 'Not sure at all',
+		max: 5, maxLabel: 'Very Sure',
+		items: [ 'How sure are you of your answer?' ]
+	};
+	const difficultyData = {
+		min: 1, minLabel: 'Not difficult at all',
+		max: 5, maxLabel: 'Very Difficult',
+		items: [ 'How difficult was it to rate this item?' ]
+	};
+
+	measureItem.after(`<div class='textboxArea container'>
+		<div class="row"><p>Why did you answer the way you did?</p></div>
+		<div class="row"><textarea class="col-xs-10" name='${measureItemName}_why' /></div>
+	`);
+
+	const suretyLikert = createLikertUniformRadioAreas(suretyData, `${measureItemName}_surety`)[0];
+	measureItem.after(suretyLikert);
+
+	const difficultyLikert = createLikertUniformRadioAreas(difficultyData, `${measureItemName}_difficulty`)[0];
+	measureItem.after(difficultyLikert);
+}
+
+const addNaFollowupQuestions = (measureItemName) => {
+	const measureItem = $(`#${measureItemName}`);
+	// Create follow-up questions
+	measureItem.after(`<div class='textboxArea container'>
+		<div class="row"><p>If you chose 'Other,' please explain here:</p></div>
+		<div class="row"><textarea class="col-xs-10" name='${measureItemName}_na_other' /></div>
+	`);
+	measureItem.after(`<div class='radioArea container'>
+		<div class="row"><p>You chose N/A to rate the above item as such. Why?</p></div>
+		<div class="row"><input type="radio" name="${measureItemName}_na" value="not-enough-info" /><span>I don't have enough info about the robot from the scenario.</span></div>
+		<div class="row"><input type="radio" name="${measureItemName}_na" value="capabilities-narrow" /><span>The robot's capabilities are too narrow for this item.</span></div>
+		<div class="row"><input type="radio" name="${measureItemName}_na" value="not-appropriate" /><span>It's not appropriate to apply this human trait or behavior to a robot.</span></div>
+		<div class="row"><input type="radio" name="${measureItemName}_na" value="opposite" /><span>Because the opposite is true about this robot.</span></div>
+		<div class="row"><input type="radio" name="${measureItemName}_na" value="other" /><span>Other (explained below)</span></div>
+	</div>`);
+}
+
+const collectNaResponses = () => {
+	let responseQuestions = [];
+	// Ensure we only ask about 5 or fewer responses
+	if (naResponseLength() > 5) {
+		const shorterNaResponses = [];
+		while (responseQuestions.length < 5) {
+			const randQuestion = naResponses[Math.floor(Math.random() * questions.length)];
+
+			responseQuestions.push(randQuestion);
+
+			// Collect a shorter version of the na responses that preserves
+			// which vignette the answers came from.
+			shorterNaResponses.push(randQuestion);
+		}
+		naResponses = shorterNaResponses;
+	} 
+	return responseQuestions;
+}
+
 /* ------------------------------------------- *
  * ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ *
  * ------------------------------------------- */
@@ -163,6 +275,265 @@ const CHECKBOX_CLASSNAME = ".checkboxArea";
 const LIKERT_UNIFORM_CLASSNAME = ".likertUniform";
 const LIKERT_VARIABLE_CLASSNAME = ".likertVariable";
 const PERCENT_CLASSNAME = ".percent";
+
+const createLikertChoices = (data, idPrefix) => qNum => {
+		let accum = '';
+		const delta = data.delta || 1;
+		for (let j = data.min; j <= data.max; j += delta) {
+			accum = accum.concat(`<div class="col-xs-1"><input type='radio' name='${idPrefix}_Q${qNum}' value='${j}' /><span>${j}</span></div>`);
+		}
+		return accum;
+	};
+
+
+	/**
+	 * THESE ARE CREATED JUST TO BE ABLE TO SPECIFY THE Q NUMBER
+		*/
+
+const createLikertUniformRadioArea = (data, idPrefix, qNum) => {
+	const likertChoices = createLikertChoices(data, idPrefix);
+	const radioArea = (
+			`<div class="container radioArea" id='${idPrefix}_Q${qNum}'>
+				<div class="row">
+					<p class="question">${data.item}</p>
+				</div>
+				<div class="row">
+				<div class="choices">${likertChoices(qNum)}</div>
+				</div>
+				<div class="row labels">
+					<label class="col-xs-1">${data.minLabel}</label>
+					<label class="col-xs-1 col-xs-offset-${data.max-2}">${data.maxLabel}</label>
+				</div>
+			</div>`);
+	return radioArea;
+}
+
+const createLikertVariableRadioArea = (data, idPrefix, qNum) => {
+	const likertChoices = createLikertChoices(data, idPrefix);
+	const radioArea = (
+			`<div class="container radioArea" id='${idPrefix}_Q${qNum}'>
+				<div class="row">
+					<p class="question">${data.question}</p>
+				</div>
+				<div class="row">
+					<div class="choices">${likertChoices(qNum)}</div>
+				</div>
+				<div class="row labels">
+					<label class="col-xs-1">${data.item.minLabel}</label>
+					<label class="col-xs-1 col-xs-offset-5">${data.item.maxLabel}</label>
+				</div>
+			</div>`);
+	return radioArea;
+}
+
+const createPercentRadioArea = (data, idPrefix, qNum) => {
+	const percentChoices = i => {
+		let accum = '';
+		for (let j = data.min; j <= data.max; j+=data.delta) {
+			accum = accum.concat(`<div class="percentChoice"><input type='radio' name='${idPrefix}_Q${i}' value='${j}' /><span>${j}%</span></div>`);
+		}
+		return accum;
+	};
+	const radioArea = (
+			`<div class="container radioArea" id='${idPrefix}_Q${qNum}'>
+				<div class="row">
+					<p class="question">${data.item}</p>
+				</div>
+				<div class="row">
+					<div class="choices">${percentChoices(qNum)}</div>
+				</div>
+			</div>`);
+	return radioArea;
+}
+
+// TODO: Maybe change this name...
+const createLikertUniformRadioAreas = (data, idPrefix) => {
+	const likertChoices = createLikertChoices(data, idPrefix);
+	const radioAreas = data.items.map((item, j) => (
+			`<div class="container radioArea" id='${idPrefix}_Q${j+1}'>
+				<div class="row">
+					<p class="question">${item}</p>
+				</div>
+				<div class="row">
+				<div class="choices">${likertChoices(j+1)}</div>
+				</div>
+				<div class="row labels">
+					<label class="col-xs-1">${data.minLabel}</label>
+					<label class="col-xs-1 col-xs-offset-${data.max-2}">${data.maxLabel}</label>
+				</div>
+			</div>`));
+	return radioAreas;
+}
+
+const createLikertVariableRadioAreas = (data, idPrefix) => {
+	const likertChoices = createLikertChoices(data, idPrefix);
+	const radioAreas = data.items.map((item, j) => (
+			`<div class="container radioArea" id='${idPrefix}_Q${j+1}'>
+				<div class="row">
+					<p class="question">${data.question}</p>
+				</div>
+				<div class="row">
+					<div class="choices">${likertChoices(j+1)}</div>
+				</div>
+				<div class="row labels">
+					<label class="col-xs-1">${item.minLabel}</label>
+					<label class="col-xs-1 col-xs-offset-5">${item.maxLabel}</label>
+				</div>
+			</div>`));
+	return radioAreas;
+}
+
+const createPercentRadioAreas = (data, idPrefix) => {
+	const percentChoices = i => {
+		let accum = '';
+		for (let j = data.min; j <= data.max; j+=data.delta) {
+			accum = accum.concat(`<div class="percentChoice"><input type='radio' name='${idPrefix}_Q${i}' value='${j}' /><span>${j}%</span></div>`);
+		}
+		return accum;
+	};
+	const radioAreas = data.items.map((item, j) => (
+			`<div class="container radioArea" id='${idPrefix}_Q${j+1}'>
+				<div class="row">
+					<p class="question">${item}</p>
+				</div>
+				<div class="row">
+					<div class="choices">${percentChoices(j+1)}</div>
+				</div>
+			</div>`));
+	return radioAreas;
+}
+
+/**************************
+ *      CREATE AREAS      *
+**************************/
+
+const createLikertUniformAreas = () => {
+	$(LIKERT_UNIFORM_CLASSNAME).each((i, el) => {
+		const measure = el.getAttribute('measure');
+		if (!measure) {
+			return;
+		}
+
+		const data = MEASURES[measure];
+		const likertAreas = createLikertUniformRadioAreas(data, measure);
+		likertAreas.map(area => {
+			$(el).append(area)
+			$(el).append('<hr/>');
+		});
+	});
+}
+
+const createLikertVariableAreas = () => {
+	$(LIKERT_VARIABLE_CLASSNAME).each((i, el) => {
+		const measure = el.getAttribute('measure');
+		if (!measure) {
+			return;
+		}
+		const data = MEASURES[measure];
+		const likertAreas = createLikertVariableRadioAreas(data, measure);
+		likertAreas.map(area => {
+			$(el).append(area)
+			$(el).append('<hr/>');
+		});
+	});
+}
+
+const createPercentAreas = () => {
+	$(PERCENT_CLASSNAME).each((i, el) => {
+		const measure = el.getAttribute('measure');
+		if (!measure) {
+			return;
+		}
+		const data = MEASURES[measure];
+		const percentAreas = createPercentRadioAreas(data, measure);
+		percentAreas.map(area => {
+			$(el).append(area)
+			$(el).append('<hr/>');
+		});
+	});
+}
+
+// Puts radio buttons as table elements onto html page
+// REQUIRES IN HTML: <div class="radioArea" data-value="[NUM]">
+var createRadioAreas = function() {
+	$(RADIO_CLASSNAME).each(function(groupIndex) {
+
+		// Get from html the number of radio buttons to create
+		var radioNum = $(this).data("value");
+
+		// No radio buttons to create
+		if (radioNum === undefined) {
+			return;
+		}
+
+		// TODO make numbering start from previous
+		// element's name="Q[NUM]..."
+
+		// Create radio buttons
+		for (var j = 0; j < radioNum; j++) {
+			$(this).append(
+				"<td><input "
+				+ "type=\"radio\" "
+				+ "name=\"Q" + groupIndex + "\" "
+				+ "value=\"" + j + "\""
+				+ "></td>"
+			);
+		}
+	});
+}
+
+// REQUIRES IN HTML: <div class="videoArea" id="v[NUM]">
+// REQUIRES IN JS: v1, v2, ..., v[n] (video file name)
+// NOTE: Does not need to be v[n], just the variable name in the JS
+var createVideos = function() {
+	// Set up each video
+	$(VIDEO_CLASSNAME).each(function() {
+		// Path of video to load
+		var src = "/static/videos/" + $(this).attr("id");
+
+		// Give source
+		$(this).append(
+			"<video id='video'>"
+			+ "<source src='" + src + "' type='video/mp4'/>"
+			+ "</video>"
+			+ "<div id='playButton'><span class='glyphicon glyphicon-play'></span>"
+			+ "</div>"
+		);
+
+		// Mouse events
+		var playButton = $(this).find("#playButton");
+		var vid = $(this).find("#video");
+
+		// When play button clicked, play video
+		playButton.on("click", function() {
+			playButton.get(0).style.visibility = "hidden";
+			vid.get(0).play();
+		});
+		// When video ends, reveal "next" button
+		vid.on("ended", function() {
+			$("#next").get(0).style.visibility = "visible";
+		});
+	});
+}
+
+
+// REQUIRES IN HTML: <div class="textinsertArea" id="t[NUM]">
+// REQUIRES IN JS: t1, t1, ..., t[n] (text to put in HTML)
+// NOTE: Does not need to be t[n], just the variable name in the JS
+var createTextInsertAreas = function() {
+	$(TEXTINSERT_CLASSNAME).each(function(groupIndex) {
+
+		// Get from html the number of radio buttons to create
+		var src = eval($(this).attr("id"));
+
+		// Give source
+		$(this).append(
+			"<p>"
+			+ src
+			+ "</p>"
+		);
+	});
+}
 
 
 /********************
@@ -207,6 +578,10 @@ var Experiment = function() {
 		currentPage = experimentPages.shift();
 		psiTurk.showPage(currentPage);
 
+		if (currentPage === 'vignette-vid.html') {
+			createVignetteVideo();
+		}
+
 		// Create preliminary elements on the page - these MUST GO IN
 		// FRONT OF THE PRIMITIVE QUESTION ELEMENT CREATION
 		createLikertUniformAreas();
@@ -218,131 +593,22 @@ var Experiment = function() {
 		createVideos();
 		createTextInsertAreas();
 
-		// N/A study-specific things
-
-		const removeMeasureItem = measureItemName => {
-			const measureItem = $(`#${measureItemName}`);
-			measureItem.next().remove();
-			measureItem.remove();
-		}
-
-		const deactivateAndSelectMeasureItem = (measureItemName, val) => {
-			const measureItem = $(`#${measureItemName}`);
-			// Wrap it in a well
-			measureItem.addClass(`well`);
-
-			// Check off the answer the participant gave and disable the control
-			measureItem.find('.choices').find(`input:radio[value='${val}']`).attr('checked', true);
-			measureItem.find('.choices').find(`input:radio`).attr('disabled', true);
-		}
-
-		const addFollowupQuestions = measureItemName => {
-			const measureItem = $(`#${measureItemName}`);
-
-			measureItem.before(`<p>On the previous page, you answered the following question:</p>`);
-
-			// Create follow-up questions
-			const suretyData = {
-				min: 1, minLabel: 'Not sure at all',
-				max: 5, maxLabel: 'Very Sure',
-				items: [ 'How sure are you of your answer?' ]
-			};
-			const difficultyData = {
-				min: 1, minLabel: 'Not difficult at all',
-				max: 5, maxLabel: 'Very Difficult',
-				items: [ 'How difficult was it to rate this item?' ]
-			};
-
-			measureItem.after(`<div class='textboxArea container'>
-				<div class="row"><p>Why did you answer the way you did?</p></div>
-				<div class="row"><textarea class="col-xs-10" name='${measureItemName}_why' /></div>
-			`);
-
-			const suretyLikert = createLikertUniformRadioAreas(suretyData, `${measureItemName}_surety`)[0];
-			measureItem.after(suretyLikert);
-
-			const difficultyLikert = createLikertUniformRadioAreas(difficultyData, `${measureItemName}_difficulty`)[0];
-			measureItem.after(difficultyLikert);
-		}
-
-		const addNaFollowupQuestions = (measureItemName, vignette) => {
-			const measureItem = $(`#${measureItemName}`);
-			const vignetteVerbose = {
-				'vignette1.html': '(where the robot delivers a package)',
-				'vignette2.html': '(where the robot is your co-worker)',
-				'vignette3.html': '(where you play a computer game with the robot)',
-				'vignette4.html': '(where a robot suggests an evacuation route)',
-				'vignette5.html': '(where the robot upholds a fascist dystopian regime)',
-			}
-			const formatVignette = v => v.replace('.html', '').replace('vignette', 'Scenario ').concat(` ${vignetteVerbose[v]}`);
-			// Create follow-up questions
-			measureItem.after(`<div class='textboxArea container'>
-				<div class="row"><p>If you chose 'Other,' please explain here:</p></div>
-				<div class="row"><textarea class="col-xs-10" name='${measureItemName}_na_other' /></div>
-			`);
-			measureItem.after(`<div class='radioArea container'>
-				<div class="row"><p>You chose N/A to rate the above item for <strong>${formatVignette(vignette)}</strong>. Why?</p></div>
-				<div class="row"><input type="radio" name="${measureItemName}_na" value="not-enough-info" /><span>I don't have enough info about the robot from the scenario.</span></div>
-				<div class="row"><input type="radio" name="${measureItemName}_na" value="capabilities-narrow" /><span>The robot's capabilities are too narrow for this item.</span></div>
-				<div class="row"><input type="radio" name="${measureItemName}_na" value="not-appropriate" /><span>It's not appropriate to apply this human trait or behavior to a robot.</span></div>
-				<div class="row"><input type="radio" name="${measureItemName}_na" value="opposite" /><span>Because the opposite is true about this robot.</span></div>
-				<div class="row"><input type="radio" name="${measureItemName}_na" value="other" /><span>Other (explained below)</span></div>
-			</div>`);
-		}
-
-		const collectNaResponses = () => {
-			let responseQuestions = [];
-			// Ensure we only ask about 5 or fewer responses
-			if (naResponseLength() > 5) {
-				const shorterNaResponses = {};
-				while (responseQuestions.length < 5) {
-					const pages = Object.keys(naResponses);
-					const randPage = pages[Math.floor(Math.random() * pages.length)];
-					const questions = naResponses[randPage];
-					const randQuestion = questions[Math.floor(Math.random() * questions.length)];
-
-					responseQuestions.push(randQuestion);
-
-					// We don't want exact duplicates
-					if (shorterNaResponses[randPage] !== undefined && shorterNaResponses[randPage].indexOf(randQuestion) > -1) {
-						continue;
-					}
-
-					// Collect a shorter version of the na responses that preserves
-					// which vignette the answers came from.
-					if (shorterNaResponses[randPage] === undefined) {
-						shorterNaResponses[randPage] = []
-					}
-					shorterNaResponses[randPage].push(randQuestion);
-				}
-				naResponses = shorterNaResponses;
-			} else {
-				responseQuestions = Object.keys(naResponses).reduce((questions, page) => {
-					const res = naResponses[page];
-					res.vignette = page;
-					questions = questions.concat(res);
-					return questions;
-				});
-			}
-			return responseQuestions;
-		}
-
 		// Add N/A options for the experimental condition
-		if (surveyConditionName === 'na') {
+		if (naCondition()) {
 			naConditionModifications();
 		}
 
-		if (currentPage === 'na-followup.html') {
-			collectNaResponses();
-			console.log(naResponses);
-			Object.keys(naResponses).map(vignette => {
-				const measures = naResponses[vignette];
-				const vignetteNum = vignette.replace('.html','').replace('vignette','');
-				measures.map(measureObj => {
+		switch (currentPage) {
+			case 'vignette.html': {
+				createVignetteRefresher();
+				break;
+			}
+			case "na-followup.html": {
+				collectNaResponses();
+				naResponses.map(measureObj => {
 					const measureItemName = measureObj.id;
 					const measure = measureItemName.substring(0, measureItemName.indexOf('_'));
 					const measureIndex = Number(measureItemName.substring(measureItemName.indexOf('Q')+1));
-					const vignetteMeasureId = `v${vignetteNum}_${measure}`;
 
 					const data = JSON.parse(JSON.stringify(MEASURES[measure]));
 					data.item = data.items[measureIndex-1];
@@ -350,72 +616,56 @@ var Experiment = function() {
 					let measureEl;
 					switch (data.type) {
 						case MEASURE_TYPES.LIKERT_UNIFORM:
-							measureEl = createLikertUniformRadioArea(data, vignetteMeasureId, measureIndex);
-							$(`#${vignette.replace('.html','')}`).append('<div class="likert likertUniform"></div>');
+							measureEl = createLikertUniformRadioArea(data, measureItemName, measureIndex);
+							$(`#vignette`).append('<div class="likert likertUniform"></div>');
 							break;
 						case MEASURE_TYPES.LIKERT_VARIABLE:
-							measureEl = createLikertVariableRadioArea(data, vignetteMeasureId, measureIndex);
-							$(`#${vignette.replace('.html','')}`).append('<div class="likert likertVariable"></div>');
+							measureEl = createLikertVariableRadioArea(data, measureItemName, measureIndex);
+							$(`#vignette`).append('<div class="likert likertVariable"></div>');
 							break;
 						case MEASURE_TYPES.PERCENT:
-							measureEl = createPercentRadioArea(data, vignetteMeasureId, measureIndex);
-							$(`#${vignette.replace('.html','')}`).append('<div class="likert percent"></div>');
+							measureEl = createPercentRadioArea(data, measureItemName, measureIndex);
+							$(`#vignette`).append('<div class="likert percent"></div>');
 							break;
 						default:
 					}
-					$(`#${vignette.replace('.html','')}`).children().last().append(measureEl);
-					$(`#${vignette.replace('.html','')}`).children().last().append('<hr />');
-					addNaChoices(`v${vignetteNum}_${measureItemName}`, data.type);
+					$(`#vignette`).children().last().append(measureEl);
+					$(`#vignette`).children().last().append('<hr />');
+					addNaChoices(`${measureItemName}`, data.type);
 				});
-			});
 
-			Object.keys(naResponses).map(vignette => {
-				const measures = naResponses[vignette];
-				const vignetteNum = vignette.replace('.html','').replace('vignette','');
-				measures.map(measureObj => {
-					const vignetteMeasureId = `v${vignetteNum}_${measureObj.id}`;
-					deactivateAndSelectMeasureItem(vignetteMeasureId, measureObj.val);
-					addNaFollowupQuestions(vignetteMeasureId, vignette);
+				naResponses.map(measureObj => {
+					deactivateAndSelectMeasureItem(measureItemName, measureObj.val);
+					addNaFollowupQuestions(measureItemName);
 				});
-			});
 
-			// Activate vignette tabs
-			$('#vignette-tabs a').click(function (e) {
-			  e.preventDefault()
-  			$(this).tab('show')
-			})
-		}
-		// On follow-up pages, remove all unrelevant measures, and fill & disable relevant ones
-		else if (currentPage.indexOf('followup') > -1) {
-			const measures = Object.keys(MEASURES);
-			let toKeep;
-			switch (currentPage) {
-				case 'vignette1-followup.html':
-					toKeep = vignette1Followup;
-					break;
-				case 'vignette2-followup.html':
-					toKeep = vignette2Followup;
-					break;
-				case 'vignette3-followup.html':
-					toKeep = vignette3Followup;
-					break;
-				case 'vignette4-followup.html':
-					toKeep = vignette4Followup;
-					break;
+				// TODO: Fill in vignette text and remove tabs
+				// Activate vignette tabs
+				$('#vignette-tabs a').click(function (e) {
+				  e.preventDefault()
+	  			$(this).tab('show')
+				})
+				break;
 			}
-			measures.map(measure => {
-				MEASURES[measure].items.map((item, i) => {
-					const measureItemName = `${measure}_Q${i+1}`;
-					if (toKeep.indexOf(measureItemName) > -1) {
-						const responses = followupResponses[currentPage.replace('-followup', '')];
-						const val = responses[measureItemName];
-						deactivateAndSelectMeasureItem(measureItemName, val);
-						addFollowupQuestions(measureItemName);
-					} else {
-						removeMeasureItem(measureItemName);
-					}
+			case 'vignette-followup.html': {
+				// On follow-up pages, remove all unrelevant measures, and fill & disable relevant ones
+				const measures = Object.keys(MEASURES);
+				const toKeep = vignetteData[curVignette()].followup;
+
+				measures.map(measure => {
+					MEASURES[measure].items.map((item, i) => {
+						const measureItemName = `${measure}_Q${i+1}`;
+						if (toKeep.indexOf(measureItemName) > -1) {
+							const val = followupResponses[measureItemName];
+							deactivateAndSelectMeasureItem(measureItemName, val);
+							addFollowupQuestions(measureItemName);
+						} else {
+							removeMeasureItem(measureItemName);
+						}
+					});
 				});
-			});
+				break;
+			}
 		}
 
 		// Count elems initially loaded on this page
@@ -452,294 +702,20 @@ var Experiment = function() {
 		})
 
 		// Fill in N/A-specific content
-		if (vignettePages.indexOf(currentPage) > -1 && surveyConditionName === 'na') {
+		if (currentPage === 'vignette.html' && naCondition()) {
 			$('#na_extra_likert').append('If you feel that the statement or descriptor in the question does not apply to the robot in this scenario, or does not apply to robots in general, use the appropriate NA option.')
 			$('#na_extra_percent').append('If you feel that descriptor does not apply to the robot in this scenario, or does not apply to robots in general, use the appropriate NA option.')
 		}
 	}
 
 	const storeResponsesLocally = (currentPage, responses) => {
-		let ids;
+		const ids = vignetteData[curVignette()].followup;
 
-		switch(currentPage) {
-			case 'vignette1.html':
-				ids = vignette1Followup;
-				break;
-			case 'vignette2.html':
-				ids = vignette2Followup;
-				break;
-			case 'vignette3.html':
-				ids = vignette3Followup;
-				break;
-			case 'vignette4.html':
-				ids = vignette4Followup;
-				break;
-			default:
-		}
-		followupResponses[currentPage] = ids.reduce((accum, id) => {
+		followupResponses = ids.reduce((accum, id) => {
 			const response = responses.find(res => res.id === id);
 			return !!response ? Object.assign(accum, { [response.id]: response.val }) : accum;
 		}, {});
-		naResponses[currentPage] = responses.filter(res => ['na', 'na-robot'].indexOf(res.val) > -1 );
-	}
-
-	const createLikertChoices = (data, idPrefix) => qNum => {
-			let accum = '';
-			const delta = data.delta || 1;
-			for (let j = data.min; j <= data.max; j += delta) {
-				accum = accum.concat(`<div class="col-xs-1"><input type='radio' name='${idPrefix}_Q${qNum}' value='${j}' /><span>${j}</span></div>`);
-			}
-			return accum;
-		};
-
-
-		/**
-		 * THESE ARE CREATED JUST TO BE ABLE TO SPECIFY THE Q NUMBER
-		 */
-
-	const createLikertUniformRadioArea = (data, idPrefix, qNum) => {
-		const likertChoices = createLikertChoices(data, idPrefix);
-		const radioArea = (
-				`<div class="container radioArea" id='${idPrefix}_Q${qNum}'>
-					<div class="row">
-						<p class="question">${data.item}</p>
-					</div>
-					<div class="row">
-					<div class="choices">${likertChoices(qNum)}</div>
-					</div>
-					<div class="row labels">
-						<label class="col-xs-1">${data.minLabel}</label>
-						<label class="col-xs-1 col-xs-offset-${data.max-2}">${data.maxLabel}</label>
-					</div>
-				</div>`);
-		return radioArea;
-	}
-
-	const createLikertVariableRadioArea = (data, idPrefix, qNum) => {
-		const likertChoices = createLikertChoices(data, idPrefix);
-		const radioArea = (
-				`<div class="container radioArea" id='${idPrefix}_Q${qNum}'>
-					<div class="row">
-						<p class="question">${data.question}</p>
-					</div>
-					<div class="row">
-						<div class="choices">${likertChoices(qNum)}</div>
-					</div>
-					<div class="row labels">
-						<label class="col-xs-1">${data.item.minLabel}</label>
-						<label class="col-xs-1 col-xs-offset-5">${data.item.maxLabel}</label>
-					</div>
-				</div>`);
-		return radioArea;
-	}
-
-	const createPercentRadioArea = (data, idPrefix, qNum) => {
-		const percentChoices = i => {
-			let accum = '';
-			for (let j = data.min; j <= data.max; j+=data.delta) {
-				accum = accum.concat(`<div class="percentChoice"><input type='radio' name='${idPrefix}_Q${i}' value='${j}' /><span>${j}%</span></div>`);
-			}
-			return accum;
-		};
-		const radioArea = (
-				`<div class="container radioArea" id='${idPrefix}_Q${qNum}'>
-					<div class="row">
-						<p class="question">${data.item}</p>
-					</div>
-					<div class="row">
-						<div class="choices">${percentChoices(qNum)}</div>
-					</div>
-				</div>`);
-		return radioArea;
-	}
-
-	// TODO: Maybe change this name...
-	const createLikertUniformRadioAreas = (data, idPrefix) => {
-		const likertChoices = createLikertChoices(data, idPrefix);
-		const radioAreas = data.items.map((item, j) => (
-				`<div class="container radioArea" id='${idPrefix}_Q${j+1}'>
-					<div class="row">
-						<p class="question">${item}</p>
-					</div>
-					<div class="row">
-					<div class="choices">${likertChoices(j+1)}</div>
-					</div>
-					<div class="row labels">
-						<label class="col-xs-1">${data.minLabel}</label>
-						<label class="col-xs-1 col-xs-offset-${data.max-2}">${data.maxLabel}</label>
-					</div>
-				</div>`));
-		return radioAreas;
-	}
-
-	const createLikertVariableRadioAreas = (data, idPrefix) => {
-		const likertChoices = createLikertChoices(data, idPrefix);
-		const radioAreas = data.items.map((item, j) => (
-				`<div class="container radioArea" id='${idPrefix}_Q${j+1}'>
-					<div class="row">
-						<p class="question">${data.question}</p>
-					</div>
-					<div class="row">
-						<div class="choices">${likertChoices(j+1)}</div>
-					</div>
-					<div class="row labels">
-						<label class="col-xs-1">${item.minLabel}</label>
-						<label class="col-xs-1 col-xs-offset-5">${item.maxLabel}</label>
-					</div>
-				</div>`));
-		return radioAreas;
-	}
-
-	const createPercentRadioAreas = (data, idPrefix) => {
-		const percentChoices = i => {
-			let accum = '';
-			for (let j = data.min; j <= data.max; j+=data.delta) {
-				accum = accum.concat(`<div class="percentChoice"><input type='radio' name='${idPrefix}_Q${i}' value='${j}' /><span>${j}%</span></div>`);
-			}
-			return accum;
-		};
-		const radioAreas = data.items.map((item, j) => (
-				`<div class="container radioArea" id='${idPrefix}_Q${j+1}'>
-					<div class="row">
-						<p class="question">${item}</p>
-					</div>
-					<div class="row">
-						<div class="choices">${percentChoices(j+1)}</div>
-					</div>
-				</div>`));
-		return radioAreas;
-	}
-
-/**************************
- *      CREATE AREAS      *
- **************************/
-
-	const createLikertUniformAreas = () => {
-		$(LIKERT_UNIFORM_CLASSNAME).each((i, el) => {
-			const measure = el.getAttribute('measure');
-			if (!measure) {
-				return;
-			}
-
-			const data = MEASURES[measure];
-			const likertAreas = createLikertUniformRadioAreas(data, measure);
-			likertAreas.map(area => {
-				$(el).append(area)
-				$(el).append('<hr/>');
-			});
-		});
-	}
-
-	const createLikertVariableAreas = () => {
-		$(LIKERT_VARIABLE_CLASSNAME).each((i, el) => {
-			const measure = el.getAttribute('measure');
-			if (!measure) {
-				return;
-			}
-			const data = MEASURES[measure];
-			const likertAreas = createLikertVariableRadioAreas(data, measure);
-			likertAreas.map(area => {
-				$(el).append(area)
-				$(el).append('<hr/>');
-			});
-		});
-	}
-
-	const createPercentAreas = () => {
-		$(PERCENT_CLASSNAME).each((i, el) => {
-			const measure = el.getAttribute('measure');
-			if (!measure) {
-				return;
-			}
-			const data = MEASURES[measure];
-			const percentAreas = createPercentRadioAreas(data, measure);
-			percentAreas.map(area => {
-				$(el).append(area)
-				$(el).append('<hr/>');
-			});
-		});
-	}
-
-	// Puts radio buttons as table elements onto html page
-	// REQUIRES IN HTML: <div class="radioArea" data-value="[NUM]">
-	var createRadioAreas = function() {
-		$(RADIO_CLASSNAME).each(function(groupIndex) {
-
-			// Get from html the number of radio buttons to create
-			var radioNum = $(this).data("value");
-
-			// No radio buttons to create
-			if (radioNum === undefined) {
-				return;
-			}
-
-			// TODO make numbering start from previous
-			// element's name="Q[NUM]..."
-
-			// Create radio buttons
-			for (var j = 0; j < radioNum; j++) {
-				$(this).append(
-					"<td><input "
-					+ "type=\"radio\" "
-					+ "name=\"Q" + groupIndex + "\" "
-					+ "value=\"" + j + "\""
-					+ "></td>"
-				);
-			}
-		});
-	}
-
-	// REQUIRES IN HTML: <div class="videoArea" id="v[NUM]">
-	// REQUIRES IN JS: v1, v2, ..., v[n] (video file name)
-	// NOTE: Does not need to be v[n], just the variable name in the JS
-	var createVideos = function() {
-		// Set up each video
-		$(VIDEO_CLASSNAME).each(function() {
-			// Path of video to load
-			var src = "/static/videos/" + $(this).attr("id");
-
-			// Give source
-			$(this).append(
-				"<video id='video'>"
-				+ "<source src='" + src + "' type='video/mp4'/>"
-				+ "</video>"
-				+ "<div id='playButton'><span class='glyphicon glyphicon-play'></span>"
-				+ "</div>"
-			);
-
-			// Mouse events
-			var playButton = $(this).find("#playButton");
-			var vid = $(this).find("#video");
-
-			// When play button clicked, play video
-			playButton.on("click", function() {
-				playButton.get(0).style.visibility = "hidden";
-				vid.get(0).play();
-			});
-			// When video ends, reveal "next" button
-			vid.on("ended", function() {
-				$("#next").get(0).style.visibility = "visible";
-			});
-		});
-	}
-
-
-	// REQUIRES IN HTML: <div class="textinsertArea" id="t[NUM]">
-	// REQUIRES IN JS: t1, t1, ..., t[n] (text to put in HTML)
-	// NOTE: Does not need to be t[n], just the variable name in the JS
-	var createTextInsertAreas = function() {
-		$(TEXTINSERT_CLASSNAME).each(function(groupIndex) {
-
-			// Get from html the number of radio buttons to create
-			var src = eval($(this).attr("id"));
-
-			// Give source
-			$(this).append(
-				"<p>"
-				+ src
-				+ "</p>"
-			);
-		});
+		naResponses = responses.filter(res => ['na', 'na-robot'].indexOf(res.val) > -1 );
 	}
 
 
@@ -878,13 +854,13 @@ var Experiment = function() {
 			var response = r1.concat(r2).concat(r3);
 
 			// N/A specific code
-			if (vignettePages.indexOf(currentPage) > -1) {
+			if (currentPage === 'vignette.html') {
 				storeResponsesLocally(currentPage, r1);
 			}
 			// Skip the na-followup page if it's the control condition or
 			// if its the N/A condition with no N/A responses
-			else if ((currentPage === 'vignette4-followup.html' && surveyConditionName === 'control') ||
-				(currentPage === 'vignette4-followup.html' && naResponseLength() === 0)) {
+			else if ((currentPage === 'vignette-followup.html' && controlCondition()) ||
+				(currentPage === 'vignette-followup.html' && naResponseLength() === 0)) {
 				experimentPages.shift();
 			}
 
