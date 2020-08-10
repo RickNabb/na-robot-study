@@ -13,8 +13,27 @@
         <link rel="stylesheet" href="/static/css/bootstrap.min.css" type="text/css" />
         <link rel="stylesheet" href="/static/css/style.css" type="text/css" />
         <script type="text/javascript">
+            let euYes = false;
+            let usYes = false;
             function onexit() {
               self.close(); // no harm, no foul here
+            }
+            function selectEUUS(el) {
+                const q = el.getAttribute('name');
+                const val = el.getAttribute('value');
+                switch (q) {
+                    case 'EU':
+                        euYes = val === 'YES';
+                        break;
+                    case 'US':
+                        usYes = val === 'YES';
+                        break;
+                }
+                if (euYes && usYes) {
+                    document.getElementById('yes-button').removeAttribute('disabled');
+                } else {
+                    document.getElementById('yes-button').setAttribute('disabled', true);
+                }
             }
         </script>
     </head>
@@ -134,17 +153,17 @@
 
                 <hr />
                 <p>Are you currently in the European Economic Area?</p>
-                <input type="radio" name="EU" value="YES" />YES
-                <input type="radio" name="EU" value="NO" style="margin-left: 32px;"/>NO
+                <input type="radio" name="EU" value="YES" onchange="selectEUUS(this)"/>YES
+                <input type="radio" name="EU" value="NO" style="margin-left: 32px;" onchange="selectEUUS(this)"/>NO
                 <br /><br/>
 
                 <p>Are you currently in the United States?</p>
-                <input type="radio" name="US" value="YES" />YES
-                <input type="radio" name="US" value="NO" style="margin-left: 32px;"/>NO
+                <input type="radio" name="US" value="YES" onchange="selectEUUS(this)"/>YES
+                <input type="radio" name="US" value="NO" style="margin-left: 32px;" onchange="selectEUUS(this)"/>NO
                 <br /><br/>
 
                 <center>
-                    <button type="button" class="btn btn-primary btn-lg" onClick="window.location='/exp?hitId={{ hitid }}&assignmentId={{ assignmentid }}&workerId={{ workerid }}'">
+                    <button type="button" id="yes-button" disabled class="btn btn-primary btn-lg" onClick="window.location='/exp?hitId={{ hitid }}&assignmentId={{ assignmentid }}&workerId={{ workerid }}'">
                     <span class="glyphicon glyphicon-ok" style="padding-right: 16px;"></span>Yes, I would like to participate
                     </button>
                     <button type="button" style="margin-left: 64px;" class="btn btn-danger btn-lg" onClick="onexit()">
