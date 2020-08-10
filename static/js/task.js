@@ -252,6 +252,12 @@ var Experiment = function() {
 				max: 5, maxLabel: 'Very Difficult',
 				items: [ 'How difficult was it to rate this item?' ]
 			};
+
+			measureItem.after(`<div class='textboxArea container'>
+				<div class="row"><p>Why did you answer the way you did?</p></div>
+				<div class="row"><textarea class="col-xs-10" name='${measureItemName}_why' /></div>
+			`);
+
 			const suretyLikert = createLikertUniformRadioAreas(suretyData, `${measureItemName}_surety`)[0];
 			measureItem.after(suretyLikert);
 
