@@ -29,7 +29,7 @@
                         usYes = val === 'YES';
                         break;
                 }
-                if (euYes && usYes) {
+                if (!euYes && usYes) {
                     document.getElementById('yes-button').removeAttribute('disabled');
                 } else {
                     document.getElementById('yes-button').setAttribute('disabled', true);
