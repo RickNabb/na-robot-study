@@ -25,14 +25,14 @@ var surveyConditionNames = [
 	'vignette2',
 	'vignette3',
 	'vignette4',
-	'vignette5',
-	'vignette6',
+	// 'vignette5',
+	// 'vignette6',
 	'vignette1_na',
 	'vignette2_na',
 	'vignette3_na',
 	'vignette4_na',
-	'vignette5_na',
-	'vignette6_na',
+	// 'vignette5_na',
+	// 'vignette6_na',
 ];
 var surveyConditionName = surveyConditionNames[myCondition % surveyConditionNames.length];
 const controlCondition = () => surveyConditionName.indexOf('_na') === -1;
@@ -117,9 +117,6 @@ const toggleHeader = () => {
 const createVignetteRefresher = () => {
 	$('#recap > em').append(vignetteData[curVignette()].text);
 	$('#robot').append(`<img src="static/images/${curVignette()}-robot.jpg" id="robot-pic"/>`)
-	$('.progress-bar').attr('aria-valuenow', 25);
-	$('.progress-bar').css('width', '25%');
-	$('.progress-bar').append('25%');
 }
 
 const createVignetteVideo = () => {
@@ -241,10 +238,10 @@ const addNaFollowupQuestions = (measureItemName) => {
 const collectNaResponses = () => {
 	let responseQuestions = [];
 	// Ensure we only ask about 5 or fewer responses
-	if (naResponseLength() > 5) {
+	if (naResponses.length > 5) {
 		const shorterNaResponses = [];
 		while (responseQuestions.length < 5) {
-			const randQuestion = naResponses[Math.floor(Math.random() * questions.length)];
+			const randQuestion = naResponses[Math.floor(Math.random() * naResponses.length)];
 
 			responseQuestions.push(randQuestion);
 
@@ -605,6 +602,7 @@ var Experiment = function() {
 			}
 			case "na-followup.html": {
 				collectNaResponses();
+				createVignetteRefresher();
 				naResponses.map(measureObj => {
 					const measureItemName = measureObj.id;
 					const measure = measureItemName.substring(0, measureItemName.indexOf('_'));
@@ -616,15 +614,15 @@ var Experiment = function() {
 					let measureEl;
 					switch (data.type) {
 						case MEASURE_TYPES.LIKERT_UNIFORM:
-							measureEl = createLikertUniformRadioArea(data, measureItemName, measureIndex);
+							measureEl = createLikertUniformRadioArea(data, measure, measureIndex);
 							$(`#vignette`).append('<div class="likert likertUniform"></div>');
 							break;
 						case MEASURE_TYPES.LIKERT_VARIABLE:
-							measureEl = createLikertVariableRadioArea(data, measureItemName, measureIndex);
+							measureEl = createLikertVariableRadioArea(data, measure, measureIndex);
 							$(`#vignette`).append('<div class="likert likertVariable"></div>');
 							break;
 						case MEASURE_TYPES.PERCENT:
-							measureEl = createPercentRadioArea(data, measureItemName, measureIndex);
+							measureEl = createPercentRadioArea(data, measure, measureIndex);
 							$(`#vignette`).append('<div class="likert percent"></div>');
 							break;
 						default:
@@ -635,8 +633,8 @@ var Experiment = function() {
 				});
 
 				naResponses.map(measureObj => {
-					deactivateAndSelectMeasureItem(measureItemName, measureObj.val);
-					addNaFollowupQuestions(measureItemName);
+					deactivateAndSelectMeasureItem(measureObj.id, measureObj.val);
+					addNaFollowupQuestions(measureObj.id);
 				});
 
 				// TODO: Fill in vignette text and remove tabs
@@ -860,7 +858,7 @@ var Experiment = function() {
 			// Skip the na-followup page if it's the control condition or
 			// if its the N/A condition with no N/A responses
 			else if ((currentPage === 'vignette-followup.html' && controlCondition()) ||
-				(currentPage === 'vignette-followup.html' && naResponseLength() === 0)) {
+				(currentPage === 'vignette-followup.html' && naResponses.length === 0)) {
 				experimentPages.shift();
 			}
 
