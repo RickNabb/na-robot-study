@@ -41,7 +41,7 @@ const MEASURES = {
     'I really wish I had a good way to monitor the decisions of the robot.',
     'I would be comfortable allowing the robot to implement its decisions, even if I could not monitor it.',
   ]),
-  lyonsEtAl: likertUniform(1, 7, 
+  lyonsGuznov: likertUniform(1, 7, 
     'Strongly Disagree',
     '',
     'Strongly Agree',
@@ -50,6 +50,7 @@ const MEASURES = {
     'I would feel comfortable relying on the robot in the future.',
     'When the task was hard, I felt like I could depend on the robot.',
     'If I were facing a very hard task in the future, I would want to have this robot with me.',
+    'I would be comfortable allowing this robot to make all decisions.'
   ]),
   jianEtAl: likertUniform(1, 7, 
     'Strongly Disagree',

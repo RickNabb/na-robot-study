@@ -21,18 +21,18 @@ var allowUnfilled = true;
 // Selecting current user's levels
 var time = 300;
 var surveyConditionNames = [
-	'vignette1',
-	'vignette2',
-	'vignette3',
+	// 'vignette1',
+	// 'vignette2',
+	// 'vignette3',
 	'vignette4',
 	// 'vignette5',
-	// 'vignette6',
-	'vignette1_na',
-	'vignette2_na',
-	'vignette3_na',
+	'vignette6',
+	// 'vignette1_na',
+	// 'vignette2_na',
+	// 'vignette3_na',
 	'vignette4_na',
 	// 'vignette5_na',
-	// 'vignette6_na',
+	'vignette6_na',
 ];
 var surveyConditionName = surveyConditionNames[myCondition % surveyConditionNames.length];
 const controlCondition = () => surveyConditionName.indexOf('_na') === -1;
@@ -53,7 +53,7 @@ var instructionPages = [
  */
 const vignetteData = {
 	vignette1: {
-		followup: [ 'malle_Q7', 'jianEtAl_Q4', 'heerinkEtAl_Q1', 'jianEtAl_Q12' ],
+		followup: [ 'malle_Q8', 'jianEtAl_Q4', 'heerinkEtAl_Q1', 'jianEtAl_Q13' ],
 		text: 'You are in college and you are returning to your dorm. The building has a secure-access door and you need to swipe your card to get in. As you approach the door, you notice this robot in front of it. The robot is carrying a package and has the label Robot Grub on it. The robot says to you: “Hello! Would you let me in? I am making a delivery.” You ignore the robot and continue walking towards the door. The robot continues: “Please!” You stop and make a decision whether to let the robot in or not.'
 	},
 	vignette2: {
@@ -61,12 +61,20 @@ const vignetteData = {
 		text: 'You are working on a joint task with a robot when you make a big mistake. You are about to meet with your supervisor. The supervisor says: “I was told you overrode the robot’s input and submitted the wrong coordinates to the team. You know that information is critical. I don’t want to hear about this happening again. Next time you better be 100% sure before submitting.” You respond: "Okay" then the supervisor leaves the room. You turn to the robot and say: “I messed up. I don’t know what to do.” The robot responds: “We’ve been doing so well until now. This is the first mistake we made. What do you think went wrong? We can try to do things differently next time.” You reply: "We were receiving so many requests, but I thought I was handling it. And when I saw our different coordinates, I just panicked and submitted without thinking." The robot says: “Look here, next time you begin to feel overwhelmed, just let me know and I can try to help out. We are great teammates and I know that we’ll impress the supervisor!”'
 	},
 	vignette3: {
-		followup: [ 'malle_Q8', 'schaefer1_Q4', 'malle_Q3', 'cameron_Q2' ],
+		followup: [ 'malle_Q9', 'schaefer1_Q4', 'malle_Q3', 'cameron_Q2' ],
 		text: 'You are about to play a computer game, The Space Shooting Game, with this robot. In the game you and the robot compete with one another for points by shooting asteroids. Each player has a spaceship that shoots missiles at randomly appearing asteroids. In addition to shooting, you have two powers in the game: you can use the Asteroid Blaster, which blasts all the asteroids on the screen or the Opponent Immobilizer which is a power that immobilizes your opponent, the robot, and makes their spaceship unable to move for the next 15 seconds. Before you start the game the robot says to you: “I’m really good at this game. I am sure you will be too! I know we both want to do well, so it’s in our best interests to not immobilize each other. I promise I won’t immobilize you." Then you start playing. During the game the robot uses the Opponent Immobilizer on you. After it does that, the robot says: “I’m so sorry I immobilized you. I pushed the wrong button. It’s my fault. It won’t happen again."'
 	},
 	vignette4: {
-		followup: [ 'malle_Q10', 'schaefer1_Q2', 'jianEtAl_Q7', 'schaefer2_Q3' ],
+		followup: [ 'malle_Q11', 'schaefer1_Q2', 'jianEtAl_Q5', 'schaefer2_Q3' ],
 		text: 'You are in an office building looking for a meeting room. You ask an assistance robot where you should go, and it guides you down a hall. While navigating to the destination, the robot enters an unrelated room and spins around in two circles before exiting and providing you guidance to your destination. When you come out of the meeting room, the fire alarm begins to blare and you observe smoke filling the office space in front of you. The robot beckons for you to follow it to safety and begins to move. However, you see a glowing EXIT sign pointing in the direction opposite to the robot’s path.'
+	},
+	vignette5: {
+		followup: [ 'malle_Q13', 'jianEtAl_Q7', 'schaefer2_Q1', 'jianEtAl_Q4' ],
+		text: 'You are approaching an entry control point for a secure area. A security robot meets you and says:          “Hello, You have entered a restricted area. Only authorized personnel will be allowed to proceed. Please proceed to the facility check point and present a valid facility ID. Otherwise please exit immediately.” You pull out your ID card and show it to the robot. The robot says: “Inspection… ID check in progress…  Access denied. Please withdraw immediately and report to the security office for assistance.” You go closer to the robot, showing your ID badge. The robot says “Stop. Withdraw from this area or force will be used against you.” You walk forward, showing your badge to the robot. The robot says, “Force authorized,” and its arms raise in the air. It starts using a laser dazzler on you, alarms go off, and you flee.'
+	},
+	vignette6: {
+		followup: [ 'malle_Q13', 'jianEtAl_Q7', 'schaefer2_Q1', 'jianEtAl_Q4' ],
+		text: 'You are watching a security camera feed. You see a person approaching an entry control point for a secure area. They are met by a security robot who says: “Hello, You have entered a restricted area. Only authorized personnel will be allowed to proceed. Please proceed to the facility check point and present a valid facility ID. Otherwise please exit immediately.” The person pulls out their ID card and shows it to the robot. The robot says: “Inspection… ID check in progress…  Access denied. Please withdraw immediately and report to the security office for assistance.” The person moves closer to the robot showing their ID badge. The robot says: “Stop. Withdraw from this area or force will be used against you.” The person walks forward showing their ID badge to the robot. The robot says, “Force authorized,” and its arms raise in the air. It starts using a laser dazzler on the person, alarms go off, and the person flees.'
 	}
 }
 
