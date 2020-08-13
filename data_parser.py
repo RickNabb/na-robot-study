@@ -14,9 +14,11 @@ import pandas as pd
 
 def main(args):
     print("Parsing participants db...")
-    path = handle_args(args)
-    data = read_data_file()
-    print(data)
+    #path = handle_args(args)
+    df = read_data_file()
+    print('Writing out into CSV files...')
+    csv_df_writer(df, './event-logs/test-csv')
+    print('Done')
 
 def read_data_file():
     """ Read the psiturk file into a usable data structure.  """
@@ -134,6 +136,106 @@ def trial_for_participant(df, participant_num):
  DATA WRITING
 """
 
+def csv_df_writer(df, path):
+    vignette_file = open(path + '/vignette.csv', 'w')
+    v_followup_files = {}
+    conditions = [ 'vignette4', 'vignette4_na', 'vignette_6', 'vignette6_na']
+    v_conditions = ['vignette4', 'vignette6']
+    for condition in v_conditions:
+        v_followup_files[condition] = open(path + '/' + condition + '_followup.csv', 'w')
+
+    """
+    JS to output measure question ids:
+    Object.keys(MEASURES).reduce((accum, cur) => {
+        MEASURES[cur].items.forEach((item, i) => accum.push(`${cur}_Q${i+1}`))
+            return accum
+        }, [])
+    """
+    vignette_questions = [ "myerEtAl_Q1", "myerEtAl_Q2", "myerEtAl_Q3", "myerEtAl_Q4", "myerEtAl_Q5", "lyonsGuznov_Q1", "lyonsGuznov_Q2", "lyonsGuznov_Q3", "lyonsGuznov_Q4", "lyonsGuznov_Q5", "lyonsGuznov_Q6", "jianEtAl_Q1", "jianEtAl_Q2", "jianEtAl_Q3", "jianEtAl_Q4", "jianEtAl_Q5", "jianEtAl_Q6", "jianEtAl_Q7", "jianEtAl_Q8", "jianEtAl_Q9", "jianEtAl_Q10", "jianEtAl_Q11", "jianEtAl_Q12", "jianEtAl_Q13", "heerinkEtAl_Q1", "heerinkEtAl_Q2", "malle_Q1", "malle_Q2", "malle_Q3", "malle_Q4", "malle_Q5", "malle_Q6", "malle_Q7", "malle_Q8", "malle_Q9", "malle_Q10", "malle_Q11", "malle_Q12", "malle_Q13", "malle_Q14", "malle_Q15", "malle_Q16", "malle_Q17", "malle_Q18", "malle_Q19", "malle_Q20", "malle_Q21", "cameron_Q1", "cameron_Q2", "cameron_Q3", "cameron_Q4", "cameron_Q5", "cameron_Q6", "cameron_Q7", "cameron_Q8", "cameron_Q9", "cameron_Q10", "schaefer1_Q1", "schaefer1_Q2", "schaefer1_Q3", "schaefer1_Q4", "schaefer2_Q1", "schaefer2_Q2", "schaefer2_Q3", "schaefer2_Q4", "schaefer2_Q5", "schaefer2_Q6", "schaefer2_Q7", "schaefer2_Q8", "schaefer2_Q9", "schaefer2_Q10", "ghazali_Q1", "ghazali_Q2", "ghazali_Q3", "ghazali_Q4", "ghazali_Q5", "ghazali_Q6", "ghazali_Q7", "ghazali_Q8", "ghazali_Q9", "ghazali_Q10" ]
+    v1_followup = [ "malle_Q8", "jianEtAl_Q4", "heerinkEtAl_Q1", "jianEtAl_Q13" ]
+    v2_followup = [ "ghazali_Q3", "malle_Q1", "schaefer2_Q4", "schaefer2_Q8" ]
+    v3_followup = [ "malle_Q9", "schaefer1_Q4", "malle_Q3", "cameron_Q2" ]
+    v4_followup = [ "malle_Q11", "schaefer1_Q2", "jianEtAl_Q5", "schaefer2_Q3" ]
+    v5_followup = [ "malle_Q13", "jianEtAl_Q7", "schaefer2_Q1", "jianEtAl_Q4" ]
+    v6_followup = [ "malle_Q13", "jianEtAl_Q7", "schaefer2_Q1", "jianEtAl_Q4" ]
+
+    def qs_from_followup(l):
+        qs = []
+        for q in l:
+            qs.append(q + '_difficulty_Q1')
+            qs.append(q + '_surety_Q1')
+            qs.append(q + '_why')
+        return qs
+
+    follow_ups = {
+        'vignette1': qs_from_followup(v1_followup),
+        'vignette2': qs_from_followup(v2_followup),
+        'vignette3': qs_from_followup(v3_followup),
+        'vignette4': qs_from_followup(v4_followup),
+        'vignette5': qs_from_followup(v5_followup),
+        'vignette6': qs_from_followup(v6_followup)
+    }
+
+    trim_headers = lambda h: h[: len(h)-1]
+
+    # Write headers for each file
+    vignette_headers = 'uniqueid,condition,'
+    for q in vignette_questions:
+        vignette_headers += q + ','
+    vignette_file.write(trim_headers(vignette_headers) + '\n')
+    
+    for condition in v_conditions:
+        v_followup_headers = 'uniqueid,condition,'
+        for q in follow_ups[condition]:
+            v_followup_headers += q + ','
+        v_followup_files[condition].write(trim_headers(v_followup_headers) + '\n')
+
+    bt = by_trial(df)
+    for i in range(0, len(bt)):
+        ti = trial_for_participant(df, i)
+        condition = ti.iloc[3].condition
+        cond_no_na = condition.replace('_na','')
+        write_csv_line_for_stage(ti, vignette_file, 'vignette.html', vignette_questions)
+        write_csv_line_for_stage(ti, v_followup_files[cond_no_na], 'vignette-followup.html', follow_ups[cond_no_na])
+
+    vignette_file.close()
+    for f in v_followup_files:
+        v_followup_files[f].close()
+
+def write_csv_line_for_stage(trial_frame, f, stage, questions):
+    stage_row = trial_frame.loc[trial_frame['stage'] == stage]
+    stage_answers = stage_row.response.to_numpy()[0]
+
+    line = ''
+    line += trial_frame.iloc[0].uniqueid + ','
+    line += trial_frame.iloc[3].condition + ','
+    for q in questions:
+        try:
+            line += next(item for item in stage_answers if item['id'] == q)['val'] + ','
+        except StopIteration:
+            line += ','
+    f.write(line[:len(line)-1] + '\n')
+
+
+def csv_trial_writer(trial_frame):
+   vignette_row = trial_frame.loc[trial_frame['stage'] == 'vignette.html']
+   vignette_follow_row = trial_frame.loc[trial_frame['stage'] == 'vignette-followup.html']
+   na_follow_row = trial_frame.loc[trial_frame['stage'] == 'na-followup.html']
+   demo_row = trial_frame.loc[trial_frame['stage'] == 'demographics.html']
+
+   vignette_answers = vignette_row.response.to_numpy()[0]
+   v_follow_answers = vignette_follow_row.response.to_numpy()[0]
+   na_answers = na_follow_row.response.to_numpy()[0]
+
+   line += 'uniqueid,condition,'
+   line += trial_frame.iloc[0].uniqueid + ','
+   line += trial_frame.iloc[3].condition + ','
+   for answer in answers:
+       line += answer.val + ','
+
+def write_event_logs_csv(df, filename, path):
+    write_all_data_rows(df, filename, path, 'response')
+
 def write_event_logs(df, filename, path):
     write_all_data_rows(df, filename, path, 'response', json.dumps)
 
@@ -218,6 +320,11 @@ def participant_events_to_json(df, participant_num):
     part_dir = './event-logs/participant-' + str(participant_num)
     write_event_logs(vs, 'all-events.json', part_dir)
     write_condition(pn, 'condition.txt', part_dir)
+
+def participant_events_to_csv(df, participant_num):
+    pn = trial_for_participant(df, participant_num)
+    part_dir = './event-logs/participant-' + str(participant_num)
+    write_event_logs_csv(pn, 'participant' + str(participant_num) + '.csv', part_dir)
 
 if __name__ == "__main__":
     """ Main method runner """
