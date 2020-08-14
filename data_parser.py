@@ -14,10 +14,12 @@ import pandas as pd
 
 def main(args):
     print("Parsing participants db...")
+    path = './event-logs/test-csv'
     #path = handle_args(args)
     df = read_data_file()
     print('Writing out into CSV files...')
-    csv_df_writer(df, './event-logs/test-csv')
+    write_mapping_file(path)
+    csv_df_writer(df, path)
     print('Done')
 
 def read_data_file():
@@ -136,8 +138,24 @@ def trial_for_participant(df, participant_num):
  DATA WRITING
 """
 
+def write_mapping_file(path):
+
+    """
+    JS to output this:
+    Object.keys(MEASURES).reduce((accum, cur) => {
+        MEASURES[cur].items.forEach((item, i) => accum[`${cur}_Q${i+1}`] = !!item.minLabel ? `${item.minLabel}-${item.maxLabel}` : item)
+            return accum
+            }, {})
+    """
+    vignette_qs_to_item = { "myerEtAl_Q1": "If I had it my way, I would NOT let the robot have any influence over issues that are important to the task.", "myerEtAl_Q2": "I would be comfortable giving the robot complete responsibility for the task.", "myerEtAl_Q3": "I think that on a sunny day the sky is typically blue.", "myerEtAl_Q4": "I really wish I had a good way to monitor the decisions of the robot.", "myerEtAl_Q5": "I would be comfortable allowing the robot to implement its decisions, even if I could not monitor it.", "lyonsGuznov_Q1": "I would rely on the robot without hesitation.", "lyonsGuznov_Q2": "I think using the robot will lead to positive outcomes.", "lyonsGuznov_Q3": "I would feel comfortable relying on the robot in the future.", "lyonsGuznov_Q4": "When the task was hard, I felt like I could depend on the robot.", "lyonsGuznov_Q5": "If I were facing a very hard task in the future, I would want to have this robot with me.", "lyonsGuznov_Q6": "I would be comfortable allowing this robot to make all decisions.", "jianEtAl_Q1": "The robot is deceptive.", "jianEtAl_Q2": "The robot behaves in an underhanded manner.", "jianEtAl_Q3": "I am suspicious of the robot's intent, action, or outputs.", "jianEtAl_Q4": "I am wary of the robot.", "jianEtAl_Q5": "The robot's actions will have harmful or injurious outcomes.", "jianEtAl_Q6": "I am confident in the robot.", "jianEtAl_Q7": "The robot provides security.", "jianEtAl_Q8": "The robot has integrity.", "jianEtAl_Q9": "The robot is dependable.", "jianEtAl_Q10": "The robot is a machine.", "jianEtAl_Q11": "The robot is reliable.", "jianEtAl_Q12": "I can trust the robot.", "jianEtAl_Q13": "I am familiar with the robot.", "heerinkEtAl_Q1": "I would trust the robot if it gave me advice.", "heerinkEtAl_Q2": "I would follow the advice the robot gives me.", "malle_Q1": "The robot is capable.", "malle_Q2": "The robot is diligent.", "malle_Q3": "The robot is rigorous.", "malle_Q4": "The robot is accurate.", "malle_Q5": "The robot is meticulous.", "malle_Q6": "The robot is wearing a hat.", "malle_Q7": "The robot is honest", "malle_Q8": "The robot is principled.", "malle_Q9": "The robot is reputable.", "malle_Q10": "The robot is respectable.", "malle_Q11": "The robot is scrupulous.", "malle_Q12": "The robot is sincere.", "malle_Q13": "The robot is genuine.", "malle_Q14": "The robot is truthful.", "malle_Q15": "The robot is benevolent.", "malle_Q16": "The robot is authentic.", "malle_Q17": "The robot can be counted on.", "malle_Q18": "The robot can be depended on.", "malle_Q19": "The robot is reliable.", "malle_Q20": "I have faith in the robot.", "malle_Q21": "The robot can be confided in.", "cameron_Q1": "The robot is competent.", "cameron_Q2": "The robot is deceptive.", "cameron_Q3": "The robot is microscopic.", "cameron_Q4": "The robot is false", "cameron_Q5": "The robot is honorable.", "cameron_Q6": "The robot is incapable.", "cameron_Q7": "The robot is incompetent.", "cameron_Q8": "The robot is loyal.", "cameron_Q9": "The robot is misleading.", "cameron_Q10": "The robot is unsure.", "schaefer1_Q1": "What % of the time will this robot be dependable?", "schaefer1_Q2": "What % of the time will this robot be reliable?", "schaefer1_Q3": "What % of the time will this robot be unresponsive?", "schaefer1_Q4": "What % of the time will this robot be predictable?", "schaefer2_Q1": "What % of the time will this robot act consistently?", "schaefer2_Q2": "What % of the time will this robot function successfully?", "schaefer2_Q3": "What % of the time will this robot malfunction?", "schaefer2_Q4": "What % of the time will this robot have errors?", "schaefer2_Q5": "What % of the time will this robot provide feedback?", "schaefer2_Q6": "What % of the time will this robot meet the needs of the task?", "schaefer2_Q7": "What % of the time will this robot provide appropriate information?", "schaefer2_Q8": "What % of the time will this robot communicate with people?", "schaefer2_Q9": "What % of the time will this robot perform exactly as instructed?", "schaefer2_Q10": "What % of the time will this robot follow directions?", "ghazali_Q1": "Untrustworthy-Trustworthy", "ghazali_Q2": "Unreliable-Reliable", "ghazali_Q3": "Insincere-Sincere", "ghazali_Q4": "Dishonest-Honest", "ghazali_Q5": "Distrustful-Trustful", "ghazali_Q6": "Inconsiderate-Considerate", "ghazali_Q7": "Opaque-Transparent", "ghazali_Q8": "Divulging-Confidential", "ghazali_Q9": "Deceitful-Not deceitful", "ghazali_Q10": "Disrespectful-Respectful" }
+    mapping_file = open(path + '/q_to_item.csv', 'w')
+    for q in vignette_qs_to_item:
+        mapping_file.write(q + ',' + vignette_qs_to_item[q] + '\n')
+    mapping_file.close()
+
 def csv_df_writer(df, path):
     vignette_file = open(path + '/vignette.csv', 'w')
+    na_followup_file = open(path + '/na_followup.csv', 'w')
     v_followup_files = {}
     conditions = [ 'vignette4', 'vignette4_na', 'vignette_6', 'vignette6_na']
     v_conditions = ['vignette4', 'vignette6']
@@ -176,6 +194,13 @@ def csv_df_writer(df, path):
         'vignette6': qs_from_followup(v6_followup)
     }
 
+    def qs_from_na_followup(l):
+        qs = []
+        for q in l:
+            qs.append(q + '_na')
+            qs.append(q + '_na_other')
+        return qs
+
     trim_headers = lambda h: h[: len(h)-1]
 
     # Write headers for each file
@@ -183,6 +208,11 @@ def csv_df_writer(df, path):
     for q in vignette_questions:
         vignette_headers += q + ','
     vignette_file.write(trim_headers(vignette_headers) + '\n')
+
+    na_headers = 'uniqueid,condition,'
+    for q in qs_from_na_followup(vignette_questions):
+        vignette_headers += q + ','
+    na_followup_file.write(trim_headers(vignette_headers) + '\n')
     
     for condition in v_conditions:
         v_followup_headers = 'uniqueid,condition,'
@@ -197,14 +227,21 @@ def csv_df_writer(df, path):
         cond_no_na = condition.replace('_na','')
         write_csv_line_for_stage(ti, vignette_file, 'vignette.html', vignette_questions)
         write_csv_line_for_stage(ti, v_followup_files[cond_no_na], 'vignette-followup.html', follow_ups[cond_no_na])
+        if '_na' in condition:
+            write_csv_line_for_stage(ti, na_followup_file, 'na-followup.html', qs_from_na_followup(vignette_questions))
 
     vignette_file.close()
+    na_followup_file.close()
     for f in v_followup_files:
         v_followup_files[f].close()
 
 def write_csv_line_for_stage(trial_frame, f, stage, questions):
     stage_row = trial_frame.loc[trial_frame['stage'] == stage]
-    stage_answers = stage_row.response.to_numpy()[0]
+    stage_answer = {}
+    try:
+        stage_answers = stage_row.response.to_numpy()[0]
+    except IndexError:
+        stage_answers = {}
 
     line = ''
     line += trial_frame.iloc[0].uniqueid + ','
