@@ -140,16 +140,16 @@ const createVignetteMeasures = () => {
 	let measures = [];
 	switch (surveyConditionName) {
 		case 'myerLyons':
-			measures.push('myerEtAl');
-			measures.push('lyonsGuznov');
+			measures.push({ name: 'myerEtAl', format: 'likertUniform' });
+			measures.push({ name: 'lyonsGuznov', format: 'likertUniform' });
 			break;
 		case 'schaefer':
-			measures.push('schaefer1');
-			measures.push('schaefer2');
+			measures.push({ name: 'schaefer1', format: 'percent' });
+			measures.push({ name: 'schaefer2', format: 'percent' });
 			break;
 	}
 	measures.map(measure => {
-		$('#measures').append(`<div class="likert likertUniform" measure="${measure}"></div>`)
+		$('#measures').append(`<div class="likert ${measure.format}" measure="${measure.name}"></div>`)
 	});
 }
 
@@ -253,7 +253,7 @@ const addFollowupQuestions = measureItemName => {
 
 	measureItem.after(`<div class='textboxArea container'>
 		<div class="row alert alert-info" id='${measureItemName}_length'><p>It looks like you didn't write much here. Could you write a bit more, maybe a few sentences?</p></div>
-		<div class="row alert alert-info" id='${measureItemName}_diversity'><p>It looks like you used a lot of the same words here. Could you elaborate what you wrote?</p></div>
+		<div class="row alert alert-info" id='${measureItemName}_diversity'><p>It looks like you used a few words, or a lot of the same words here. Could you elaborate what you wrote?</p></div>
 		<div class="row"><p>Why did you answer the way you did?</p></div>
 		<div class="row"><textarea class="col-xs-10" name='${measureItemName}_why' /></div>
 	`);
