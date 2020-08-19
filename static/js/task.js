@@ -30,13 +30,17 @@ var surveyConditionNames = [
 	// 'vignette1_na',
 	// 'vignette2_na',
 	// 'vignette3_na',
-	'vignette4_na',
+	// 'vignette4_na',
 	// 'vignette5_na',
 	// 'vignette6_na',
+	'schaefer',
+	'myerLyons'
 ];
 var surveyConditionName = surveyConditionNames[myCondition % surveyConditionNames.length];
-const controlCondition = () => surveyConditionName.indexOf('_na') === -1;
-const naCondition = () => surveyConditionName.indexOf('_na') > -1;
+// const controlCondition = () => surveyConditionName.indexOf('_na') === -1;
+// const naCondition = () => surveyConditionName.indexOf('_na') > -1;
+const controlCondition = () => false;
+const naCondition = () => true;
 
 // All possible pages to be preloaded
 var instructionPages = [
@@ -80,7 +84,8 @@ const vignetteData = {
 
 const vignettePages = Object.keys(vignetteData).map(key => '' + key + '.html');
 
-const curVignette = () => surveyConditionName.replace('_na','');
+// const curVignette = () => surveyConditionName.replace('_na','');
+const curVignette = () => 'vignette4';
 
 /**
  * An object to keep track of specific responses per vignette.
@@ -129,6 +134,23 @@ const createVignetteRefresher = () => {
 
 const createVignetteVideo = () => {
 	$('.videoArea').attr('id', `${curVignette()}.m4v`);
+}
+
+const createVignetteMeasures = () => {
+	let measures = [];
+	switch (surveyConditionName) {
+		case 'myerLyons':
+			measures.push('myerEtAl');
+			measures.push('lyonsGuznov');
+			break;
+		case 'schaefer':
+			measures.push('schaefer1');
+			measures.push('schaefer2');
+			break;
+	}
+	measures.map(measure => {
+		$('#measures').append(`<div class="likert likertUniform" measure="${measure}"></div>`)
+	});
 }
 
 const fillAnswers = () => {
@@ -604,6 +626,8 @@ var Experiment = function() {
 
 		if (currentPage === 'vignette-vid.html') {
 			createVignetteVideo();
+		} else if (currentPage === 'vignette.html') {
+			createVignetteMeasures();
 		}
 
 		// Create preliminary elements on the page - these MUST GO IN
