@@ -94,8 +94,8 @@ let naResponses = [];
 var experimentPages = [
 	'vignette-vid.html',
 	'vignette.html',
-	'vignette-followup.html',
-	'na-followup.html',
+	// 'vignette-followup.html',
+	// 'na-followup.html',
 	'demographics.html',
 	'postquestionnaire.html'
 ];
@@ -200,7 +200,7 @@ const deactivateAndSelectMeasureItem = (measureItemName, val) => {
 const addFollowupQuestions = measureItemName => {
 	const measureItem = $(`#${measureItemName}`);
 
-	measureItem.before(`<p>On the previous page, you answered the following question:</p>`);
+	// measureItem.before(`<p>On the previous page, you answered the following question:</p>`);
 
 	// Create follow-up questions
 	const suretyData = {
@@ -606,6 +606,12 @@ var Experiment = function() {
 		switch (currentPage) {
 			case 'vignette.html': {
 				createVignetteRefresher();
+				Object.keys(MEASURES).map(measure => {
+					MEASURES[measure].items.map((item, i) => {
+						const measureItemName = `${measure}_Q${i+1}`;
+						addFollowupQuestions(measureItemName);
+					});
+				});
 				break;
 			}
 			case "na-followup.html": {
