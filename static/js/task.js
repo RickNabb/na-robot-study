@@ -24,15 +24,15 @@ var surveyConditionNames = [
 	// 'vignette1',
 	// 'vignette2',
 	// 'vignette3',
-	'vignette4',
+	// 'vignette4',
 	// 'vignette5',
-	'vignette6',
+	// 'vignette6',
 	// 'vignette1_na',
 	// 'vignette2_na',
 	// 'vignette3_na',
 	'vignette4_na',
 	// 'vignette5_na',
-	'vignette6_na',
+	// 'vignette6_na',
 ];
 var surveyConditionName = surveyConditionNames[myCondition % surveyConditionNames.length];
 const controlCondition = () => surveyConditionName.indexOf('_na') === -1;
