@@ -59,3 +59,6 @@ div.percent >* .percentChoice {
   margin-right: 48px;
   text-align: center;;
 }
+
+/* VALIDATIONS */
+.alert-info { display: none; }

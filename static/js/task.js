@@ -157,6 +157,21 @@ const fillAnswers = () => {
 		const randAnswer = pool[Math.floor(Math.random() * pool.length)];
 		$(radioArea).find('.choices').find(`input:radio[value='${randAnswer}']`).attr('checked', true);
 	})
+
+	// Temporarily filling long answers
+	const responseAnswers = [
+		'This was really hard because robots are confusing to me. How could a robot be this way?',
+		`I'm having a hard day today so it was difficult for me to focus`,
+		`Idk - it was just hard`,
+		`It wasn't hard at all - I just felt it come to me`,
+		`Just tryna get through this as quick as possible`,
+		`Did you not know that robots are honorable?`,
+		`I dont want to explain`
+	];
+	$(TEXTBOX_CLASSNAME).each((i, textArea) => {
+		const randAnswer = responseAnswers[Math.floor(Math.random() * responseAnswers.length)];
+		$(textArea).find('textarea').val(randAnswer);
+	});
 }
 
 const fillFollowupAnswers = () => {
@@ -215,6 +230,8 @@ const addFollowupQuestions = measureItemName => {
 	};
 
 	measureItem.after(`<div class='textboxArea container'>
+		<div class="row alert alert-info" id='${measureItemName}_length'><p>It looks like you didn't write much here. Could you write a bit more, maybe a few sentences?</p></div>
+		<div class="row alert alert-info" id='${measureItemName}_diversity'><p>It looks like you used a lot of the same words here. Could you elaborate what you wrote?</p></div>
 		<div class="row"><p>Why did you answer the way you did?</p></div>
 		<div class="row"><textarea class="col-xs-10" name='${measureItemName}_why' /></div>
 	`);
@@ -562,12 +579,14 @@ var Experiment = function() {
 	});
 	var timeStart = performance.now();
 	var currentPage = null;
+	let badAnswersAlert = false;
 
 	console.log("SurveyConditionName: " + surveyConditionName);
 
 	// Set up the next page
 	var next = function() {
 
+		badAnswersAlert = false;
 		// Can't rightclick
 		document.oncontextmenu = function() {
 			return false;
@@ -856,9 +875,45 @@ var Experiment = function() {
 		return true;
 	}
 
+	const answersDecent = () => {
+		const textAnswers = {};
+		$("textarea").each((i, el) => textAnswers[el.name.replace('_why','')] = el.value);
+		
+		let allAnswersGood = true;
+		const secondCheck = badAnswersAlert;
+		Object.keys(textAnswers).map(measureItemName => {
+			const answer = textAnswers[measureItemName];
+			const words = answer.split(' ');
+
+			// Check for number of words
+			if (words.length < 70) {
+				$(`#${measureItemName}_length`).css('display', 'block');
+				allAnswersGood = false;
+			}
+			// mesaureItemName_length | measureItemName_diversity
+
+			// Check distribution of words
+			const distinct = (value, index, self) => {
+				return self.indexOf(value) === index;
+			}
+			const uniqueWords = words.filter(distinct);
+			if (uniqueWords.length < 10) {
+				$(`#${measureItemName}_diversity`).css('display', 'block');
+				allAnswersGood = false;
+			}
+		});
+
+		if (!allAnswersGood && !badAnswersAlert) {
+			alert(`Thank you for your answers. We did a quick check of your written responses, and some of them seemed to be pretty short, or only use a few of the same words. We've highlighted these answers. Could you go back and look at them?`)
+			badAnswersAlert = true;
+		}
+
+		return allAnswersGood || secondCheck;
+	}
+
 	// Locally save info from page and show the next page
 	var finishPage = function(radioNum, textNum, checkboxNum) {
-		if (allQueriesFilled()) {
+		if (allQueriesFilled() && answersDecent()) {
 			// Collect arrays of inputs
 			var r1 = collectRadioInputs(radioNum);
 			var r2 = collectTextInputs(textNum);
