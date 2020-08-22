@@ -19,7 +19,7 @@ def main(args):
     df = read_data_file()
     print('Writing out into CSV files...')
     write_mapping_file(path)
-    csv_df_writer(df, path)
+    csv_df_writer_pilot2(df, path)
     print('Done')
 
 def read_data_file():
@@ -153,7 +153,48 @@ def write_mapping_file(path):
         mapping_file.write(q + ',' + vignette_qs_to_item[q] + '\n')
     mapping_file.close()
 
-def csv_df_writer(df, path):
+def csv_df_writer_pilot2(df, path):
+    condition_files = {}
+    conditions = [ 'schaefer', 'myerLyons' ]
+    for condition in conditions:
+        condition_files[condition] = open(path + '/' + condition + '.csv', 'w')
+    vignette_questions = [ "myerEtAl_Q1", "myerEtAl_Q2", "myerEtAl_Q3", "myerEtAl_Q4", "myerEtAl_Q5", "lyonsGuznov_Q1", "lyonsGuznov_Q2", "lyonsGuznov_Q3", "lyonsGuznov_Q4", "lyonsGuznov_Q5", "lyonsGuznov_Q6", "jianEtAl_Q1", "jianEtAl_Q2", "jianEtAl_Q3", "jianEtAl_Q4", "jianEtAl_Q5", "jianEtAl_Q6", "jianEtAl_Q7", "jianEtAl_Q8", "jianEtAl_Q9", "jianEtAl_Q10", "jianEtAl_Q11", "jianEtAl_Q12", "jianEtAl_Q13", "heerinkEtAl_Q1", "heerinkEtAl_Q2", "malle_Q1", "malle_Q2", "malle_Q3", "malle_Q4", "malle_Q5", "malle_Q6", "malle_Q7", "malle_Q8", "malle_Q9", "malle_Q10", "malle_Q11", "malle_Q12", "malle_Q13", "malle_Q14", "malle_Q15", "malle_Q16", "malle_Q17", "malle_Q18", "malle_Q19", "malle_Q20", "malle_Q21", "cameron_Q1", "cameron_Q2", "cameron_Q3", "cameron_Q4", "cameron_Q5", "cameron_Q6", "cameron_Q7", "cameron_Q8", "cameron_Q9", "cameron_Q10", "schaefer1_Q1", "schaefer1_Q2", "schaefer1_Q3", "schaefer1_Q4", "schaefer2_Q1", "schaefer2_Q2", "schaefer2_Q3", "schaefer2_Q4", "schaefer2_Q5", "schaefer2_Q6", "schaefer2_Q7", "schaefer2_Q8", "schaefer2_Q9", "schaefer2_Q10", "ghazali_Q1", "ghazali_Q2", "ghazali_Q3", "ghazali_Q4", "ghazali_Q5", "ghazali_Q6", "ghazali_Q7", "ghazali_Q8", "ghazali_Q9", "ghazali_Q10" ]
+
+    def qs_from_followup(l):
+        qs = []
+        for q in l:
+            qs.append(q + '_difficulty_Q1')
+            qs.append(q + '_surety_Q1')
+            qs.append(q + '_why')
+        return qs
+    questions_by_condition = {}
+    questions_by_condition = {
+        'schaefer': qs_from_followup(filter(lambda q: 'schaefer' in q, vignette_questions)),
+        'myerLyons': qs_from_followup(filter(lambda q: 'myer' in q or 'lyons' in q, vignette_questions)),
+    }
+
+    trim_headers = lambda h: h[: len(h)-1]
+
+    bt = by_trial(df)
+
+    # Write data for each condition
+    for condition in conditions:
+        # Write headers
+        headers = 'uniqueid,condition,'
+        for q in questions_by_condition[condition]:
+            headers += q + ','
+        condition_files[condition].write(trim_headers(headers) + '\n')
+
+        # Write trial data
+        valid_trials = filter(lambda trial: bt[trial].iloc[3].condition == condition, bt)
+        for trial in valid_trials:
+            ti = bt[trial]
+            condition = ti.iloc[3].condition
+            write_csv_line_for_stage(ti, condition_files[condition], 'vignette.html', questions_by_condition[condition])
+        condition_files[condition].close()
+
+
+def csv_df_writer_vignettes(df, path):
     vignette_file = open(path + '/vignette.csv', 'w')
     na_followup_file = open(path + '/na_followup.csv', 'w')
     v_followup_files = {}
@@ -246,9 +287,10 @@ def write_csv_line_for_stage(trial_frame, f, stage, questions):
     line = ''
     line += trial_frame.iloc[0].uniqueid + ','
     line += trial_frame.iloc[3].condition + ','
+    clean_line = lambda line: line.replace(',','').rstrip()
     for q in questions:
         try:
-            line += next(item for item in stage_answers if item['id'] == q)['val'] + ','
+            line += clean_line(next(item for item in stage_answers if item['id'] == q)['val']) + ','
         except StopIteration:
             line += ','
     f.write(line[:len(line)-1] + '\n')
